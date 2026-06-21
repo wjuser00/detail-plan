@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nanjing · July 8–11, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#111;--paper:#fff;--offwhite:#f5f3ef;
+  --warm:#b8860b;--charcoal:#333;--grey:#888;
+  --light-grey:#e5e5e5;--accent-red:#c41e3a;
+  --font-display:'Playfair Display','Noto Serif SC',serif;
+  --font-sans:'Inter',system-ui,sans-serif;
+  --font-cn:'Noto Serif SC',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* LANG SYSTEM: .en/.cn/.bi on <body> controls visibility */
+/* By default all .t-cn elements are hidden when body has no class or class="en" */
+.t-cn{display:none}
+body.cn .t-cn{display:inline}
+body.cn .t-en{display:none}
+body.bi .t-cn{display:inline}
+body.bi .t-en{display:inline}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);transition:box-shadow .3s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,0.08)}
+.nav-logo{font-family:var(--font-display);font-size:1rem;letter-spacing:.15em;text-transform:uppercase;color:var(--charcoal)}
+.nav-center{display:flex;gap:2rem;list-style:none}
+.nav-center a{text-decoration:none;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);transition:color .2s}
+.nav-center a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.lang-switch{display:flex;gap:.2rem}
+.lang-switch button{padding:.25rem .6rem;border:1px solid var(--light-grey);background:transparent;border-radius:3px;font-size:.72rem;cursor:pointer;font-family:var(--font-sans);font-weight:500;transition:all .2s;color:var(--grey)}
+.lang-switch button.active{background:var(--ink);color:white;border-color:var(--ink)}
+.edit-toggle{padding:.25rem .6rem;border:1px solid var(--light-grey);background:transparent;border-radius:3px;font-size:.72rem;cursor:pointer;font-family:var(--font-sans);font-weight:500;color:var(--grey);transition:all .2s}
+.edit-toggle.active{background:var(--warm);color:white;border-color:var(--warm)}
+
+/* SECTIONS */
+.section{max-width:960px;margin:0 auto;padding:5rem 2.5rem}
+.section-num{font-family:var(--font-display);font-size:4rem;color:var(--offwhite);font-weight:700;line-height:1;margin-bottom:.3rem}
+.section-kicker{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--warm);font-weight:600;margin-bottom:.8rem}
+.section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.15;margin-bottom:1rem;font-weight:700}
+.section-intro{font-size:.95rem;color:var(--grey);max-width:560px;line-height:1.85;border-left:2px solid var(--warm);padding-left:1.5rem}
+.divider{width:100%;height:1px;background:var(--light-grey)}
+
+/* HERO SLIDESHOW */
+.hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.hero-slide{position:absolute;inset:0;opacity:0;background-size:cover;background-position:center;transition:opacity 1.5s ease}
+.hero-slide.active{opacity:1}
+.hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.15) 50%,transparent 100%)}
+.hero-content{position:relative;z-index:1;padding:4rem 4rem 5rem;max-width:800px}
+.hero-kicker{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--warm);margin-bottom:1.5rem;font-weight:600}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.5rem,6vw,5rem);color:white;line-height:1.05;margin-bottom:1rem;font-weight:700}
+.hero h1 em{font-style:italic;color:var(--warm)}
+.hero-subtitle{font-size:1.05rem;color:rgba(255,255,255,0.6);font-weight:300;max-width:480px;line-height:1.8}
+.hero-dates{margin-top:2rem;display:flex;gap:2.5rem}
+.hero-dates .dl{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:.2rem}
+.hero-dates .dv{font-family:var(--font-display);font-size:1.1rem;color:white}
+.hero-dots{position:absolute;bottom:2rem;right:2rem;z-index:2;display:flex;gap:.5rem}
+.hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.3);cursor:pointer;transition:background .3s,transform .3s}
+.hero-dot.active{background:var(--warm);transform:scale(1.3)}
+
+/* ABOUT NANJING */
+.about-section{background:var(--offwhite)}
+.about-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
+.about-card{background:white;border-radius:10px;padding:2rem;border:1px solid rgba(0,0,0,0.04);transition:transform .3s}
+.about-card:hover{transform:translateY(-4px)}
+.about-icon{font-size:2rem;margin-bottom:.8rem}
+.about-card h4{font-family:var(--font-display);font-size:1.1rem;margin-bottom:.5rem}
+.about-card .about-cn{font-size:.78rem;color:#ccc;margin-bottom:.5rem}
+.about-card p{font-size:.88rem;color:#666;line-height:1.75}
+
+/* SECTION BANNER */
+.section-banner{width:100%;height:40vh;min-height:250px;position:relative;overflow:hidden}
+.section-banner-img{position:absolute;inset:0;background-size:cover;background-position:center}
+.section-banner-img::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.35)}
+.section-banner-content{position:relative;z-index:1;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem}
+.section-banner-content h2{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);color:white;font-weight:700}
+.section-banner-content .banner-sub{font-size:.85rem;color:rgba(255,255,255,0.6);margin-top:.5rem}
+
+/* DAY CARD */
+.day-article{display:grid;grid-template-columns:130px 1fr;gap:0;border-bottom:1px solid var(--light-grey)}
+.day-article:last-child{border-bottom:none}
+.day-sidebar{padding:2.5rem 1.5rem;border-right:1px solid var(--light-grey);display:flex;flex-direction:column;gap:.3rem}
+.day-number{font-family:var(--font-display);font-size:3.5rem;font-weight:700;color:var(--offwhite);line-height:1}
+.day-weekday{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.day-main{padding:2.5rem 2.5rem}
+.day-title{font-family:var(--font-display);font-size:1.6rem;font-weight:700;margin-bottom:.3rem}
+.day-subtitle{font-size:.82rem;color:var(--grey);margin-bottom:1.8rem}
+.day-events{display:flex;flex-direction:column}
+.day-event{display:grid;grid-template-columns:75px 1fr;gap:1rem;padding:.9rem 0;border-bottom:1px solid #f0f0f0;align-items:start}
+.day-event:last-child{border-bottom:none}
+.event-time{font-size:.82rem;font-weight:600;color:var(--charcoal);padding-top:1px}
+.event-content h4{font-size:.9rem;font-weight:600;margin-bottom:.08rem}
+.event-content .ev-cn{font-size:.75rem;color:#ccc;margin-bottom:.25rem}
+.event-content p{font-size:.83rem;color:#888;line-height:1.6}
+.event-badge{display:inline-flex;align-items:center;gap:.25rem;margin-top:.3rem;padding:.15rem .5rem;background:var(--offwhite);border-radius:3px;font-size:.7rem;color:var(--grey)}
+.day-note-box{margin-top:1.2rem;padding:1rem 1.2rem;background:var(--offwhite);border-radius:6px;font-size:.82rem;color:#999;line-height:1.65}
+.day-note-box strong{color:var(--charcoal)}
+
+/* OPTIONS */
+.options-header{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--warm);font-weight:600;margin:1.2rem 0 .7rem}
+.options-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.option-item{background:var(--offwhite);border-radius:8px;padding:1.2rem;border:1px solid transparent;transition:all .2s}
+.option-item:hover{border-color:var(--warm);transform:translateY(-2px)}
+.option-item h5{font-size:.85rem;font-weight:600;margin-bottom:.08rem}
+.option-item .opt-cn{font-size:.72rem;color:#ccc;margin-bottom:.35rem}
+.option-item p{font-size:.78rem;color:#999;line-height:1.5}
+.option-item .opt-badge{display:inline-block;margin-top:.35rem;font-size:.68rem;padding:.12rem .4rem;background:white;border-radius:3px;color:var(--grey)}
+
+/* POOL CARDS */
+.pool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:2.5rem}
+.pool-card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.03);transition:transform .3s,box-shadow .3s}
+.pool-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+.pool-card-img{width:100%;height:160px;object-fit:cover}
+.pool-card-body{padding:1.3rem}
+.pool-card-body h4{font-family:var(--font-display);font-size:1.05rem;margin-bottom:.1rem}
+.pool-card-body .pool-cn{font-size:.75rem;color:#ccc;margin-bottom:.5rem}
+.pool-card-body p{font-size:.83rem;color:#666;line-height:1.7;margin-bottom:.6rem}
+.pool-meta{display:flex;gap:.5rem;flex-wrap:wrap}
+.pool-tag{padding:.2rem .5rem;background:var(--offwhite);border-radius:4px;font-size:.7rem;color:var(--warm);font-weight:500}
+.pool-tag.green{background:#eef2ea;color:#5a7a3a}
+
+/* INDOOR */
+.indoor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2.5rem}
+.indoor-card{background:var(--offwhite);border-radius:10px;padding:1.5rem;text-align:center;transition:transform .3s}
+.indoor-card:hover{transform:translateY(-3px)}
+.indoor-icon{font-size:2rem;margin-bottom:.7rem}
+.indoor-card h4{font-size:.92rem;font-weight:600;margin-bottom:.1rem}
+.indoor-card .indoor-cn{font-size:.75rem;color:#ccc;margin-bottom:.4rem}
+.indoor-card p{font-size:.8rem;color:#777;line-height:1.6}
+
+/* FOOD */
+.food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:2.5rem}
+.food-card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.03);transition:transform .3s}
+.food-card:hover{transform:translateY(-4px)}
+.food-card-img{width:100%;height:180px;object-fit:cover}
+.food-card-body{padding:1.5rem}
+.food-card-body .food-emoji{font-size:1.8rem;margin-bottom:.5rem}
+.food-card-body h4{font-family:var(--font-display);font-size:1.1rem;margin-bottom:.1rem}
+.food-card-body .food-cn{font-size:.75rem;color:#ccc;margin-bottom:.5rem}
+.food-card-body p{font-size:.85rem;color:#666;line-height:1.7;margin-bottom:.6rem}
+.food-card-body .food-tag{display:inline-block;padding:.2rem .5rem;background:var(--offwhite);border-radius:3px;font-size:.7rem;color:var(--warm);font-weight:500}
+
+/* TIPS */
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:2.5rem}
+.tip-card{background:white;border-radius:12px;padding:1.8rem;box-shadow:0 2px 20px rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.03);border-left:4px solid var(--warm)}
+.tip-card .tip-icon{font-size:1.5rem;margin-bottom:.6rem}
+.tip-card h4{font-size:.95rem;font-weight:600;margin-bottom:.5rem}
+.tip-card p{font-size:.85rem;color:#888;line-height:1.7}
+
+/* WEATHER */
+.weather-strip{background:#2c2520;color:white;padding:3rem 2.5rem}
+.weather-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.weather-left .wl-label{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--warm);font-weight:600;margin-bottom:1.5rem}
+.temp-pair{display:flex;flex-direction:column;gap:1rem}
+.temp-row{display:flex;align-items:baseline;gap:1rem}
+.temp-city{font-size:.82rem;color:rgba(255,255,255,0.5);min-width:100px}
+.temp-val{font-family:var(--font-display);font-size:2.8rem;font-weight:700}
+.temp-desc{font-size:.82rem;color:rgba(255,255,255,0.4)}
+.temp-badge{display:inline-block;margin-top:1rem;padding:.4rem .8rem;background:rgba(255,255,255,0.08);border-radius:4px;font-size:.82rem;color:var(--warm);font-weight:500}
+.weather-right{display:flex;flex-direction:column;gap:1rem}
+.weather-right .wr-title{font-family:var(--font-display);font-size:1.2rem;margin-bottom:.5rem}
+.wtip{display:flex;gap:.7rem;align-items:flex-start}
+.wtip-icon{font-size:1rem;flex-shrink:0;margin-top:.15rem}
+.wtip-text{font-size:.85rem;color:rgba(255,255,255,0.6);line-height:1.6}
+
+/* GIFT */
+.gift-dark{background:#2c2520;color:white;padding:5rem 2.5rem}
+.gift-dark-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.gift-dark .section-kicker{color:var(--warm)}
+.gift-dark .section-title{color:white}
+.gift-dark p{font-size:.95rem;color:rgba(255,255,255,0.5);line-height:1.9;margin-top:1.2rem}
+.gift-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.gift-item{display:flex;align-items:center;gap:.5rem;padding:.6rem .8rem;background:rgba(255,255,255,0.04);border-radius:4px;font-size:.85rem;color:rgba(255,255,255,0.65)}
+.gift-item .gi{font-size:1rem}
+
+/* QUOTE */
+.quote-full{position:relative;height:45vh;min-height:280px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.quote-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.quote-bg::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.5)}
+.quote-content{position:relative;z-index:1;text-align:center;padding:2rem}
+.quote-content .qcn{font-family:var(--font-cn);font-size:clamp(1.4rem,3vw,2.2rem);color:white;letter-spacing:.2em;margin-bottom:.8rem}
+.quote-content .qen{font-family:var(--font-display);font-size:1.05rem;font-style:italic;color:rgba(255,255,255,0.7)}
+.quote-content .qattr{margin-top:1rem;font-size:.78rem;color:rgba(255,255,255,0.35)}
+
+/* FOOTER */
+.footer-mag{padding:2.5rem;text-align:center;font-size:.78rem;color:#ccc;border-top:1px solid var(--light-grey)}
+.footer-mag .heart{color:var(--accent-red)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* EDITABLE */
+[contenteditable="true"]:focus{outline:2px dashed var(--warm);outline-offset:3px;border-radius:3px}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-center{display:none}
+  .hero-content{padding:2rem 2rem 3rem}
+  .hero-dates{flex-direction:column;gap:.6rem}
+  .about-grid{grid-template-columns:1fr}
+  .day-article{grid-template-columns:1fr}
+  .day-sidebar{border-right:none;border-bottom:1px solid var(--light-grey);padding:1.2rem 2rem}
+  .day-main{padding:1.5rem 2rem}
+  .day-event{grid-template-columns:1fr;gap:.2rem}
+  .options-row{grid-template-columns:1fr}
+  .pool-grid,.food-grid{grid-template-columns:1fr}
+  .weather-inner{grid-template-columns:1fr}
+  .gift-dark-inner{grid-template-columns:1fr;gap:2rem}
+  .section{padding:3.5rem 1.5rem}
+}
+</style>
+</head>
+<body class="en">
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">Nanjing</div>
+  <div class="nav-center">
+    <a href="#about">About</a>
+    <a href="#itinerary">Itinerary</a>
+    <a href="#outdoor">Outdoor</a>
+    <a href="#indoor">Indoor</a>
+    <a href="#food">Food</a>
+    <a href="#tips">Tips</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-switch">
+      <button class="active" onclick="setLang('en',this)">EN</button>
+      <button onclick="setLang('cn',this)">中文</button>
+      <button onclick="setLang('bi',this)">双语</button>
+    </div>
+    <button class="edit-toggle" onclick="toggleEdit(this)" title="Toggle text editing">✏️ Edit</button>
+    <button class="edit-toggle" id="saveBtn" onclick="saveContent()" title="Save changes" style="display:none">💾 Save</button>
+    <button class="edit-toggle" id="resetBtn" onclick="resetContent()" title="Reset to original" style="display:none;color:var(--accent-red)">↺ Reset</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-slide active" style="background-image:url('images/scene-1.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/scene-3.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/scene-4.jpg')"></div>
+  <div class="hero-content">
+    <div class="hero-kicker"><span class="t-en">Wesley Jay & Richard Ward · A Nanjing Journal</span><span class="t-cn">杰哥 & 理查德 · 南京之旅</span></div>
+    <h1><span class="t-en">Welcome to <em>Nanjing</em></span><span class="t-cn">欢迎来到<em>南京</em></span></h1>
+    <p class="hero-subtitle"><span class="t-en">Three days of food, culture, and friendship — finally meeting in person after months of chatting.</span><span class="t-cn">三天的美食、文化与友谊 — 终于从屏幕里走到现实中。</span></p>
+    <div class="hero-dates">
+      <div class="date-item"><div class="dl">Arrive</div><div class="dv">July 8</div></div>
+      <div class="date-item"><div class="dl">Depart</div><div class="dv">July 11</div></div>
+      <div class="date-item"><div class="dl">Base</div><div class="dv">Pukou 浦口</div></div>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <div class="hero-dot active" onclick="goSlide(0)"></div>
+    <div class="hero-dot" onclick="goSlide(1)"></div>
+    <div class="hero-dot" onclick="goSlide(2)"></div>
+  </div>
+</div>
+
+<!-- ABOUT NANJING -->
+<div class="about-section" id="about">
+  <div class="section">
+    <div class="reveal">
+      <div class="section-num">01</div>
+      <div class="section-kicker"><span class="t-en">Introduction</span><span class="t-cn">南京简介</span></div>
+      <div class="section-title"><span class="t-en">Discover Nanjing</span><span class="t-cn">认识南京</span></div>
+      <div class="section-intro"><span class="t-en">Nanjing — "Southern Capital" — has been at the heart of Chinese history for over 2,500 years. Six dynasties made it their capital. Today it's a vibrant modern city that still wears its past proudly.</span><span class="t-cn">南京，古称"金陵"、"建康"，有超过2500年的建城史。六朝古都、十朝都会，是中国四大古都之一。如今的南京是一座现代与历史交融的活力城市。</span></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <div class="about-icon">🏯</div>
+        <h4><span class="t-en">Ancient Capital</span><span class="t-cn">六朝古都</span></h4>
+        <p><span class="t-en">Six dynasties chose Nanjing as their capital, including the Eastern Wu, Eastern Jin, and Ming Dynasty. The Ming Dynasty built the world's longest city wall here — 35km, still standing after 600 years. The city was also the capital of the Republic of China from 1912 to 1949. Sun Yat-sen was inaugurated as the first president here. Layers upon layers of history, from the Three Kingdoms to modern China.</span><span class="t-cn">东吴、东晋、宋、齐、梁、陈六个朝代在此建都。明朝在此修建了世界上最长的城墙——全长35公里，600年后依然屹立。南京也是中华民国首都（1912-1949），孙中山在此就任临时大总统。从三国到近代，历史在这里层层叠叠。</span></p>
+      </div>
+      <div class="about-card reveal">
+        <div class="about-icon">🌸</div>
+        <h4><span class="t-en">Scenic Beauty</span><span class="t-cn">山水城林</span></h4>
+        <p><span class="t-en">Purple Mountain (Zijinshan) rises in the east, the Yangtze River flows through the north, Xuanwu Lake sits in the heart of the city, and the Qinhuai River winds through the old town. Mountains, water, city walls, and forests blend together seamlessly. In summer, the lotus flowers on Xuanwu Lake are breathtaking. The French plane trees lining the city streets have been growing for over a century, creating natural green tunnels everywhere.</span><span class="t-cn">紫金山雄踞城东，长江奔流城北，玄武湖镶嵌城心，秦淮河蜿蜒老城。山、水、城、林浑然一体。夏日玄武湖荷花盛开，美不胜收。遍布全城的法国梧桐已有百年历史，形成天然绿色隧道。</span></p>
+      </div>
+      <div class="about-card reveal">
+        <div class="about-icon">🍜</div>
+        <h4><span class="t-en">Food Capital</span><span class="t-cn">美食之都</span></h4>
+        <p><span class="t-en">Nanjing is called the "Duck Capital" — its people eat over 100 million ducks a year. Saltwater duck (yanshui ya) has over 2,000 years of history and is considered one of China's greatest cold dishes. The city's cuisine is subtle and savoury — not spicy like Sichuan, not sweet like Suzhou. Nanjing snacks are legendary: soup dumplings, pidu noodles, tangbao, and the bustling Confucius Temple snack street.</span><span class="t-cn">南京被称为"鸭都"——南京人每年吃掉超过一亿只鸭子。盐水鸭有两千多年历史，被认为是中国最好的冷菜之一。南京菜细腻鲜美——不像四川那么辣，不像苏州那么甜。南京小吃更是传奇：小笼包、皮肚面、汤包，还有热闹的夫子庙小吃街。</span></p>
+      </div>
+      <div class="about-card reveal">
+        <div class="about-icon">🌡️</div>
+        <h4><span class="t-en">Summer Heat</span><span class="t-cn">火炉城市</span></h4>
+        <p><span class="t-en">Nanjing is one of China's "Four Furnaces" (si da huolu). In July, temperatures regularly hit 32-35°C with humidity above 80%. The heat index can feel like 40°C+. Edinburgh's summer averages 15-22°C — this is a massive difference. The locals survive by hiding in air-conditioned spaces during midday (12-3pm) and coming alive again in the cooler evenings. We'll do the same.</span><span class="t-cn">南京是中国"四大火炉"之一。七月气温常达32-35°C，湿度超过80%，体感温度可达40°C以上。爱丁堡夏天平均15-22°C——差距巨大。本地人靠中午（12-15点）躲在空调房里避暑，傍晚凉快了再出来活动。我们也这样安排。</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WEATHER -->
+<div class="weather-strip">
+  <div class="weather-inner reveal">
+    <div class="weather-left">
+      <div class="wl-label">Temperature · 温度对比</div>
+      <div class="temp-pair">
+        <div class="temp-row">
+          <div class="temp-city">Nanjing 🇨🇳</div>
+          <div class="temp-val">32°C</div>
+          <div class="temp-desc">Hot & humid</div>
+        </div>
+        <div class="temp-row">
+          <div class="temp-city">Edinburgh 🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+          <div class="temp-val">17°C</div>
+          <div class="temp-desc">Mild & cool</div>
+        </div>
+      </div>
+      <div class="temp-badge">↕ ~15°C difference</div>
+    </div>
+    <div class="weather-right">
+      <div class="wr-title"><span class="t-en">How We'll Stay Cool</span><span class="t-cn">避暑方案</span></div>
+      <div class="wtip"><div class="wtip-icon">🧊</div><div class="wtip-text"><span class="t-en">Portable fan, cooling patches, wet wipes, sunscreen — I'll bring everything.</span><span class="t-cn">便携风扇、清凉贴、湿巾、防晒霜——我都会准备。</span></div></div>
+      <div class="wtip"><div class="wtip-icon">🚇</div><div class="wtip-text"><span class="t-en">Metro everywhere — air-conditioned, covers all sights, cheap.</span><span class="t-cn">全程地铁——空调覆盖所有景点，便宜方便。</span></div></div>
+      <div class="wtip"><div class="wtip-icon">🕐</div><div class="wtip-text"><span class="t-en">Sightseeing before 11am or after 4pm. Midday = indoors only.</span><span class="t-cn">上午11点前或下午4点后出行。中午只在室内。</span></div></div>
+      <div class="wtip"><div class="wtip-icon">💧</div><div class="wtip-text"><span class="t-en">Water is ¥2 everywhere. Stay hydrated!</span><span class="t-cn">到处都能买到2块钱的水。多喝水！</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ITINERARY BANNER -->
+<div class="section-banner">
+  <div class="section-banner-img" style="background-image:url('images/scene-5.png')"></div>
+  <div class="section-banner-content">
+    <div>
+      <h2><span class="t-en">The Itinerary</span><span class="t-cn">行程安排</span></h2>
+      <div class="banner-sub"><span class="t-en">A flexible plan — we'll decide together each day</span><span class="t-cn">灵活计划——每天一起决定</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ITINERARY -->
+<div class="section" id="itinerary">
+
+  <!-- DAY 1 -->
+  <div class="day-article reveal">
+    <div class="day-sidebar">
+      <div class="day-number">01</div>
+      <div class="day-weekday">Wed · July 8</div>
+    </div>
+    <div class="day-main">
+      <div class="day-title"><span class="t-en">Arrival & Settling In</span><span class="t-cn">到达·安顿</span></div>
+      <div class="day-subtitle"><span class="t-en">Relaxed first day — comfort comes first</span><span class="t-cn">轻松第一天——舒适优先</span></div>
+      <div class="day-events">
+        <div class="day-event">
+          <div class="event-time">12:05</div>
+          <div class="event-content">
+            <h4>🚄 <span class="t-en">Shanghai → Nanjing South</span><span class="t-cn">上海 → 南京南站</span></h4>
+            <p><span class="t-en">Bullet train, ~1h 40min. I'll be waiting at the station.</span><span class="t-cn">高铁约1小时40分钟，我会在车站等你。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">13:45</div>
+          <div class="event-content">
+            <h4>🤝 <span class="t-en">Pick up at Nanjing South</span><span class="t-cn">南京南站接站</span></h4>
+            <p><span class="t-en">Taxi back to the apartment in Pukou — about 40 minutes.</span><span class="t-cn">打车回浦口公寓——约40分钟。</span></p>
+            <span class="event-badge">🚕 Taxi · ~40 min</span>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~15:00</div>
+          <div class="event-content">
+            <h4>🏢 <span class="t-en">Quick registration</span><span class="t-cn">快速登记</span></h4>
+            <p><span class="t-en">Quick stop at the police station to register. Just a formality — I'll handle everything.</span><span class="t-cn">派出所登记，例行手续，我来搞定。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~16:00</div>
+          <div class="event-content">
+            <h4>😴 <span class="t-en">Rest at the apartment</span><span class="t-cn">公寓休息</span></h4>
+            <p><span class="t-en">After a long journey — nap, read, enjoy the A/C. I'll make tea.</span><span class="t-cn">长途跋涉后先休息。我泡壶茶。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~18:00</div>
+          <div class="event-content">
+            <h4>🍽️ <span class="t-en">Dinner at a local restaurant</span><span class="t-cn">附近餐馆晚餐</span></h4>
+            <p><span class="t-en">First taste of Nanjing — saltwater duck, soup dumplings, and more.</span><span class="t-cn">第一顿南京菜——盐水鸭、小笼包等。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~19:30</div>
+          <div class="event-content">
+            <h4>🌙 <span class="t-en">Evening stroll</span><span class="t-cn">饭后散步</span></h4>
+            <p><span class="t-en">Walk off dinner. Nothing ambitious — just enjoy the evening air.</span><span class="t-cn">饭后消食，随便走走。</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="day-note-box"><span class="t-en"><strong>Note:</strong> Day 1 is intentionally low-key. You've just arrived — comfort first.</span><span class="t-cn"><strong>说明：</strong>第一天有意安排得很轻松。刚到，先休息好。</span></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DAY 2 -->
+  <div class="day-article reveal">
+    <div class="day-sidebar">
+      <div class="day-number">02</div>
+      <div class="day-weekday">Thu · July 9</div>
+    </div>
+    <div class="day-main">
+      <div class="day-title"><span class="t-en">Explore & Celebrate</span><span class="t-cn">探索·庆祝</span></div>
+      <div class="day-subtitle"><span class="t-en">A full day — sightseeing, KTV, and a special evening</span><span class="t-cn">充实的一天——景点、KTV、特别的夜晚</span></div>
+      <div class="day-events">
+        <div class="day-event">
+          <div class="event-time">~07:30</div>
+          <div class="event-content">
+            <h4>🥟 <span class="t-en">Chinese breakfast</span><span class="t-cn">体验中式早餐</span></h4>
+            <p><span class="t-en">Soup dumplings, youtiao, jianbing, soy milk — a proper Chinese start.</span><span class="t-cn">小笼包、油条、煎饼、豆浆——正宗中式早餐。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~09:00</div>
+          <div class="event-content">
+            <h4>🏛️ <span class="t-en">Morning sightseeing</span><span class="t-cn">上午景点</span></h4>
+            <p><span class="t-en">Pick from the Outdoor Pool below. Morning = coolest time for outdoor sights.</span><span class="t-cn">从室外活动池选择。上午是最凉快的户外时间。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~12:00</div>
+          <div class="event-content">
+            <h4>🍜 <span class="t-en">Lunch near the sight</span><span class="t-cn">景点附近午餐</span></h4>
+            <p><span class="t-en">Find a local restaurant. Try different dishes from yesterday.</span><span class="t-cn">在景点附近找家当地餐馆，尝尝不一样的菜。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">13:00–15:30</div>
+          <div class="event-content">
+            <h4>😴 <span class="t-en">Midday rest</span><span class="t-cn">午间休息</span></h4>
+            <p><span class="t-en">Peak heat hours. Back to the apartment or find a cool indoor spot.</span><span class="t-cn">最热时段，回公寓或找室内凉快的地方。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~16:00</div>
+          <div class="event-content">
+            <h4>🛍️ <span class="t-en">Indoor activity</span><span class="t-cn">室内活动</span></h4>
+            <p><span class="t-en">Museum, shopping mall, or explore a neighbourhood.</span><span class="t-cn">博物馆、商场或逛逛街区。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~17:00</div>
+          <div class="event-content">
+            <h4>🎤 <span class="t-en">KTV — Private Karaoke</span><span class="t-cn">KTV 包厢</span></h4>
+            <p><span class="t-en">Private room, big screen, sing as loud as you want. 1-2 hours.</span><span class="t-cn">包厢、大屏、放声歌唱。1-2小时。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~19:00</div>
+          <div class="event-content">
+            <h4>🍽️ <span class="t-en">Dinner at the apartment</span><span class="t-cn">公寓晚餐</span></h4>
+            <p><span class="t-en">I'll cook some simple Chinese dishes. I also have a surprise planned for the evening — you'll find out when the time comes.</span><span class="t-cn">我做几个家常菜。晚上还有一个小惊喜——到时候你就知道了。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~20:30</div>
+          <div class="event-content">
+            <h4>🎁 <span class="t-en">Evening at home</span><span class="t-cn">家中夜晚</span></h4>
+            <p><span class="t-en">I've been preparing something special since we first started chatting. You'll discover it tonight. Then: movie, games, tea, music, calligraphy — whatever we feel like.</span><span class="t-cn">从我们开始聊天那天起，我就在准备一样东西。今晚你会看到。之后：电影、游戏、品茶、音乐、书法——随心所欲。</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DAY 3 -->
+  <div class="day-article reveal">
+    <div class="day-sidebar">
+      <div class="day-number">03</div>
+      <div class="day-weekday">Fri · July 10</div>
+    </div>
+    <div class="day-main">
+      <div class="day-title"><span class="t-en">Slow Day</span><span class="t-cn">慢节奏</span></div>
+      <div class="day-subtitle"><span class="t-en">Relaxed pace — enjoy the little things</span><span class="t-cn">放慢脚步——享受细小时光</span></div>
+      <div class="day-events">
+        <div class="day-event">
+          <div class="event-time">~08:00</div>
+          <div class="event-content">
+            <h4>☕ <span class="t-en">Breakfast</span><span class="t-cn">早餐</span></h4>
+            <p><span class="t-en">Try something different — maybe pidu noodles or another local favourite.</span><span class="t-cn">换个花样——皮肚面或其他本地美食。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~09:30</div>
+          <div class="event-content">
+            <h4>🗺️ <span class="t-en">Morning sightseeing (optional)</span><span class="t-cn">上午景点（可选）</span></h4>
+            <p><span class="t-en">If we're feeling energetic, pick from the Outdoor Pool. Otherwise, a café morning.</span><span class="t-cn">有精力就从室外活动池选一个，否则去咖啡馆坐坐。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~12:00</div>
+          <div class="event-content">
+            <h4>🍜 <span class="t-en">Lunch</span><span class="t-cn">午餐</span></h4>
+            <p><span class="t-en">More Nanjing food — working through the menu.</span><span class="t-cn">继续解锁南京美食。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~14:00</div>
+          <div class="event-content">
+            <h4>🍵 <span class="t-en">Afternoon at home</span><span class="t-cn">午后居家</span></h4>
+            <p><span class="t-en">Tea, coffee, music, conversation, calligraphy. The slow moments matter most.</span><span class="t-cn">品茶、咖啡、音乐、聊天、书法。慢时光最珍贵。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~18:00</div>
+          <div class="event-content">
+            <h4>🍽️ <span class="t-en">Dinner</span><span class="t-cn">晚餐</span></h4>
+            <p><span class="t-en">Out or home-cooked — we'll decide on the day.</span><span class="t-cn">出去吃或在家做——当天再定。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">Evening</div>
+          <div class="event-content">
+            <h4>🌙 <span class="t-en">Free evening</span><span class="t-cn">自由夜晚</span></h4>
+            <p><span class="t-en">Games, movies, tea, chatting. No agenda.</span><span class="t-cn">游戏、电影、品茶、聊天。随心所欲。</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DAY 4 -->
+  <div class="day-article reveal">
+    <div class="day-sidebar">
+      <div class="day-number">04</div>
+      <div class="day-weekday">Sat · July 11</div>
+    </div>
+    <div class="day-main">
+      <div class="day-title"><span class="t-en">Farewell</span><span class="t-cn">告别</span></div>
+      <div class="day-subtitle"><span class="t-en">No rush — enjoy the last morning</span><span class="t-cn">不急——享受最后一个早晨</span></div>
+      <div class="day-events">
+        <div class="day-event">
+          <div class="event-time">~07:30</div>
+          <div class="event-content">
+            <h4>☕ <span class="t-en">Breakfast & chat</span><span class="t-cn">早餐·聊天</span></h4>
+            <p><span class="t-en">Our last morning. Take it slow, enjoy the food.</span><span class="t-cn">最后一个早晨，慢慢来。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~09:00</div>
+          <div class="event-content">
+            <h4>🏠 <span class="t-en">Pack up</span><span class="t-cn">收拾行李</span></h4>
+            <p><span class="t-en">I'll help make sure nothing gets left behind.</span><span class="t-cn">帮你检查别落下东西。</span></p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~10:00</div>
+          <div class="event-content">
+            <h4>🚕 <span class="t-en">Head to Nanjing South Station</span><span class="t-cn">前往南京南站</span></h4>
+            <span class="event-badge">🚕 Taxi · ~40 min · Depart by 10:00</span>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="event-time">~10:57</div>
+          <div class="event-content">
+            <h4>🚄 <span class="t-en">Richard departs for Beijing → Edinburgh</span><span class="t-cn">理查德出发去北京 → 回爱丁堡</span></h4>
+            <p><span class="t-en">Goodbye for now — but not forever. 🤝</span><span class="t-cn">暂别——但不是永别。🤝</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OUTDOOR BANNER -->
+<div class="section-banner">
+  <div class="section-banner-img" style="background-image:url('images/scene-6.jpg')"></div>
+  <div class="section-banner-content">
+    <div>
+      <h2><span class="t-en">Outdoor Pool</span><span class="t-cn">室外活动池</span></h2>
+      <div class="banner-sub"><span class="t-en">Eight places to explore — pick together each day</span><span class="t-cn">九个备选地点——每天一起选择</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- OUTDOOR POOL -->
+<div class="section" id="outdoor">
+  <div class="reveal">
+    <div class="section-kicker"><span class="t-en">Nine Options</span><span class="t-cn">九个备选</span></div>
+    <div class="section-title"><span class="t-en">Where We Can Go</span><span class="t-cn">我们可以去哪</span></div>
+    <div class="section-intro"><span class="t-en">All within 40 minutes by metro from Pukou. We'll pick together based on weather and energy.</span><span class="t-cn">全部在浦口地铁40分钟内。根据天气和精力每天一起选。</span></div>
+  </div>
+  <div class="pool-grid">
+
+    <div class="pool-card reveal">
+      <img class="pool-card-img" src="images/scene-new1.jpg" alt="City Wall" loading="lazy">
+      <div class="pool-card-body">
+        <h4>Zhonghua Gate & City Wall</h4>
+        <div class="pool-cn">中华门城堡 · 南京城墙</div>
+        <p><span class="t-en">The world's largest surviving ancient city gate — Zhonghua Gate has three layers of defence with 27藏兵洞 (hidden soldier chambers) inside. Walk atop the 600-year-old Ming Dynasty city wall, which stretches 35km in total — the longest ancient city wall on Earth. The panoramic view from the top is stunning: you can see the modern city skyline on one side and the ancient rooftops on the other. A gentle walk, not strenuous, with lots of photo opportunities.</span><span class="t-cn">世界现存最大的古城门——中华门有三层防御结构，内藏27个藏兵洞。漫步600年明朝城墙，全长35公里，世界最长古城墙。顶部全景视野震撼：一边是现代城市天际线，一边是古老屋顶。平缓步行，不费力，拍照绝佳。</span></p>
+        <div class="pool-meta">
+          <span class="pool-tag">🚇 ~50 min</span>
+          <span class="pool-tag green">🏯 600+ years</span>
+          <span class="pool-tag green">📸 Panoramic views</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pool-card reveal">
+      <img class="pool-card-img" src="images/scene-10.jpg" alt="Xuanwu Lake" loading="lazy">
+      <div class="pool-card-body">
+        <h4>Xuanwu Lake Park</h4>
+        <div class="pool-cn">玄武湖公园</div>
+        <p><span class="t-en">A beautiful lakeside park right next to the ancient city wall. Flat paths, no climbing — perfect for a relaxed stroll. In summer, the lake is covered with lotus flowers, creating a stunning pink-and-green landscape. Five islands connected by bridges, with willow trees, pavilions, and views of Zijin Mountain in the distance. The park is free to enter and is where locals go for morning exercises and evening walks.</span><span class="t-cn">紧邻古城墙的美丽湖滨公园。平坦步道，无需爬山——适合悠闲漫步。夏日湖面荷花盛开，粉绿相映，美不胜收。五座小岛由桥梁相连，柳树成荫、亭台楼阁、远眺紫金山。免费入园，是本地人晨练和散步的好去处。</span></p>
+        <div class="pool-meta">
+          <span class="pool-tag">🚇 ~40 min</span>
+          <span class="pool-tag green">🌿 Flat paths</span>
+          <span class="pool-tag green">🌸 Summer lotus</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pool-card reveal">
+      <img class="pool-card-img" src="images/scene-11.jpg" alt="Confucius Temple" loading="lazy">
+      <div class="pool-card-body">
+        <h4>Confucius Temple & Qinhuai River</h4>
+        <div class="pool-cn">夫子庙 · 秦淮河</div>
+        <p><span class="t-en">The historic heart of old Nanjing, centred around a Confucius Temple first built in 1034. The Qinhuai River flows through the area — Tang poet Du Mu wrote about its moonlit beauty over 1,000 years ago. Today it's a lively district with traditional architecture, lantern-lit streets, boat rides on the river, and one of Nanjing's best snack streets. Can be touristy, but the evening atmosphere with lanterns reflected in the water is genuinely magical.</span><span class="t-cn">南京老城的历史核心，以始建于1034年的夫子庙为中心。秦淮河穿城而过——唐代诗人杜牧千年前就写过"烟笼寒水月笼沙"的秦淮月色。如今这里是热闹的街区：传统建筑、灯笼街巷、秦淮游船，还有南京最好的小吃街之一。虽然有些商业化，但夜晚灯笼映水的氛围确实迷人。</span></p>
+        <div class="pool-meta">
+          <span class="pool-tag">🚇 ~45 min</span>
+          <span class="pool-tag green">🏮 1,000+ years</span>
+          <span class="pool-tag green">🍜 Snack street</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pool-card reveal">
+      <img class="pool-card-img" src="images/scene-new2.jpg" alt="Nanjing Museum" loading="lazy">
+      <div class="pool-card-body">
+        <h4>Nanjing Museum</h4>
+        <div class="pool-cn">南京博物院</div>
+        <p><span class="t-en">One of China's top 3 museums, alongside Beijing's Palace Museum and Taipei's National Palace Museum. It houses 430,000 artifacts spanning from prehistoric times to the Republic era. Six exhibition halls cover everything from ancient jade and bronze to a recreated 1930s Nanjing street scene you can walk through. Fully air-conditioned — perfect for a hot morning. Free entry, just bring your passport.</span><span class="t-cn">中国三大博物馆之一（与北京故宫博物院、台北故宫博物院齐名）。馆藏43万件文物，从史前时代到民国。六个展厅涵盖古代玉器、青铜器，还有一个可以走进去的1930年代南京街景复原区。全空调——酷暑天的最佳选择。免费入场，带护照即可。</span></p>
+        <div class="pool-meta">
+          <span class="pool-tag">🚇 ~45 min</span>
+          <span class="pool-tag green">❄️ Air-conditioned</span>
+          <span class="pool-tag green">🆓 Free entry</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pool-card reveal">
+      <img class="pool-card-img" src="images/scene-new3.jpg" alt="Laomendong" loading="lazy">
+      <div class="pool-card-body">
+        <h4>Laomendong</h4>
+        <div class="pool-cn">老门东历史街区</div>
+        <p><span class="t-en">Nanjing's oldest neighbourhood, dating back over 600 years. Grey brick lanes wind between traditional courtyard houses, many now converted into craft shops, galleries, and cosy cafés. Street art murals blend with ancient architecture. Local snacks here are more authentic (and cheaper) than at Confucius Temple. Best explored slowly — every corner has a story. Less crowded, more genuine.</span><span class="t-cn">南京最古老的街区，历史超过600年。灰砖巷弄在传统四合院之间蜿蜒，许多已改造为手工艺店、画廊和温馨咖啡馆。街头壁画与古老建筑交融。这里的小吃比夫子庙更地道（也更便宜）。慢慢逛——每个角落都有故事。人更少，更真实。</span></p>
+        <div class="pool-meta">
+          <span class="pool-tag">🚇 ~50 min</span>
+          <span class="pool-tag green">🏘️ Oldest area</span>
+          <span class="pool-tag green">🎨 Street art</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pool-card reveal">
+      <img class="pool-card-img" src="images/scene-new4.jpg" alt="Pioneer Bookstore" loading="lazy">
+      <div class="pool-card-body">
+        <h4>Pioneer Bookstore</h4>
+        <div class="pool-cn">先锋书店（五台山总店）</div>
+        <p><span class="t-en">Named "China's most beautiful bookshop" by BBC and CNN. Set in a converted underground car park beneath Wutai Mountain, the space is dramatic — concrete pillars, high ceilings, and a giant cross installation. Browse Chinese and English books, enjoy the atmosphere, and have coffee at the in-house café. A unique cultural experience that's very Nanjing. Nearby, the tree-lined streets of the old university district are perfect for a quiet walk.</span><span class="t-cn">被BBC和CNN评为"中国最美书店"。坐落在五台山地下车库改造的空间里——水泥柱、高挑天花板、巨型十字架装置。中英文书都有，氛围感十足，还有自带咖啡馆。独特的文化体验，非常南京。附近老校区的林荫道很适合安静散步。</span></p>
+        <div class="pool-meta">
+          <span class="pool-tag">🚇 ~35 min</span>
+          <span class="pool-tag green">📚 Most beautiful</span>
+          <span class="pool-tag green">☕ Café inside</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pool-card reveal">
+      <img class="pool-card-img" src="images/scene-new5.jpg" alt="Presidential Palace" loading="lazy">
+      <div class="pool-card-body">
+        <h4>Presidential Palace</h4>
+        <div class="pool-cn">南京总统府</div>
+        <p><span class="t-en">The former headquarters of the Republic of China (1912-1949). Sun Yat-sen was inaugurated here as China's first president. The complex covers 90,000 sqm and includes Western-style government buildings, traditional Chinese gardens with lotus ponds, and a small museum. Walking through the office where history was made — the Xinhai Revolution, the war with Japan, the civil war — is quite moving. Beautiful gardens provide a peaceful contrast.</span><span class="t-cn">中华民国总统府（1912-1949）。孙中山在此就任中国第一任大总统。占地9万平方米，包括西式政府建筑、中式园林荷塘和小型博物馆。走过那些改变历史的办公室——辛亥革命、抗日战争、内战——令人感慨万千。美丽的园林提供宁静的对比。</span></p>
+        <div class="pool-meta">
+          <span class="pool-tag">🚇 ~40 min</span>
+          <span class="pool-tag green">🏛️ Republic era</span>
+          <span class="pool-tag green">🌳 Gardens</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pool-card reveal">
+      <img class="pool-card-img" src="images/scene-new6.jpg" alt="Ming Xiaoling" loading="lazy">
+      <div class="pool-card-body">
+        <h4>Ming Xiaoling Mausoleum</h4>
+        <div class="pool-cn">明孝陵</div>
+        <p><span class="t-en">The tomb of Zhu Yuanzhang, the Ming Dynasty's founder who rose from peasant to emperor. Set among forested hills on the south slope of Purple Mountain. The highlight is the 1km Sacred Way (神道) — a path lined with enormous stone animals: lions, elephants, camels, and mythical creatures, each carved from a single block of stone 600 years ago. A UNESCO World Heritage Site. Some walking involved on uneven ground — we'll take it slow. Best combined with a visit to nearby Sun Yat-sen's Mausoleum.</span><span class="t-cn">明太祖朱元璋之陵墓——一个从农民崛起为皇帝的传奇人物。坐落在紫金山南坡的林间。亮点是1公里长的神道——两旁排列着巨大的石兽：狮子、大象、骆驼和神兽，每尊都是600年前从整块石头雕刻而成。世界文化遗产。有些不平路段需要步行——我们慢慢来。可以和附近的中山陵一起游览。</span></p>
+        <div class="pool-meta">
+          <span class="pool-tag">🚇 ~50 min</span>
+          <span class="pool-tag green">🏛️ UNESCO</span>
+          <span class="pool-tag green">🌲 Sacred Way</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pool-card reveal">
+      <img class="pool-card-img" src="images/scene-yuhuatai.jpg" alt="Yuhuatai" loading="lazy">
+      <div class="pool-card-body">
+        <h4>Yuhuatai Rain Flower Terrace</h4>
+        <div class="pool-cn">雨花台</div>
+        <p><span class="t-en">A historic hill and memorial park, famous for its rain flower stones — colourful, naturally polished pebbles found only here. The site has deep historical significance as a memorial to revolutionary martyrs. The park is beautiful and peaceful, with bamboo groves, ancient temples, and a memorial museum. Less crowded than other attractions, and a nice place for a quiet walk. You can pick up rain flower stones as a unique souvenir.</span><span class="t-cn">南京著名的历史山丘和纪念公园，以雨花石闻名——一种只在这里发现的天然彩色鹅卵石。作为革命烈士纪念地，有深厚的历史意义。公园美丽宁静，竹林、古寺、纪念馆一应俱全。人比其他景点少，适合安静散步。可以捡雨花石当纪念品。</span></p>
+        <div class="pool-meta">
+          <span class="pool-tag">🚇 ~40 min</span>
+          <span class="pool-tag green">🪨 Rain flower stones</span>
+          <span class="pool-tag green">🌿 Peaceful park</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- INDOOR BANNER -->
+<div class="section-banner">
+  <div class="section-banner-img" style="background-image:url('images/scene-7.jpg')"></div>
+  <div class="section-banner-content">
+    <div>
+      <h2><span class="t-en">Indoor & Home</span><span class="t-cn">室内活动池</span></h2>
+      <div class="banner-sub"><span class="t-en">When it's too hot outside — or when staying in just feels right</span><span class="t-cn">天太热的时候——或者就想待在家的时候</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- INDOOR POOL -->
+<div class="section" id="indoor">
+  <div class="reveal">
+    <div class="section-kicker"><span class="t-en">At Home & Indoors</span><span class="t-cn">室内与居家</span></div>
+    <div class="section-title"><span class="t-en">Comfort Zone Activities</span><span class="t-cn">舒适圈活动</span></div>
+    <div class="section-intro"><span class="t-en">The best travel memories aren't always at tourist spots. Some happen over tea, music, and laughter at home.</span><span class="t-cn">旅途中最美好的回忆不总是在景点。有些发生在品茶、音乐和欢笑中。</span></div>
+  </div>
+  <div class="indoor-grid">
+    <div class="indoor-card reveal">
+      <div class="indoor-icon">🍵</div>
+      <h4><span class="t-en">Tea Ceremony</span><span class="t-cn">泡茶品茶</span></h4>
+      <p><span class="t-en">Keemun black tea (祁门红茶) from Anhui — it reached Britain in the 19th century and became a royal favourite. No milk, no sugar, just pure tea. I'll show you the Chinese way of brewing with a gaiwan (盖碗): warm the cup, add leaves, pour water at the right temperature, and appreciate the aroma before sipping. Tea is central to Chinese culture — it's how we welcome guests and show respect.</span><span class="t-cn">祁门红茶——19世纪传入英国，成为皇室最爱。不加奶不加糖，纯茶。我教你用盖碗泡茶：温杯、放叶、合适温度注水、先闻香再品茗。茶是中国文化的核心——我们用茶欢迎客人、表达尊重。</span></p>
+    </div>
+    <div class="indoor-card reveal">
+      <div class="indoor-icon">✍️</div>
+      <h4><span class="t-en">Calligraphy</span><span class="t-cn">书法体验</span></h4>
+      <p><span class="t-en">Try writing Chinese characters with a brush and ink. I'll teach you a few meaningful ones: "福" (fortune), "和" (harmony), "友" (friendship). It's harder than it looks — the brush is soft, the ink flows unpredictably, and every stroke matters. Very meditative and relaxing. Plus, you'll have something to take home as a souvenir.</span><span class="t-cn">用毛笔墨水写汉字。我教你几个有意义的字："福"、"和"、"友"。比看起来难——毛笔柔软、墨水不可预测、每一笔都很讲究。非常解压。而且你还能带回家当纪念品。</span></p>
+    </div>
+    <div class="indoor-card reveal">
+      <div class="indoor-icon">🗣️</div>
+      <h4><span class="t-en">Cultural Exchange</span><span class="t-cn">文化交流</span></h4>
+      <p><span class="t-en">Share stories about our lives, cultures, and perspectives. Ask anything — nothing is off limits. About family, work, politics, religion, daily life, dreams. These conversations are the real treasure of this trip. We've been chatting online for months, but nothing beats a face-to-face conversation over a cup of tea.</span><span class="t-cn">分享彼此的生活、文化和观点。什么都聊——家庭、工作、政治、宗教、日常生活、梦想。这些对话才是这趟旅程真正的宝藏。我们在线聊了几个月，但面对面品茶聊天无可替代。</span></p>
+    </div>
+    <div class="indoor-card reveal">
+      <div class="indoor-icon">🎵</div>
+      <h4><span class="t-en">Music Sharing</span><span class="t-cn">音乐分享</span></h4>
+      <p><span class="t-en">Guqin (古琴), pipa (琵琶), dizi (笛子) — Chinese traditional instruments with thousands of years of history. I'll play some recordings or videos. In return, share some Scottish folk music, or whatever you listen to. Maybe we'll find surprising connections between East and West.</span><span class="t-cn">古琴、琵琶、笛子——中国传统乐器，千年历史。我放一些录音或视频给你听。你也分享苏格兰民谣或你喜欢的音乐。也许我们会发现东西方之间意想不到的联系。</span></p>
+    </div>
+    <div class="indoor-card reveal">
+      <div class="indoor-icon">🎮</div>
+      <h4><span class="t-en">Gaming</span><span class="t-cn">体验游戏</span></h4>
+      <p><span class="t-en">See what modern Chinese games look like. Black Myth: Wukong (黑神话：悟空) — China's first AAA game, based on the Monkey King legend. Or some casual co-op games we can play together. Even if you're not a gamer, it's worth seeing how far Chinese game development has come.</span><span class="t-cn">看看中国现代游戏。《黑神话：悟空》——中国第一款3A游戏，基于西游记。或者一些可以一起玩的休闲合作游戏。即使不玩游戏，也值得看看中国游戏发展到什么水平了。</span></p>
+    </div>
+    <div class="indoor-card reveal">
+      <div class="indoor-icon">🍳</div>
+      <h4><span class="t-en">Home Cooking</span><span class="t-cn">一起做饭</span></h4>
+      <p><span class="t-en">I'll cook some simple Chinese dishes — tomato egg stir-fry (番茄炒蛋), kung pao chicken (without the spice for you), or dumplings. Maybe teach you a recipe or two. Cooking together is one of the best ways to connect across cultures.</span><span class="t-cn">我做几道简单中国菜——番茄炒蛋、宫保鸡丁（不放辣）、或者包饺子。也许教你一两道菜。一起做饭是跨文化交流最好的方式之一。</span></p>
+    </div>
+    <div class="indoor-card reveal">
+      <div class="indoor-icon">🎬</div>
+      <h4><span class="t-en">Movie Night</span><span class="t-cn">电影之夜</span></h4>
+      <p><span class="t-en">Chinese cinema has some incredible films. The Wandering Earth (流浪地球) — China's sci-fi blockbuster. Ne Zha (哪吒) — animated mythological epic. Or something visually stunning like Shadow (影) by Zhang Yimou. I'll pick something with great visuals that you'll enjoy.</span><span class="t-cn">中国电影有不少佳作。《流浪地球》——中国科幻大片。《哪吒》——动画神话史诗。或者张艺谋的《影》——视觉震撼。我挑一部画面精美、你会喜欢的。</span></p>
+    </div>
+    <div class="indoor-card reveal">
+      <div class="indoor-icon">🎤</div>
+      <h4><span class="t-en">KTV</span><span class="t-cn">卡拉OK</span></h4>
+      <p><span class="t-en">KTV (karaoke) is huge in Asia. We'll get a private room with a big screen, comfy sofas, and a massive song library — English songs included. Sing as loud as you want, no judgement. It's about having fun, not being good. Most Brits have never tried it — you're in for a treat. 1-2 hours is perfect.</span><span class="t-cn">KTV在亚洲非常流行。我们要一个包厢——大屏、舒适沙发、海量曲库（包括英文歌）。放声歌唱，没人评判。重在好玩，不在唱得好。大多数英国人没试过——你会玩得很开心。1-2小时刚好。</span></p>
+    </div>
+    <div class="indoor-card reveal">
+      <div class="indoor-icon">🍻</div>
+      <h4><span class="t-en">Drinks & Chat</span><span class="t-cn">喝酒聊天</span></h4>
+      <p><span class="t-en">Chinese beer (Tsingtao, Snow), rice wine, or if you're brave — baijiu (白酒), the infamous Chinese spirit at 50%+ ABV. Sit on the balcony, watch the city lights, and talk about life. The best conversations happen late at night with a drink in hand.</span><span class="t-cn">中国啤酒（青岛、雪花）、米酒，或者如果你够胆——白酒，中国烈酒，50度以上。坐在阳台上，看城市灯火，聊人生。最好的对话发生在深夜，手里端着一杯。</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOD BANNER -->
+<div class="section-banner">
+  <div class="section-banner-img" style="background-image:url('images/scene-8.jpg')"></div>
+  <div class="section-banner-content">
+    <div>
+      <h2><span class="t-en">Nanjing Food</span><span class="t-cn">南京美食</span></h2>
+      <div class="banner-sub"><span class="t-en">2,000 years of culinary tradition — no offal, no heavy spice</span><span class="t-cn">两千年美食传承——无内脏、不重辣</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOD -->
+<div class="section" id="food">
+  <div class="reveal">
+    <div class="section-num">02</div>
+    <div class="section-kicker"><span class="t-en">Taste of Nanjing</span><span class="t-cn">南京味道</span></div>
+    <div class="section-title"><span class="t-en">What We'll Eat</span><span class="t-cn">我们会吃到什么</span></div>
+    <div class="section-intro"><span class="t-en">No offal, no heavy spice. Nanjing cuisine is subtle, savoury, and centuries old. We'll eat like locals.</span><span class="t-cn">无内脏、不重辣。南京菜细腻鲜美，传承千年。我们像本地人一样吃。</span></div>
+  </div>
+  <div class="food-grid">
+    <div class="food-card reveal">
+      <img class="food-card-img" src="images/food-7.jpg" alt="Saltwater Duck" loading="lazy">
+      <div class="food-card-body">
+        <div class="food-emoji">🦆</div>
+        <h4>Saltwater Duck</h4>
+        <div class="food-cn">盐水鸭</div>
+        <p><span class="t-en">Nanjing's #1 dish. The duck is brined in salt water, then gently boiled to create incredibly tender, silky meat with a delicate savoury flavour. It's served cold, sliced thin — a refreshing dish even in summer heat. Over 2,000 years of history. Nanjing people eat over 100 million ducks a year. The most famous shop has been making it since the Ming Dynasty.</span><span class="t-cn">南京第一名菜。鸭子盐水腌制后慢火水煮，肉质细嫩、鲜香淡雅。冷盘上桌、切片——夏天吃也清爽。两千年历史，南京人每年吃掉超过一亿只鸭子。最有名的店从明朝就开始做了。</span></p>
+        <span class="food-tag">✅ Not spicy · No offal</span>
+      </div>
+    </div>
+    <div class="food-card reveal">
+      <img class="food-card-img" src="images/food-5.jpg" alt="Soup Dumplings" loading="lazy">
+      <div class="food-card-body">
+        <div class="food-emoji">🥟</div>
+        <h4>Soup Dumplings</h4>
+        <div class="food-cn">小笼包 · 汤包</div>
+        <p><span class="t-en">Paper-thin skin wrapped around a ball of hot, savoury soup with minced pork. The trick: bite a small hole, sip the soup first, then eat the dumpling. Dip in vinegar with shredded ginger. The soup inside can be scalding hot — patience! A breakfast staple across Nanjing, found on practically every street corner.</span><span class="t-cn">薄皮包裹着滚烫鲜美肉汤。吃法：先咬一小口，吸汤，再吃皮和馅。蘸醋加姜丝。里面汤汁很烫——要有耐心！南京早餐标配，几乎每条街都有。</span></p>
+        <span class="food-tag">🌅 Breakfast staple</span>
+      </div>
+    </div>
+    <div class="food-card reveal">
+      <img class="food-card-img" src="images/food-new2.jpg" alt="Pidu Noodles" loading="lazy">
+      <div class="food-card-body">
+        <div class="food-emoji">🍜</div>
+        <h4>Pidu Noodles</h4>
+        <div class="food-cn">皮肚面</div>
+        <p><span class="t-en">Nanjing's signature noodle dish — pidu (fried pork skin, light and puffy) in a rich, slow-cooked broth with vegetables, meat, and handmade noodles. Each bowl is enormous and incredibly filling. The pidu absorbs the broth like a sponge, creating a unique texture. Only found in Nanjing — you won't find this anywhere else in China. A proper local experience.</span><span class="t-cn">南京特色面——皮肚（炸猪皮，轻盈蓬松）配上浓郁慢炖汤底、蔬菜、肉和手擀面。每碗分量巨大，非常管饱。皮肚像海绵一样吸满汤汁，口感独特。只有南京有——全中国其他地方吃不到。正宗本地体验。</span></p>
+        <span class="food-tag">✅ Very filling · Nanjing only</span>
+      </div>
+    </div>
+    <div class="food-card reveal">
+      <img class="food-card-img" src="images/food-new1.jpg" alt="Jianbing" loading="lazy">
+      <div class="food-card-body">
+        <div class="food-emoji">🫓</div>
+        <h4>Jianbing</h4>
+        <div class="food-cn">煎饼</div>
+        <p><span class="t-en">The ultimate Chinese street breakfast. A thin batter spread on a hot griddle, topped with egg, scallions, cilantro, a crispy fried cracker (baocui), and sauces — sweet bean sauce, chilli sauce, and sesame. Everything folded into a perfect handheld package. Made fresh in front of you in under 2 minutes. Crispy, soft, savoury, and slightly sweet all at once.</span><span class="t-cn">终极中国街头早餐。面糊摊在热铛上，加上鸡蛋、葱花、香菜、脆饼（薄脆），再刷酱——甜面酱、辣酱、芝麻酱。折叠成一个完美的手拿包。2分钟内现场做好。同时酥脆、柔软、咸鲜、微甜。</span></p>
+        <span class="food-tag">🌅 2-minute street magic</span>
+      </div>
+    </div>
+    <div class="food-card reveal">
+      <img class="food-card-img" src="images/food-2.jpg" alt="Youtiao" loading="lazy">
+      <div class="food-card-body">
+        <div class="food-emoji">🥖</div>
+        <h4>Youtiao & Soy Milk</h4>
+        <div class="food-cn">油条 · 豆浆</div>
+        <p><span class="t-en">The classic Chinese breakfast combo. Youtiao is a long fried dough stick — crispy golden outside, airy and fluffy inside. Dip it in warm soy milk (sweet or savoury, your choice) or in congee (rice porridge). Millions of Chinese people start every morning this way. Simple, comforting, and delicious.</span><span class="t-cn">经典中式早餐搭配。油条是长长的炸面棍——外面金黄酥脆，里面蓬松柔软。蘸温热豆浆（甜的或咸的，你选）或蘸稀饭。千百万人每天这样开始新的一天。简单、温暖、美味。</span></p>
+        <span class="food-tag">🌅 The classic combo</span>
+      </div>
+    </div>
+
+    <div class="food-card reveal">
+      <img class="food-card-img" src="images/food-1.jpeg" alt="Tangbao" loading="lazy">
+      <div class="food-card-body">
+        <div class="food-emoji">🍡</div>
+        <h4>Tangbao</h4>
+        <div class="food-cn">汤包</div>
+        <p><span class="t-en">The bigger cousin of soup dumplings. Tangbao are large soup-filled buns served with a straw — yes, a straw. You poke it in and sip the rich, savoury broth first, then eat the skin and meat filling. It's a fun, unique experience. Found at specialty shops around the city.</span><span class="t-cn">小笼包的大号版本。汤包是大号汤汁包子，配吸管——没错，吸管。先插进去吸鲜美肉汤，再吃皮和馅。有趣又独特的体验。全市特色店都有。</span></p>
+        <span class="food-tag">🍜 Drink it with a straw</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TIPS BANNER -->
+<div class="section-banner">
+  <div class="section-banner-img" style="background-image:url('images/scene-5.png')"></div>
+  <div class="section-banner-content">
+    <div>
+      <h2><span class="t-en">Practical Tips</span><span class="t-cn">实用提示</span></h2>
+      <div class="banner-sub"><span class="t-en">Things to know before you arrive</span><span class="t-cn">出发前需要知道的事</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TIPS -->
+<div class="section" id="tips">
+  <div class="tips-grid">
+    <div class="tip-card reveal">
+      <div class="tip-icon">🌡️</div>
+      <h4><span class="t-en">Heat Warning</span><span class="t-cn">高温预警</span></h4>
+      <p><span class="t-en">Nanjing in July is 32-35°C with 80%+ humidity. It feels much hotter than the number suggests — the heat index can reach 40°C+. Edinburgh's summer is 15-22°C. This is a massive difference. Take it seriously: rest during peak heat (12-3pm), drink lots of water (2-3 litres a day), and don't push yourself. Heat exhaustion is real.</span><span class="t-cn">南京七月32-35°C，湿度80%以上。体感温度远高于数字——可达40°C以上。爱丁堡夏天15-22°C——差距巨大。认真对待：最热时段（12-15点）休息，每天喝2-3升水，别逞强。中暑是真的会发生的。</span></p>
+    </div>
+    <div class="tip-card reveal">
+      <div class="tip-icon">🧴</div>
+      <h4><span class="t-en">Sun Protection</span><span class="t-cn">防晒</span></h4>
+      <p><span class="t-en">Bring sunscreen SPF 50+, a hat, and sunglasses. UV index in Nanjing summer is very high — much stronger than Scotland. Reapply sunscreen every 2 hours if outdoors. A lightweight long-sleeve shirt can also help. Sunburn happens fast here.</span><span class="t-cn">带防晒霜SPF 50+、帽子和墨镜。南京夏天紫外线很强——比苏格兰强得多。户外每2小时补涂。轻薄长袖衬衫也有帮助。这里晒伤很快。</span></p>
+    </div>
+    <div class="tip-card reveal">
+      <div class="tip-icon">👕</div>
+      <h4><span class="t-en">What to Pack</span><span class="t-cn">穿什么</span></h4>
+      <p><span class="t-en">Light, breathable clothes — cotton or linen. Shorts and t-shirts are fine everywhere. Bring a light jacket for the metro and restaurants (strong A/C can feel cold). Comfortable walking shoes are essential. One smart-casual outfit for restaurants if you like, but Nanjing is very relaxed about dress codes. An umbrella is useful — sudden summer rain showers are common.</span><span class="t-cn">轻薄透气衣物——棉或麻。短袖短裤到处都行。带件薄外套（地铁和餐馆空调很冷）。舒适的步行鞋必备。想的话带一套半正式的衣服，但南京对穿着很随意。雨伞有用——夏天常有阵雨。</span></p>
+    </div>
+    <div class="tip-card reveal">
+      <div class="tip-icon">🚇</div>
+      <h4><span class="t-en">Metro Tips</span><span class="t-cn">地铁提示</span></h4>
+      <p><span class="t-en">Nanjing metro is clean, efficient, and fully air-conditioned. Buy a single-journey ticket at the machine (English available) or use Alipay/WeChat Pay QR code. Trains run every 3-5 minutes. Announcements are in both Chinese and English. I'll navigate — you just follow. The metro is our best friend for getting around.</span><span class="t-cn">南京地铁干净、高效、全空调。在机器上买单程票（有英文界面）或用支付宝/微信扫码。3-5分钟一班。中英双语报站。我来导航——你跟着就行。地铁是我们出行的最好朋友。</span></p>
+    </div>
+    <div class="tip-card reveal">
+      <div class="tip-icon">💳</div>
+      <h4><span class="t-en">Payment</span><span class="t-cn">支付</span></h4>
+      <p><span class="t-en">China runs on mobile payment — Alipay and WeChat Pay are used everywhere, from street vendors to restaurants. Cash is accepted by law but rarely used. I'll help you set up Alipay with your international bank card before we go out. Most large stores and hotels also accept Visa/Mastercard, but small shops and street food stalls don't.</span><span class="t-cn">中国以移动支付为主——支付宝和微信支付无处不在，从路边摊到餐馆。法律规定必须收现金，但实际上很少用。我帮你用国际银行卡绑定支付宝。大商场和酒店也接受Visa/Mastercard，但小店和小吃摊不行。</span></p>
+    </div>
+    <div class="tip-card reveal">
+      <div class="tip-icon">🏥</div>
+      <h4><span class="t-en">Emergency Info</span><span class="t-cn">应急信息</span></h4>
+      <p><span class="t-en">Police: 110 · Ambulance: 120 · Fire: 119. I'll have the nearest hospital address saved on my phone. Your travel insurance docs should be on your phone too. I'll carry a small first-aid kit with basics. If you feel unwell from the heat, tell me immediately — don't try to push through it.</span><span class="t-cn">报警110 · 急救120 · 火警119。我手机里存好最近医院地址。手机里也存好旅行保险。我会带个小急救包。如果觉得不舒服，特别是热的，立刻告诉我——别硬撑。</span></p>
+    </div>
+    <div class="tip-card reveal">
+      <div class="tip-icon">📶</div>
+      <h4><span class="t-en">Internet & SIM</span><span class="t-cn">上网与电话卡</span></h4>
+      <p><span class="t-en">Buy a local SIM at the airport or train station — cheap data, works everywhere. Or use eSIM if your phone supports it (Airalo, Holafly). WeChat is essential — it's how everyone communicates in China. Download it before you arrive and I'll help you set it up. WhatsApp works too, but WeChat is faster here.</span><span class="t-cn">在机场或火车站买本地SIM卡——便宜流量，到处有信号。或用eSIM（Airalo、Holafly等）。微信是必备——中国人都用它。来了之后我帮你装好。WhatsApp也能用，但微信在这里更快。</span></p>
+    </div>
+    <div class="tip-card reveal">
+      <div class="tip-icon">🧳</div>
+      <h4><span class="t-en">Registration</span><span class="t-cn">住宿登记</span></h4>
+      <p><span class="t-en">Foreign visitors must register at the local police station within 24 hours of arrival in China. If staying at a hotel, they do it for you. Since you're staying at my apartment, I'll take you to the nearby station — it's quick, just filling a form. Bring your passport. This is a legal requirement, not optional.</span><span class="t-cn">外国人必须在到达中国后24小时内到派出所登记。住酒店的话酒店会代办。住我家的话，我带你去附近派出所——很快，就填个表。带护照。这是法律要求，不是可选的。</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- GIFT TEASE -->
+<div class="gift-dark">
+  <div class="gift-dark-inner reveal">
+    <div>
+      <div class="section-kicker"><span class="t-en">A Little Something</span><span class="t-cn">一点心意</span></div>
+      <div class="section-title"><span class="t-en">I've Been Preparing</span><span class="t-cn">我一直在准备</span></div>
+      <p><span class="t-en">Since we first started chatting months ago, I've been quietly gathering a few things for you. Nothing extravagant — just small tokens that I hope you'll appreciate. You'll discover them when the time is right.</span><span class="t-cn">从几个月前我们开始聊天起，我就在悄悄准备一些东西。不贵重——只是一些小小心意。到时候你就会知道。</span></p>
+    </div>
+    <div class="gift-list">
+      <div class="gift-item"><span class="gi">🎁</span> <span class="t-en">Something waiting</span><span class="t-cn">一份等待</span></div>
+      <div class="gift-item"><span class="gi">✨</span> <span class="t-en">A few surprises</span><span class="t-cn">几个惊喜</span></div>
+      <div class="gift-item"><span class="gi">🫖</span> <span class="t-en">For sharing together</span><span class="t-cn">一起分享</span></div>
+      <div class="gift-item"><span class="gi">📸</span> <span class="t-en">Memories to make</span><span class="t-cn">创造回忆</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-full">
+  <div class="quote-bg" style="background-image:url('images/scene-7.jpg')"></div>
+  <div class="quote-content">
+    <div class="qcn">烟笼寒水月笼沙</div>
+    <div class="qen">"Misty water, moonlit sand"</div>
+    <div class="qattr">— Du Mu · Tang Dynasty · Qinhuai River, Nanjing</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-mag">
+  <p>Made with <span class="heart">♥</span> by Wesley Jay · For Richard</p>
+  <p style="margin-top:0.5rem;font-size:0.72rem;color:#ddd;">See you in Nanjing 🤝</p>
+</div>
+
+<script>
+// Language switch — simple class on body
+function setLang(lang, btn) {
+  document.body.className = lang;
+  document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Edit toggle
+function toggleEdit(btn) {
+  const els = document.querySelectorAll('.hero-content,.section,.day-main,.pool-card-body,.food-card-body,.indoor-card,.tip-card,.gift-dark-inner,.quote-content');
+  const on = btn.classList.toggle('active');
+  els.forEach(el => { el.setAttribute('contenteditable', on); el.style.cursor = on ? 'text' : ''; });
+  btn.textContent = on ? '✏️ Editing' : '✏️ Edit';
+  document.getElementById('saveBtn').style.display = on ? '' : 'none';
+  document.getElementById('resetBtn').style.display = on ? '' : 'none';
+}
+
+// Save content to localStorage
+function saveContent() {
+  const page = document.querySelector('body').innerHTML;
+  try {
+    localStorage.setItem('nanjing-trip-save', page);
+    const btn = document.getElementById('saveBtn');
+    btn.textContent = '✅ Saved!';
+    setTimeout(() => { btn.textContent = '💾 Save'; }, 1500);
+  } catch (e) {
+    alert('Save failed: ' + e.message);
+  }
+}
+
+// Load saved content on page load
+function loadSaved() {
+  const saved = localStorage.getItem('nanjing-trip-save');
+  if (saved) {
+    document.querySelector('body').innerHTML = saved;
+    // Re-bind events after loading
+    rebindEvents();
+  }
+}
+
+// Reset to original
+function resetContent() {
+  if (confirm('Reset all edits? This will reload the original page.')) {
+    localStorage.removeItem('nanjing-trip-save');
+    location.reload();
+  }
+}
+
+// Re-bind events after loading saved content
+function rebindEvents() {
+  // Re-attach slideshow interval
+  window.slideshowInterval && clearInterval(window.slideshowInterval);
+  let curSlide = 0;
+  const s = document.querySelectorAll('.hero-slide');
+  const d = document.querySelectorAll('.hero-dot');
+  if (s.length && d.length) {
+    window.slideshowInterval = setInterval(() => {
+      s[curSlide].classList.remove('active');
+      d[curSlide].classList.remove('active');
+      curSlide = (curSlide + 1) % s.length;
+      s[curSlide].classList.add('active');
+      d[curSlide].classList.add('active');
+    }, 5000);
+  }
+  // Re-attach scroll observer
+  const obs2 = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  }), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs2.observe(el));
+  // Re-apply language
+  const lang = document.body.className || 'en';
+  document.body.className = lang;
+}
+
+// Load on startup
+loadSaved();
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Reveal on scroll
+const obs = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) e.target.classList.add('visible');
+}), { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Hero slideshow
+let cur = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.hero-dot');
+function goSlide(n) {
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+}
+setInterval(() => goSlide((cur + 1) % slides.length), 5000);
+</script>
+</body>
+</html>
