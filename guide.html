@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>南京之旅 · Nanjing Trip Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #f8f6f3;
+    --card: #ffffff;
+    --primary: #b8342a;
+    --primary-light: #d4524a;
+    --gold: #c9a84c;
+    --gold-light: #e8d590;
+    --text: #1a1a1a;
+    --text-secondary: #5a5a5a;
+    --text-light: #8a8a8a;
+    --border: #e8e4de;
+    --border-light: #f0ece6;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+    --shadow: 0 4px 24px rgba(0,0,0,0.06);
+    --shadow-lg: 0 12px 48px rgba(0,0,0,0.1);
+    --radius: 20px;
+    --radius-sm: 12px;
+    --serif: 'Noto Serif SC', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #0a0a0a;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      url('https://images.unsplash.com/photo-1598894000396-bc30e0996899?w=1920&q=85') center/cover no-repeat;
+    filter: brightness(0.4) saturate(1.1);
+    transform: scale(1.05);
+    animation: heroZoom 30s ease-in-out infinite alternate;
+  }
+  @keyframes heroZoom {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.15); }
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.65) 100%),
+      radial-gradient(ellipse at 30% 80%, rgba(184,52,42,0.15) 0%, transparent 60%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 0 24px;
+    max-width: 800px;
+  }
+  .hero-content .kicker {
+    font-size: 0.75rem;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 20px;
+  }
+  .hero-content h1 {
+    font-family: var(--serif);
+    font-size: 4.5rem;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin-bottom: 12px;
+    text-shadow: 0 4px 40px rgba(0,0,0,0.4);
+  }
+  .hero-content .subtitle {
+    font-size: 1.15rem;
+    font-weight: 300;
+    opacity: 0.8;
+    letter-spacing: 3px;
+    margin-bottom: 32px;
+  }
+  .hero-content .date-badge {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    backdrop-filter: blur(16px);
+    background: rgba(255,255,255,0.06);
+  }
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 20px auto;
+    opacity: 0.6;
+  }
+  .hero-quote {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    opacity: 0.55;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-top: 16px;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    animation: bounce 2.5s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ===== CONTAINER ===== */
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== SECTION ===== */
+  .section { margin: 70px 0; }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .section-label .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .section-label h2 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  .section-label .en {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-left: 4px;
+  }
+
+  /* ===== INFO CARDS ===== */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 70px;
+  }
+  .info-card {
+    background: var(--card);
+    border-radius: var(--radius-sm);
+    padding: 22px 16px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .info-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .info-card .ic-emoji { font-size: 1.6rem; margin-bottom: 8px; }
+  .info-card .ic-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-light); margin-bottom: 4px; }
+  .info-card .ic-value { font-size: 0.85rem; font-weight: 600; line-height: 1.4; }
+  .info-card .ic-sub { font-size: 0.75rem; color: var(--text-secondary); margin-top: 2px; }
+
+  /* ===== MAP ===== */
+  .map-section {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 70px;
+  }
+  .map-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .map-header h3 { font-size: 1rem; font-weight: 600; }
+  .map-header .map-sub { font-size: 0.8rem; color: var(--text-light); }
+  #mapContainer {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    background: #e8e4de;
+  }
+  /* Custom markers */
+  .spot-marker {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s;
+  }
+  .spot-marker:hover { transform: scale(1.2); z-index: 20; }
+  .spot-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    border: 2px solid white;
+  }
+  .spot-label {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.65rem;
+    font-weight: 600;
+    background: rgba(255,255,255,0.92);
+    padding: 2px 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+    pointer-events: none;
+  }
+  /* Popup */
+  .spot-popup {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    width: 280px;
+    padding: 20px;
+    transform: translate(-50%, -100%) translateY(-16px);
+    pointer-events: auto;
+  }
+  .spot-popup.show { display: block; }
+  .spot-popup::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid white;
+  }
+  .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: var(--bg);
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+  }
+  .popup-emoji { font-size: 1.5rem; margin-bottom: 6px; }
+  .popup-name { font-size: 1rem; font-weight: 600; margin-bottom: 2px; }
+  .popup-cn { font-family: var(--serif); font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; }
+  .popup-desc { font-size: 0.8rem; color: var(--text-light); line-height: 1.6; margin-bottom: 4px; }
+  .popup-desc-cn { font-family: var(--serif); font-size: 0.78rem; color: #aaa; line-height: 1.6; margin-bottom: 8px; }
+  .popup-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .popup-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.65rem;
+    font-weight: 500;
+  }
+  .popup-dist {
+    margin: 10px 0 6px;
+    padding: 8px 10px;
+    background: #f8f6f3;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+  .popup-dist .dist-line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    padding: 2px 0;
+  }
+  .popup-dist .dist-line .dist-icon {
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .popup-dist .dist-line .dist-val {
+    font-weight: 600;
+    color: var(--text);
+  }
+  .popup-dist .dist-title {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    margin-bottom: 4px;
+  }
+
+  .map-legend {
+    padding: 16px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ===== SECTION BACKGROUNDS ===== */
+  .section-bg {
+    position: relative;
+    margin: 70px -100vw;
+    padding: 80px 100vw;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .section-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(248,246,243,0.92);
+  }
+  .section-bg .container { position: relative; z-index: 1; }
+  .section-bg-itinerary { background-image: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=1920&q=80'); }
+  .section-bg-food { background-image: url('https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=1920&q=80'); }
+  .section-bg-tips { background-image: url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1920&q=80'); }
+
+  /* ===== DAY CARDS ===== */
+  .day-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.3s;
+  }
+  .day-card:hover { box-shadow: var(--shadow); }
+  .day-card[open] { box-shadow: var(--shadow); }
+  .day-card summary {
+    cursor: pointer;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: stretch;
+    user-select: none;
+  }
+  .day-card summary::-webkit-details-marker { display: none; }
+  .day-card summary::marker { display: none; content: ''; }
+  .day-accent { width: 6px; flex-shrink: 0; }
+  .day1 .day-accent { background: linear-gradient(180deg, #b8342a, #d4524a); }
+  .day2 .day-accent { background: linear-gradient(180deg, #2563eb, #60a5fa); }
+  .day3 .day-accent { background: linear-gradient(180deg, #16a34a, #4ade80); }
+  .day4 .day-accent { background: linear-gradient(180deg, #9333ea, #c084fc); }
+  .day-summary-inner {
+    flex: 1;
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .day-left { display: flex; align-items: center; gap: 16px; }
+  .day-num { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--text); line-height: 1; min-width: 56px; }
+  .day-meta h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 2px; }
+  .day-meta .day-sub { font-size: 0.8rem; color: var(--text-light); }
+  .day-meta .day-sub-cn { font-family: var(--serif); font-size: 0.82rem; color: var(--text-secondary); }
+  .day-toggle {
+    width: 32px; height: 32px; border-radius: 50%; background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s; flex-shrink: 0;
+  }
+  .day-card[open] .day-toggle { transform: rotate(180deg); }
+  .day-toggle svg { width: 16px; height: 16px; fill: none; stroke: var(--text-secondary); stroke-width: 2; stroke-linecap: round; }
+  .day-body { padding: 0 24px 24px; border-top: 1px solid var(--border-light); }
+
+  /* ===== TIMELINE ===== */
+  .tl { position: relative; padding-left: 20px; }
+  .tl::before {
+    content: '';
+    position: absolute;
+    left: 4px; top: 8px; bottom: 8px;
+    width: 1px;
+    background: var(--border);
+  }
+  .tl-item { position: relative; padding: 14px 0 14px 24px; }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -1px; top: 22px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 2px solid var(--gold);
+  }
+  .tl-time { font-size: 0.75rem; font-weight: 600; color: var(--gold); letter-spacing: 1px; margin-bottom: 4px; }
+  .tl-item h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+  .tl-item p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; }
+  .tl-item p.cn { font-family: var(--serif); color: var(--text-light); font-size: 0.82rem; margin-top: 4px; }
+  .tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 8px; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.5px; }
+  .tag-transport { background: #eef4ff; color: #2563eb; }
+  .tag-food { background: #fef7ed; color: #d97706; }
+  .tag-scenic { background: #f0fdf4; color: #16a34a; }
+  .tag-tip { background: #faf5ff; color: #9333ea; }
+  .tag-history { background: #fef2f2; color: #dc2626; }
+  .tag-museum { background: #f0f9ff; color: #0284c7; }
+
+  /* ===== FOOD ===== */
+  .food-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .food-card {
+    background: var(--card); border-radius: var(--radius-sm); padding: 22px;
+    border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .food-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .food-card .fc-emoji { font-size: 1.8rem; margin-bottom: 10px; }
+  .food-card .fc-type { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); font-weight: 600; margin-bottom: 4px; }
+  .food-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+  .food-card .fc-cn { font-family: var(--serif); font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px; }
+  .food-card p { font-size: 0.78rem; color: var(--text-light); line-height: 1.55; }
+  .food-card .fc-price { margin-top: 8px; font-size: 0.75rem; font-weight: 600; color: var(--gold); }
+
+  /* ===== TIPS ===== */
+  .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .tip-card {
+    background: var(--card); border-radius: var(--radius-sm); padding: 24px;
+    border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);
+  }
+  .tip-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .tip-card ul { list-style: none; padding: 0; }
+  .tip-card li {
+    font-size: 0.8rem; color: var(--text-secondary); padding: 3px 0 3px 16px;
+    position: relative; line-height: 1.65;
+  }
+  .tip-card li::before {
+    content: ''; position: absolute; left: 0; top: 10px;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--gold-light);
+  }
+
+  /* ===== UI ===== */
+  .lang-toggle {
+    position: fixed; top: 20px; right: 20px; z-index: 1000;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
+    border: 1px solid var(--border); border-radius: 30px; padding: 4px;
+    display: flex; box-shadow: var(--shadow);
+  }
+  .lang-btn {
+    padding: 6px 16px; border-radius: 26px; border: none; background: transparent;
+    font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.2s; color: var(--text-secondary);
+  }
+  .lang-btn.active { background: var(--primary); color: white; }
+  .edit-bar {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000;
+    background: rgba(26,26,26,0.88); backdrop-filter: blur(16px);
+    color: white; padding: 10px 24px; border-radius: 30px;
+    font-size: 0.78rem; display: flex; align-items: center; gap: 10px;
+    box-shadow: var(--shadow-lg);
+  }
+  .edit-bar .dot-green { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  [contenteditable="true"] { outline: none; border-radius: 4px; transition: background 0.2s; }
+  [contenteditable="true"]:hover { background: rgba(201,168,76,0.06); }
+  [contenteditable="true"]:focus { background: rgba(201,168,76,0.1); box-shadow: inset 0 0 0 1px var(--gold-light); }
+
+  .footer {
+    text-align: center; padding: 60px 24px; color: var(--text-light);
+    font-size: 0.8rem; border-top: 1px solid var(--border-light); margin-top: 70px;
+  }
+  .footer .f-logo { font-family: var(--serif); font-size: 1.4rem; color: var(--text); margin-bottom: 6px; letter-spacing: 4px; }
+
+  @media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.6rem; letter-spacing: 4px; }
+    .info-grid { grid-template-columns: repeat(2, 1fr); }
+    .food-grid { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+    .day-summary-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .day-toggle { position: absolute; right: 20px; top: 24px; }
+    .lang-toggle { top: auto; bottom: 70px; right: 16px; }
+    .section-bg { margin: 40px -20px; padding: 60px 20px; background-attachment: scroll; }
+    #mapContainer { height: 400px; }
+  }
+  @media print {
+    .lang-toggle, .edit-bar, .scroll-hint { display: none; }
+    .day-card { break-inside: avoid; }
+    .hero { height: auto; min-height: auto; padding: 40px; }
+    .hero-bg { position: static; filter: none; animation: none; }
+    .section-bg { background-attachment: scroll; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('both',this)">双语</button>
+  <button class="lang-btn" onclick="setLang('en',this)">EN</button>
+  <button class="lang-btn" onclick="setLang('cn',this)">中文</button>
+</div>
+<div class="edit-bar">
+  <span class="dot-green"></span>
+  <span>Editable — click text to edit · 可编辑 — 点击文字修改</span>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="kicker">TRAVEL GUIDE · 旅行指南</div>
+    <h1 contenteditable="true">南京之旅</h1>
+    <div class="hero-divider"></div>
+    <div class="subtitle" contenteditable="true">六朝古都 · 明城墙 · 总统府 · 秦淮河</div>
+    <div class="date-badge" contenteditable="true">2026.07.08 — 07.11 · 南京 Nanjing</div>
+    <div class="hero-quote">"六朝旧事随流水，但寒烟衰草凝绿" —— 王安石</div>
+  </div>
+  <div class="scroll-hint">↓ SCROLL · 向下滚动</div>
+</div>
+
+<div class="container">
+
+  <!-- ===== QUICK INFO ===== -->
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="ic-emoji">📍</div>
+      <div class="ic-label">Accommodation / 住宿</div>
+      <div class="ic-value" contenteditable="true">明发财富中心 307室</div>
+      <div class="ic-sub">浦口区浦口大道6号5幢</div>
+    </div>
+    <div class="info-card">
+      <div class="ic-emoji">🚇</div>
+      <div class="ic-label">Nearest Metro / 最近地铁</div>
+      <div class="ic-value" contenteditable="true">浦口万汇城站</div>
+      <div class="ic-sub">Line 10 · 10号线</div>
+    </div>
+    <div class="info-card">
+      <div class="ic-emoji">🌡️</div>
+      <div class="ic-label">Weather / 天气</div>
+      <div class="ic-value">28–35°C</div>
+      <div class="ic-sub">Hot & Humid · 炎热潮湿</div>
+    </div>
+    <div class="info-card">
+      <div class="ic-emoji">💡</div>
+      <div class="ic-label">Tip / 提示</div>
+      <div class="ic-value" contenteditable="true">提前预约景点!</div>
+      <div class="ic-sub">Book in advance</div>
+    </div>
+  </div>
+
+  <!-- ===== MAP ===== -->
+  <div class="map-section">
+    <div class="map-header">
+      <span style="font-size:1.2rem;">🗺️</span>
+      <div>
+        <h3>景点地图 · Spots Map</h3>
+        <div class="map-sub">点击标记查看景点详情 · Click markers for details</div>
+      </div>
+    </div>
+    <div id="mapContainer">
+      <canvas id="mapCanvas"></canvas>
+    </div>
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#e74c3c;"></div>历史古迹 Historic</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#3498db;"></div>自然风光 Nature</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f39c12;"></div>美食聚集 Food</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#2ecc71;"></div>休闲散步 Leisure</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#9b59b6;"></div>购物商圈 Shopping</div>
+    </div>
+  </div>
+
+  <!-- ===== ITINERARY ===== -->
+  <div class="section-bg section-bg-itinerary">
+    <div class="container">
+      <div class="section-label">
+        <span class="dot"></span>
+        <h2>行程安排</h2>
+        <span class="en">Itinerary</span>
+      </div>
+
+      <!-- DAY 1 -->
+      <details class="day-card day1" open>
+        <summary>
+          <div class="day-accent"></div>
+          <div class="day-summary-inner">
+            <div class="day-left">
+              <div class="day-num">01</div>
+              <div class="day-meta">
+                <h3 contenteditable="true">Presidential Palace & City Walls</h3>
+                <div class="day-sub">July 8 · 历史主题日</div>
+                <div class="day-sub-cn" contenteditable="true">总统府与古城墙</div>
+              </div>
+            </div>
+            <div class="day-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+        </summary>
+        <div class="day-body">
+          <div class="tl">
+            <div class="tl-item">
+              <div class="tl-time">09:00</div>
+              <h4>🚇 Depart for Presidential Palace</h4>
+              <p>Line 10 → 安德门 → Line 1 → 新街口 → Line 2 → 大行宫站 Exit 5. ~50 min.</p>
+              <p class="cn" contenteditable="true">10号线浦口万汇城站出发，换乘至大行宫站5号口出，约50分钟</p>
+              <div class="tags"><span class="tag tag-transport">Metro 地铁</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">09:50</div>
+              <h4>🏛️ Presidential Palace <span contenteditable="true">总统府</span></h4>
+              <p>600+ years of history: Ming prince's mansion → Qing governor's office → Taiping Heavenly Kingdom → Republic of China. Allow 2–3 hours.</p>
+              <p class="cn" contenteditable="true">600多年历史：明代汉王府 → 清代两江总督署 → 太平天国天朝宫殿 → 民国总统府。建议游览2-3小时</p>
+              <div class="tags"><span class="tag tag-history">History 历史</span><span class="tag tag-tip">Book Ahead 提前预约</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">12:30</div>
+              <h4>🍜 Lunch at 1912 Block <span contenteditable="true">午餐·1912街区</span></h4>
+              <p>Restaurants next to the Presidential Palace. Or walk to 碑亭巷 / 科巷 for local snacks.</p>
+              <p class="cn" contenteditable="true">总统府旁1912街区有各类餐厅，或步行至碑亭巷/科巷品尝本地小吃</p>
+              <div class="tags"><span class="tag tag-food">Food 美食</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">14:00</div>
+              <h4>🧱 Zhonghua Gate <span contenteditable="true">中华门城堡</span></h4>
+              <p>Line 2: 大行宫 → 中华门. China's largest city gate with three nested "urn courts" (瓮城). Walk on the wall.</p>
+              <p class="cn" contenteditable="true">2号线大行宫站至中华门站。中国现存最大城门，三道瓮城结构精妙</p>
+              <div class="tags"><span class="tag tag-history">History 历史</span><span class="tag tag-scenic">Must-see 必看</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">16:30</div>
+              <h4>🏘️ Old Gate East <span contenteditable="true">老门东历史街区</span></h4>
+              <p>Restored historical neighbourhood. Traditional architecture, teahouses, craft shops, cafés.</p>
+              <p class="cn" contenteditable="true">紧邻中华门的修复历史街区，青砖小巷、文创小店和咖啡馆</p>
+              <div class="tags"><span class="tag tag-scenic">Scenic 风景</span><span class="tag tag-food">Food 美食</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">18:00</div>
+              <h4>🏮 Qinhuai River Night View <span contenteditable="true">夫子庙·秦淮河夜景</span></h4>
+              <p>Night market, street food, evening boat ride. Stunning illuminated waterfront.</p>
+              <p class="cn" contenteditable="true">夜市小吃、秦淮河画舫夜游，灯光璀璨</p>
+              <div class="tags"><span class="tag tag-scenic">Night View 夜景</span><span class="tag tag-food">Street Food 小吃</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">20:30</div>
+              <h4>🚇 Return to Hotel <span contenteditable="true">返回酒店</span></h4>
+              <p>Line 3 → 大行宫 → Line 1 → 安德门 → Line 10 → 浦口万汇城. ~55 min.</p>
+              <p class="cn" contenteditable="true">3号线夫子庙站出发，换乘回浦口万汇城站，约55分钟</p>
+              <div class="tags"><span class="tag tag-transport">Metro 地铁</span></div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- DAY 2 -->
+      <details class="day-card day2">
+        <summary>
+          <div class="day-accent"></div>
+          <div class="day-summary-inner">
+            <div class="day-left">
+              <div class="day-num">02</div>
+              <div class="day-meta">
+                <h3 contenteditable="true">City Wall Walk & Museum</h3>
+                <div class="day-sub">July 9 · 城墙漫步与博物馆</div>
+                <div class="day-sub-cn" contenteditable="true">漫步明城墙·南京博物院</div>
+              </div>
+            </div>
+            <div class="day-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+        </summary>
+        <div class="day-body">
+          <div class="tl">
+            <div class="tl-item">
+              <div class="tl-time">08:30</div>
+              <h4>🚇 Head to Jiming Temple <span contenteditable="true">前往鸡鸣寺</span></h4>
+              <p>Metro to 鸡鸣寺站 (Line 3). Early start avoids midday heat.</p>
+              <p class="cn" contenteditable="true">地铁3号线鸡鸣寺站，早出发避开正午高温</p>
+              <div class="tags"><span class="tag tag-transport">Metro 地铁</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">09:00</div>
+              <h4>⛪ Jiming Temple <span contenteditable="true">鸡鸣寺</span></h4>
+              <p>One of Nanjing's oldest temples (est. ~300 AD). Rooftop pagoda with panoramic views. ~45 min.</p>
+              <p class="cn" contenteditable="true">南京最古老的寺庙之一（始建于约300年），登顶可俯瞰全城</p>
+              <div class="tags"><span class="tag tag-history">History 历史</span><span class="tag tag-scenic">Views 观景</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">10:00</div>
+              <h4>🧱 City Wall: Taicheng Section <span contenteditable="true">台城段城墙漫步</span></h4>
+              <p>Walk from 鸡鸣寺 to 玄武门. ~1.5 km on 600-year-old wall with Xuanwu Lake panorama.</p>
+              <p class="cn" contenteditable="true">从鸡鸣寺附近登城向西至玄武门，约1.5公里，俯瞰玄武湖全景</p>
+              <div class="tags"><span class="tag tag-history">City Wall 城墙</span><span class="tag tag-scenic">Panorama 全景</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">12:00</div>
+              <h4>🍜 Lunch near Xuanwu Lake <span contenteditable="true">玄武湖附近午餐</span></h4>
+              <p>Many options near 玄武门. Local noodle shops or food courts.</p>
+              <p class="cn" contenteditable="true">玄武门附近餐饮选择丰富</p>
+              <div class="tags"><span class="tag tag-food">Food 美食</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">13:30</div>
+              <h4>🏛️ Nanjing Museum <span contenteditable="true">南京博物院</span></h4>
+              <p>China's Top 3 museums. Free, reserve via WeChat. Republic-era street highlight. ~2-3 hours.</p>
+              <p class="cn" contenteditable="true">中国三大博物馆之一，免费（需微信预约）。民国街实景复原是亮点</p>
+              <div class="tags"><span class="tag tag-museum">Museum 博物馆</span><span class="tag tag-tip">Free 免费</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">17:00</div>
+              <h4>☕ Rest & Dinner <span contenteditable="true">休息与晚餐</span></h4>
+              <p>Head back to Pukou or stay in the city. Take it easy!</p>
+              <p class="cn" contenteditable="true">返回浦口或留在市区用餐</p>
+              <div class="tags"><span class="tag tag-tip">Rest 休息</span></div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- DAY 3 -->
+      <details class="day-card day3">
+        <summary>
+          <div class="day-accent"></div>
+          <div class="day-summary-inner">
+            <div class="day-left">
+              <div class="day-num">03</div>
+              <div class="day-meta">
+                <h3 contenteditable="true">Nature Day — Mountain & River</h3>
+                <div class="day-sub">July 10 · 自然日</div>
+                <div class="day-sub-cn" contenteditable="true">老山森林与滨江风光</div>
+              </div>
+            </div>
+            <div class="day-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+        </summary>
+        <div class="day-body">
+          <div class="tl">
+            <div class="tl-item">
+              <div class="tl-time">08:00</div>
+              <h4>🌲 Old Mountain Forest Park <span contenteditable="true">老山国家森林公园</span></h4>
+              <p>"Nanjing's Green Lung" — 80% forest coverage. Bus or taxi from Pukou (~20 min).</p>
+              <p class="cn" contenteditable="true">"南京绿肺"，森林覆盖率超80%。从浦口打车约20分钟</p>
+              <div class="tags"><span class="tag tag-scenic">Nature 自然</span><span class="tag tag-tip">Go Early 早去</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">12:00</div>
+              <h4>🍜 Lunch — Fish Soup Noodles <span contenteditable="true">午餐·鱼汤面</span></h4>
+              <p>Try 古都张姐鱼汤面 or 龙湖江北天街 food court.</p>
+              <p class="cn" contenteditable="true">品尝古都张姐鱼汤面（浦口名面），或去龙湖江北天街美食城</p>
+              <div class="tags"><span class="tag tag-food">Food 美食</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">14:00</div>
+              <h4>🌊 Riverside Scenic Belt <span contenteditable="true">南京滨江风光带</span></h4>
+              <p>Long riverside promenade along the Yangtze. See the Nanjing Yangtze River Bridge.</p>
+              <p class="cn" contenteditable="true">沿长江的滨江步道，可远眺南京长江大桥</p>
+              <div class="tags"><span class="tag tag-scenic">River View 江景</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">17:00</div>
+              <h4>🍽️ Dinner at Wanchenghui <span contenteditable="true">万汇城晚餐</span></h4>
+              <p>Back to hotel area. Wanchenghui mall — restaurants, cafés, shops.</p>
+              <p class="cn" contenteditable="true">回到酒店附近万汇城商场</p>
+              <div class="tags"><span class="tag tag-food">Food 美食</span></div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- DAY 4 -->
+      <details class="day-card day4">
+        <summary>
+          <div class="day-accent"></div>
+          <div class="day-summary-inner">
+            <div class="day-left">
+              <div class="day-num">04</div>
+              <div class="day-meta">
+                <h3 contenteditable="true">Souvenirs & Farewell</h3>
+                <div class="day-sub">July 11 · 伴手礼与告别</div>
+                <div class="day-sub-cn" contenteditable="true">购物·告别南京</div>
+              </div>
+            </div>
+            <div class="day-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+        </summary>
+        <div class="day-body">
+          <div class="tl">
+            <div class="tl-item">
+              <div class="tl-time">09:00</div>
+              <h4>🛒 Shopping <span contenteditable="true">新街口购物</span></h4>
+              <p>Nanjing's busiest shopping district. Souvenirs: 南京板鸭, 雨花石, 云锦.</p>
+              <p class="cn" contenteditable="true">南京最繁华商圈，伴手礼：板鸭、雨花石、云锦</p>
+              <div class="tags"><span class="tag tag-tip">Souvenirs 伴手礼</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">12:00</div>
+              <h4>🦆 Farewell Lunch <span contenteditable="true">告别午餐·南京大排档</span></h4>
+              <p>Last chance for 盐水鸭, 鸭血粉丝汤. Try 南京大排档.</p>
+              <p class="cn" contenteditable="true">最后品尝盐水鸭、鸭血粉丝汤，推荐南京大排档</p>
+              <div class="tags"><span class="tag tag-food">Must-eat 必吃</span></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">14:00</div>
+              <h4>📦 Departure <span contenteditable="true">启程</span></h4>
+              <p>Pack up, head to airport or train station. Safe travels!</p>
+              <p class="cn" contenteditable="true">收拾行李，前往机场或火车站，一路平安！</p>
+              <div class="tags"><span class="tag tag-transport">Departure 启程</span></div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- ===== FOOD ===== -->
+  <div class="section-bg section-bg-food">
+    <div class="container">
+      <div class="section-label">
+        <span class="dot"></span>
+        <h2>美食指南</h2>
+        <span class="en">Food Guide</span>
+      </div>
+      <div class="food-grid">
+        <div class="food-card">
+          <div class="fc-emoji">🦆</div>
+          <div class="fc-type">Signature 招牌</div>
+          <h4>Salted Duck</h4>
+          <div class="fc-cn" contenteditable="true">盐水鸭</div>
+          <p>Nanjing's most famous dish. Silky, subtly salty, served cold.</p>
+          <p class="cn" contenteditable="true">南京最著名菜品，口感细嫩，微咸，冷盘</p>
+          <div class="fc-price">💰 ~30–50 RMB</div>
+        </div>
+        <div class="food-card">
+          <div class="fc-emoji">🍲</div>
+          <div class="fc-type">Street Classic 经典</div>
+          <h4>Duck Blood Soup</h4>
+          <div class="fc-cn" contenteditable="true">鸭血粉丝汤</div>
+          <p>Rich broth with duck blood, tofu skin, and vermicelli.</p>
+          <p class="cn" contenteditable="true">浓郁高汤配鸭血、豆腐皮和粉丝</p>
+          <div class="fc-price">💰 ~15–25 RMB</div>
+        </div>
+        <div class="food-card">
+          <div class="fc-emoji">🥟</div>
+          <div class="fc-type">Breakfast 早餐</div>
+          <h4>Pan-Fried Dumplings</h4>
+          <div class="fc-cn" contenteditable="true">锅贴</div>
+          <p>Crispy bottom, juicy filling. Best fresh from the pan.</p>
+          <p class="cn" contenteditable="true">底部酥脆，内馅多汁，趁热吃</p>
+          <div class="fc-price">💰 ~10–15 RMB</div>
+        </div>
+        <div class="food-card">
+          <div class="fc-emoji">🐟</div>
+          <div class="fc-type">Pukou Famous 浦口名店</div>
+          <h4>Fish Soup Noodles</h4>
+          <div class="fc-cn" contenteditable="true">鱼汤面</div>
+          <p>Creamy fish broth noodles. Famous at 古都张姐.</p>
+          <p class="cn" contenteditable="true">奶白鱼汤面，古都张姐为浦口名店</p>
+          <div class="fc-price">💰 ~49–169 RMB</div>
+        </div>
+        <div class="food-card">
+          <div class="fc-emoji">🍡</div>
+          <div class="fc-type">Dessert 甜品</div>
+          <h4>Red Bean Dumplings</h4>
+          <div class="fc-cn" contenteditable="true">赤豆元宵</div>
+          <p>Sweet glutinous rice balls in warm red bean soup.</p>
+          <p class="cn" contenteditable="true">糯米小汤圆配温热红豆汤</p>
+          <div class="fc-price">💰 ~10–15 RMB</div>
+        </div>
+        <div class="food-card">
+          <div class="fc-emoji">🫕</div>
+          <div class="fc-type">Restaurant 餐厅</div>
+          <h4>Nanjing Impressions</h4>
+          <div class="fc-cn" contenteditable="true">南京大排档</div>
+          <p>Classic Nanjing dishes in traditional setting.</p>
+          <p class="cn" contenteditable="true">经典南京菜，传统氛围，适合聚餐</p>
+          <div class="fc-price">💰 ~80–120 / person</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TIPS ===== -->
+  <div class="section-bg section-bg-tips">
+    <div class="container">
+      <div class="section-label">
+        <span class="dot"></span>
+        <h2>实用贴士</h2>
+        <span class="en">Practical Tips</span>
+      </div>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <h4>🎫 Booking 预约</h4>
+          <ul>
+            <li><strong>Presidential Palace 总统府:</strong> WeChat "南京总统府", 1–7 days ahead</li>
+            <li><strong>Nanjing Museum 南京博物院:</strong> Free, reserve via WeChat</li>
+            <li><strong>City Wall 城墙:</strong> On-site or Meituan app</li>
+          </ul>
+        </div>
+        <div class="tip-card">
+          <h4>🚇 Transport 交通</h4>
+          <ul>
+            <li><strong>Alipay / WeChat Pay</strong> — essential 付款必备</li>
+            <li><strong>Line 10</strong> 浦口万汇城站 → downtown ~50 min</li>
+            <li><strong>Didi</strong> (Chinese Uber) for convenience</li>
+            <li>Metro card or Alipay QR 扫码乘车</li>
+          </ul>
+        </div>
+        <div class="tip-card">
+          <h4>☀️ July Heat 七月防暑</h4>
+          <ul>
+            <li>35°C+ and very humid 高温潮湿</li>
+            <li>Carry water, sunscreen, hat 防晒三件套</li>
+            <li>Outdoor activities: morning or evening</li>
+            <li>Museums & malls = midday refuges 避暑</li>
+          </ul>
+        </div>
+        <div class="tip-card">
+          <h4>📱 Useful Apps 实用App</h4>
+          <ul>
+            <li><strong>Alipay / WeChat</strong> — payments 支付</li>
+            <li><strong>高德地图</strong> — best navigation 导航</li>
+            <li><strong>大众点评</strong> — restaurant reviews 美食</li>
+            <li><strong>小红书</strong> — travel tips 攻略</li>
+            <li><strong>Didi</strong> — ride-hailing 打车</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="f-logo">南京 · NANJING</div>
+    <p>Made with ❤️ for Richard's Trip · July 2026</p>
+    <p style="margin-top:6px; font-size:0.72rem; opacity:0.5;">Click any text to edit · 点击文字即可编辑</p>
+  </div>
+</div>
+
+<!-- ===== MAP (Pure Canvas — no external deps) ===== -->
+<script>
+(function() {
+  const container = document.getElementById('mapContainer');
+  const canvas = document.getElementById('mapCanvas');
+  const ctx = canvas.getContext('2d');
+
+  // Map bounds (Nanjing area)
+  const bounds = {
+    minLat: 32.00, maxLat: 32.14,
+    minLng: 118.62, maxLng: 118.86
+  };
+
+  // Spots data
+  const spots = [
+    { name: "Your Hotel", cn: "你们的公寓", lat: 32.0686, lng: 118.7134, color: "#555", emoji: "🏠",
+      desc: "Mingfa Fortune Center 5#-307\nPukou Avenue 6, Pukou District\n5 min walk to Line 10 浦口万汇城站",
+      descCn: "浦口区浦口大道6号5幢307室\n步行5分钟到地铁10号线浦口万汇城站",
+      tags: ["Hotel 住宿"], dist: null },
+    { name: "Presidential Palace", cn: "总统府", lat: 32.0466, lng: 118.7947, color: "#e74c3c", emoji: "🏛️",
+      desc: "600+ years of history. Ming → Qing → Taiping → ROC.\nBook: WeChat '南京总统府'\nTicket: ~35 RMB",
+      descCn: "600多年历史，明代至民国\n微信小程序预约，门票约35元",
+      tags: ["History 历史"], dist: { km: 9.2, metro: "10号线→1号线→2号线 大行宫站 · 约50min", taxi: "约25min · ¥25-35", bus: "609路/683路 → 换乘 · 约70min" } },
+    { name: "Zhonghua Gate", cn: "中华门城堡", lat: 32.0188, lng: 118.7784, color: "#e74c3c", emoji: "🧱",
+      desc: "China's largest city gate. 3 nested urn courts.\nWalk on 600-year-old wall.\nTicket: ~50 RMB",
+      descCn: "中国现存最大城门，三道瓮城\n可登城墙行走，门票约50元",
+      tags: ["History 历史", "City Wall 城墙"], dist: { km: 10.5, metro: "10号线→1号线→2号线 中华门站 · 约55min", taxi: "约30min · ¥30-40", bus: "609路 → 换乘 · 约80min" } },
+    { name: "Old Gate East", cn: "老门东", lat: 32.0214, lng: 118.7796, color: "#2ecc71", emoji: "🏘️",
+      desc: "Restored historical neighbourhood.\nTraditional architecture, cafés, craft shops.\nFree.",
+      descCn: "修复历史街区\n传统建筑、咖啡馆、文创店，免费",
+      tags: ["Scenic 风景", "Free 免费"], dist: { km: 10.3, metro: "10号线→1号线→3号线 武定门站 · 约60min", taxi: "约30min · ¥30-40", bus: "609路 → 换乘 · 约80min" } },
+    { name: "Confucius Temple", cn: "夫子庙", lat: 32.0236, lng: 118.7860, color: "#f39c12", emoji: "🏮",
+      desc: "Night market, street food, Qinhuai River boats.\nBest in the evening.\nBoats ~80 RMB.",
+      descCn: "夜市小吃、秦淮河画舫\n建议傍晚前往，画舫约80元",
+      tags: ["Night View 夜景", "Food 美食"], dist: { km: 10.8, metro: "10号线→3号线 夫子庙站 · 约55min", taxi: "约30min · ¥30-40", bus: "609路 → 换乘 · 约75min" } },
+    { name: "Jiming Temple", cn: "鸡鸣寺", lat: 32.0618, lng: 118.7932, color: "#e74c3c", emoji: "⛪",
+      desc: "Est. ~300 AD. Nanjing's oldest temple.\nRooftop pagoda, panoramic views.\nTicket: ~10 RMB.",
+      descCn: "始建于约300年，南京最古老寺庙\n登顶俯瞰全城，门票约10元",
+      tags: ["History 历史", "Views 观景"], dist: { km: 9.5, metro: "10号线→3号线 鸡鸣寺站 · 约50min", taxi: "约25min · ¥25-35", bus: "609路 → 换乘 · 约70min" } },
+    { name: "City Wall: Taicheng", cn: "台城段城墙", lat: 32.0580, lng: 118.7870, color: "#e74c3c", emoji: "🧱",
+      desc: "Classic walk: Jiming Temple → Xuanwu Gate.\n~1.5 km, Xuanwu Lake panorama.",
+      descCn: "经典路线：鸡鸣寺→玄武门\n约1.5公里，俯瞰玄武湖",
+      tags: ["City Wall 城墙"], dist: { km: 9.3, metro: "10号线→3号线 鸡鸣寺站 · 约50min", taxi: "约25min · ¥25-35", bus: "609路 → 换乘 · 约70min" } },
+    { name: "Nanjing Museum", cn: "南京博物院", lat: 32.0456, lng: 118.8214, color: "#3498db", emoji: "🏛️",
+      desc: "China's Top 3 museums. Free.\nReserve via WeChat.\nRepublic-era street highlight.",
+      descCn: "中国三大博物馆之一，免费\n需微信预约，民国街是亮点",
+      tags: ["Museum 博物馆", "Free 免费"], dist: { km: 11.2, metro: "10号线→2号线 明故宫站 · 约55min", taxi: "约30min · ¥30-40", bus: "609路 → 换乘 · 约80min" } },
+    { name: "Xuanwu Lake", cn: "玄武湖公园", lat: 32.0578, lng: 118.7906, color: "#3498db", emoji: "🌊",
+      desc: "Beautiful lakeside park. Free.\nWalk, cycle, or boat.",
+      descCn: "美丽湖畔公园，免费\n散步、骑行、划船",
+      tags: ["Nature 自然", "Free 免费"], dist: { km: 9.0, metro: "10号线→1号线→1号线 玄武门站 · 约50min", taxi: "约25min · ¥25-30", bus: "609路 → 换乘 · 约70min" } },
+    { name: "Old Mountain", cn: "老山森林公园", lat: 32.1050, lng: 118.6450, color: "#3498db", emoji: "🌲",
+      desc: "Nanjing's Green Lung. 80 km².\n80% forest. Ticket: ~33 RMB.",
+      descCn: "南京绿肺，80平方公里\n森林覆盖率超80%，门票约33元",
+      tags: ["Nature 自然"], dist: { km: 8.5, metro: "无直达，建议打车", taxi: "约20min · ¥20-25", bus: "608路/611路 · 约40min" } },
+    { name: "1912 Block", cn: "1912街区", lat: 32.0488, lng: 118.7938, color: "#f39c12", emoji: "🍽️",
+      desc: "Restaurant street next to Presidential Palace.\nVarious cuisines.",
+      descCn: "总统府旁餐饮街，各类菜系",
+      tags: ["Food 美食"], dist: { km: 9.3, metro: "10号线→1号线→2号线 大行宫站 · 约50min", taxi: "约25min · ¥25-35", bus: "609路 → 换乘 · 约70min" } },
+    { name: "Wanchenghui", cn: "万汇城商场", lat: 32.0688, lng: 118.7100, color: "#9b59b6", emoji: "🛍️",
+      desc: "Shopping mall near hotel.\nRestaurants, cafés, shops.",
+      descCn: "酒店附近商场，餐饮购物",
+      tags: ["Shopping 购物"], dist: { km: 0.3, metro: "步行5min · 浦口万汇城站", taxi: "步行即可", bus: "步行即可" } },
+    { name: "Yangtze Bridge", cn: "长江大桥", lat: 32.1228, lng: 118.7415, color: "#2ecc71", emoji: "🌉",
+      desc: "Iconic bridge across the Yangtze.\nWalk or cycle. Free.",
+      descCn: "横跨长江的标志性大桥\n可步行或骑行，免费",
+      tags: ["Landmark 地标"], dist: { km: 7.5, metro: "无直达，建议打车", taxi: "约20min · ¥20-25", bus: "603路 · 约35min" } },
+    { name: "Food St near Gate", cn: "中华门美食街", lat: 32.0196, lng: 118.7810, color: "#f39c12", emoji: "🍜",
+      desc: "Street food near Zhonghua Gate.\nDuck blood soup, snacks.",
+      descCn: "中华门附近小吃街\n鸭血粉丝汤、各类小吃",
+      tags: ["Food 美食"], dist: { km: 10.4, metro: "10号线→1号线→2号线 中华门站 · 约55min", taxi: "约30min · ¥30-40", bus: "609路 → 换乘 · 约80min" } },
+    // ===== Nearby spots (within 80min round trip) =====
+    { name: "Qiuyu Mountain Park", cn: "求雨山文化公园", lat: 32.0580, lng: 118.6950, color: "#e74c3c", emoji: "🏔️",
+      desc: "Calligraphy culture park. Home of 'Four Elders of Jinling'.\nFree. Scenic hilltop views.\n~30 min round trip.",
+      descCn: "书法文化公园，"金陵四老"纪念馆\n免费，山顶视野开阔\n往返约30分钟",
+      tags: ["Culture 文化", "Free 免费"], dist: { km: 2.0, metro: "步行20min / 骑车8min", taxi: "约5min · ¥8", bus: "步行可达" } },
+    { name: "Chengnan River Park", cn: "城南河公园", lat: 32.0620, lng: 118.7000, color: "#2ecc71", emoji: "🌿",
+      desc: "Riverside park with renovated walkways.\n3 viewing bridges, 2 waterfront platforms.\nPerfect for evening stroll. Free.",
+      descCn: "翻新河岸公园，步道+观景桥+亲水平台\n傍晚散步绝佳，免费",
+      tags: ["Leisure 散步", "Free 免费"], dist: { km: 1.2, metro: "步行15min", taxi: "步行即可", bus: "步行可达" } },
+    { name: "Pukou Train Station", cn: "浦口火车站", lat: 32.0585, lng: 118.7145, color: "#e74c3c", emoji: "🚂",
+      desc: "Historic train station (1914).\nFamous from 'Sun Yat-sen' and 'Let the Bullets Fly'.\nFree to visit exterior. ~20 min round trip.",
+      descCn: "百年火车站（1914年建），历史底蕴深厚\n多部影视剧取景地，免费参观外观\n往返约20分钟",
+      tags: ["History 历史", "Free 免费"], dist: { km: 0.8, metro: "步行10min", taxi: "步行即可", bus: "步行可达" } },
+    { name: "NJTU Campus", cn: "南京工业大学", lat: 32.0620, lng: 118.6880, color: "#3498db", emoji: "🎓",
+      desc: "Beautiful campus with green spaces.\nCafeterias open to visitors.\nFree. ~15 min round trip.",
+      descCn: "美丽校园，绿地开阔\n食堂对外开放，免费参观\n往返约15分钟",
+      tags: ["Campus 校园", "Free 免费"], dist: { km: 2.5, metro: "骑车10min / 打车5min", taxi: "约5min · ¥8", bus: "609路 · 约10min" } },
+    { name: "Chuhe Scenic Belt", cn: "滁河风光带", lat: 32.0950, lng: 118.6650, color: "#2ecc71", emoji: "🌳",
+      desc: "14.8 km scenic belt along Chu River.\n7 scenic spots, orchards, wetlands.\nNational-level water park. Free.",
+      descCn: "14.8公里滁河风光带\n七个景点、果树段、湿地\n国家级水利风景区，免费",
+      tags: ["Nature 自然", "Free 免费"], dist: { km: 5.5, metro: "无直达，打车15min", taxi: "约15min · ¥15-18", bus: "608路 · 约25min" } },
+    { name: "Zhulong Mountain", cn: "猪龙山/龙王山", lat: 32.0850, lng: 118.6800, color: "#3498db", emoji: "⛰️",
+      desc: "Small mountain park near Pukou.\nEasy hiking trails, city views.\nFree. ~40 min round trip.",
+      descCn: "浦口附近的小山公园\n轻松步道，可看城市景色\n免费，往返约40分钟",
+      tags: ["Hiking 徒步", "Free 免费"], dist: { km: 4.0, metro: "无直达，打车10min", taxi: "约10min · ¥10-12", bus: "611路 · 约20min" } },
+    { name: "Sasseur Outlets", cn: "砂之船奥莱", lat: 32.0600, lng: 118.6980, color: "#9b59b6", emoji: "🛍️",
+      desc: "Large outlet mall. Brands, dining, cinema.\nNext to Chengnan River Park.\n~25 min round trip.",
+      descCn: "大型奥特莱斯商场，品牌折扣+餐饮+影院\n紧邻城南河公园\n往返约25分钟",
+      tags: ["Shopping 购物", "Dining 餐饮"], dist: { km: 1.5, metro: "步行18min / 骑车6min", taxi: "约5min · ¥8", bus: "步行可达" } },
+  ];
+
+  let W, H;
+  let activePopup = null;
+  let popupEl = null;
+
+  function resize() {
+    W = container.clientWidth;
+    H = container.clientHeight;
+    canvas.width = W * devicePixelRatio;
+    canvas.height = H * devicePixelRatio;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+
+  function latLngToXY(lat, lng) {
+    const x = ((lng - bounds.minLng) / (bounds.maxLng - bounds.minLng)) * W;
+    const y = ((bounds.maxLat - lat) / (bounds.maxLat - bounds.minLat)) * H;
+    return { x, y };
+  }
+
+  function draw() {
+    // Background
+    ctx.fillStyle = '#e8e4de';
+    ctx.fillRect(0, 0, W, H);
+
+    // Grid lines (subtle)
+    ctx.strokeStyle = 'rgba(200,195,185,0.4)';
+    ctx.lineWidth = 0.5;
+    for (let lat = 32.01; lat <= 32.13; lat += 0.02) {
+      const p = latLngToXY(lat, bounds.minLng);
+      ctx.beginPath(); ctx.moveTo(0, p.y); ctx.lineTo(W, p.y); ctx.stroke();
+    }
+    for (let lng = 118.64; lng <= 118.84; lng += 0.04) {
+      const p = latLngToXY(bounds.minLat, lng);
+      ctx.beginPath(); ctx.moveTo(p.x, 0); ctx.lineTo(p.x, H); ctx.stroke();
+    }
+
+    // Yangtze River (approximate curved path)
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(100,160,210,0.35)';
+    ctx.lineWidth = 18;
+    ctx.lineCap = 'round';
+    const riverPts = [
+      [32.13, 118.62], [32.12, 118.66], [32.115, 118.70],
+      [32.11, 118.74], [32.105, 118.78], [32.09, 118.82], [32.08, 118.86]
+    ];
+    riverPts.forEach((pt, i) => {
+      const p = latLngToXY(pt[0], pt[1]);
+      if (i === 0) ctx.moveTo(p.x, p.y);
+      else ctx.lineTo(p.x, p.y);
+    });
+    ctx.stroke();
+
+    // River label
+    const rp = latLngToXY(32.12, 118.72);
+    ctx.save();
+    ctx.font = '11px Inter, sans-serif';
+    ctx.fillStyle = 'rgba(80,130,180,0.5)';
+    ctx.textAlign = 'center';
+    ctx.fillText('长江 Yangtze River', rp.x, rp.y - 10);
+    ctx.restore();
+
+    // Route line (hotel → main spots)
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(201,168,76,0.35)';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([6, 6]);
+    const route = [
+      [32.0686, 118.7134], [32.0618, 118.7932], [32.0580, 118.7870],
+      [32.0466, 118.7947], [32.0188, 118.7784], [32.0214, 118.7796], [32.0236, 118.7860]
+    ];
+    route.forEach((pt, i) => {
+      const p = latLngToXY(pt[0], pt[1]);
+      if (i === 0) ctx.moveTo(p.x, p.y);
+      else ctx.lineTo(p.x, p.y);
+    });
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Markers
+    spots.forEach((s, idx) => {
+      const p = latLngToXY(s.lat, s.lng);
+      // Shadow
+      ctx.beginPath();
+      ctx.arc(p.x, p.y + 2, 15, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0,0,0,0.15)';
+      ctx.fill();
+      // Circle
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 14, 0, Math.PI * 2);
+      ctx.fillStyle = s.color;
+      ctx.fill();
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      // Emoji
+      ctx.font = '14px serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(s.emoji, p.x, p.y);
+      // Label
+      ctx.font = '600 9px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      ctx.fillStyle = 'rgba(255,255,255,0.92)';
+      const tw = ctx.measureText(s.cn).width + 8;
+      const lx = p.x - tw / 2;
+      const ly = p.y + 18;
+      ctx.beginPath();
+      ctx.roundRect(lx, ly, tw, 16, 4);
+      ctx.fill();
+      ctx.fillStyle = '#333';
+      ctx.fillText(s.cn, p.x, ly + 2);
+      // Store position for click
+      s._x = p.x;
+      s._y = p.y;
+      s._idx = idx;
+    });
+  }
+
+  // Click handler
+  canvas.addEventListener('click', function(e) {
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+
+    let hit = null;
+    spots.forEach(s => {
+      const dx = mx - s._x;
+      const dy = my - s._y;
+      if (Math.sqrt(dx * dx + dy * dy) < 20) hit = s;
+    });
+
+    if (hit) showPopup(hit, e.clientX, e.clientY);
+    else hidePopup();
+  });
+
+  function showPopup(spot, cx, cy) {
+    hidePopup();
+    const tagColors = {
+      'History': ['#fef2f2', '#dc2626'], 'City Wall': ['#fef2f2', '#dc2626'],
+      'Food': ['#fef7ed', '#d97706'], 'Night View': ['#fef7ed', '#d97706'],
+      'Street Food': ['#fef7ed', '#d97706'],
+      'Nature': ['#f0fdf4', '#16a34a'], 'Scenic': ['#f0fdf4', '#16a34a'],
+      'Views': ['#f0fdf4', '#16a34a'], 'Free': ['#f0fdf4', '#16a34a'],
+      'Museum': ['#f0f9ff', '#0284c7'], 'Shopping': ['#faf5ff', '#9333ea'],
+      'Hotel': ['#f5f5f5', '#555'], 'Landmark': ['#f0fdf4', '#16a34a'],
+      'Must-see': ['#fef2f2', '#dc2626'],
+    };
+    const tagsHtml = spot.tags.map(t => {
+      const key = t.split(' ')[0];
+      const [bg, fg] = tagColors[key] || ['#f0f9ff', '#0284c7'];
+      return `<span class="popup-tag" style="background:${bg};color:${fg};">${t}</span>`;
+    }).join('');
+
+    popupEl = document.createElement('div');
+    popupEl.className = 'spot-popup show';
+    let distHtml = '';
+    if (spot.dist) {
+      distHtml = `
+        <div class="popup-dist">
+          <div class="dist-title">📍 Distance from Hotel · 距公寓</div>
+          <div class="dist-line"><span class="dist-icon">📏</span> <span class="dist-val">${spot.dist.km} km</span></div>
+          <div class="dist-line"><span class="dist-icon">🚇</span> <span>${spot.dist.metro}</span></div>
+          <div class="dist-line"><span class="dist-icon">🚕</span> <span>${spot.dist.taxi}</span></div>
+          <div class="dist-line"><span class="dist-icon">🚌</span> <span>${spot.dist.bus}</span></div>
+        </div>
+      `;
+    }
+    popupEl.innerHTML = `
+      <button class="popup-close" onclick="document.querySelector('.spot-popup')?.remove()">✕</button>
+      <div class="popup-emoji">${spot.emoji}</div>
+      <div class="popup-name">${spot.name}</div>
+      <div class="popup-cn">${spot.cn}</div>
+      <div class="popup-desc">${spot.desc.replace(/\n/g, '<br>')}</div>
+      <div class="popup-desc-cn">${spot.descCn.replace(/\n/g, '<br>')}</div>
+      ${distHtml}
+      <div class="popup-tags">${tagsHtml}</div>
+    `;
+    container.appendChild(popupEl);
+
+    // Position popup above the marker
+    const rect = container.getBoundingClientRect();
+    let px = spot._x;
+    let py = spot._y - 30;
+    // Clamp
+    if (px < 150) px = 150;
+    if (px > W - 150) px = W - 150;
+    if (py < 180) py = spot._y + 40; // show below if too close to top
+    popupEl.style.left = px + 'px';
+    popupEl.style.top = py + 'px';
+    popupEl.style.transform = 'translate(-50%, -100%)';
+  }
+
+  function hidePopup() {
+    document.querySelectorAll('.spot-popup').forEach(el => el.remove());
+  }
+
+  // Close popup on outside click
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('#mapContainer') && !e.target.closest('.spot-popup')) {
+      hidePopup();
+    }
+  });
+
+  // Init
+  resize();
+  window.addEventListener('resize', resize);
+})();
+</script>
+
+<!-- ===== LANG & EDIT ===== -->
+<script>
+function setLang(lang, btn) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.cn, .day-sub-cn, .fc-cn').forEach(el => {
+    el.style.display = lang === 'en' ? 'none' : 'block';
+  });
+}
+document.addEventListener('input', function(e) {
+  if (e.target.hasAttribute('contenteditable')) {
+    const key = 'nj_edit_' + btoa(unescape(encodeURIComponent(e.target.textContent.substring(0, 30))));
+    localStorage.setItem(key, e.target.innerHTML);
+  }
+});
+window.addEventListener('load', function() {
+  document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+    const key = 'nj_edit_' + btoa(unescape(encodeURIComponent(el.textContent.substring(0, 30))));
+    const saved = localStorage.getItem(key);
+    if (saved) el.innerHTML = saved;
+  });
+});
+document.querySelectorAll('.day-card summary').forEach(s => {
+  s.addEventListener('click', () => {
+    const body = s.parentElement.querySelector('.day-body');
+    if (!s.parentElement.open) {
+      body.style.opacity = '0';
+      body.style.transform = 'translateY(-10px)';
+      setTimeout(() => {
+        body.style.transition = 'opacity 0.3s, transform 0.3s';
+        body.style.opacity = '1';
+        body.style.transform = 'translateY(0)';
+      }, 10);
+    }
+  });
+});
+</script>
+
+</body>
+</html>

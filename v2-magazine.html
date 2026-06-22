@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nanjing · July 8–11, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   VERSION B — "Magazine" Style
+   杂志/画报型，视觉优先，精致好看
+   ======================================== */
+:root {
+  --ink: #111;
+  --paper: #fff;
+  --offwhite: #f5f3ef;
+  --warm: #b8860b;
+  --dark-gold: #8b6914;
+  --charcoal: #333;
+  --grey: #888;
+  --light-grey: #e5e5e5;
+  --accent-red: #c41e3a;
+  --font-display: 'Playfair Display', 'Noto Serif SC', serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.2rem 2.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+}
+.nav-logo {
+  font-family: var(--font-display); font-size: 1rem;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--charcoal);
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-lang { display: flex; gap: 0.3rem; }
+.nav-lang button {
+  padding: 0.25rem 0.6rem; border: 1px solid var(--light-grey); background: transparent;
+  border-radius: 3px; font-size: 0.72rem; cursor: pointer;
+  font-family: var(--font-sans); font-weight: 500; transition: all 0.2s; color: var(--grey);
+}
+.nav-lang button.active { background: var(--ink); color: white; border-color: var(--ink); }
+
+/* HERO — Full bleed magazine cover */
+.hero {
+  height: 100vh; position: relative; overflow: hidden;
+  display: flex; align-items: flex-end;
+}
+.hero-img {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1920&q=80') center/cover;
+}
+.hero-img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+}
+.hero-content {
+  position: relative; z-index: 1; padding: 4rem 4rem 5rem;
+  max-width: 800px;
+}
+.hero-issue {
+  font-size: 0.68rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--warm); margin-bottom: 1.5rem; font-weight: 600;
+}
+.hero h1 {
+  font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 5rem);
+  color: white; line-height: 1.05; margin-bottom: 1rem; font-weight: 700;
+}
+.hero h1 em { font-style: italic; color: var(--warm); }
+.hero-subtitle {
+  font-size: 1.05rem; color: rgba(255,255,255,0.6); font-weight: 300;
+  max-width: 480px; line-height: 1.8;
+}
+.hero-dates {
+  margin-top: 2rem; display: flex; gap: 2.5rem;
+}
+.hero-dates .date-item .dl {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 0.2rem;
+}
+.hero-dates .date-item .dv {
+  font-family: var(--font-display); font-size: 1.1rem; color: white;
+}
+
+/* SECTION — Magazine spread */
+.section { max-width: 960px; margin: 0 auto; padding: 7rem 2.5rem; }
+.section-num {
+  font-family: var(--font-display); font-size: 4rem; color: var(--offwhite);
+  font-weight: 700; line-height: 1; margin-bottom: 0.5rem;
+}
+.section-kicker {
+  font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--warm); font-weight: 600; margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15; margin-bottom: 1.2rem; color: var(--ink); font-weight: 700;
+}
+.section-intro {
+  font-size: 1rem; color: var(--grey); max-width: 540px; line-height: 1.9;
+  border-left: 2px solid var(--warm); padding-left: 1.5rem;
+}
+
+/* FULL WIDTH DIVIDER */
+.full-divider {
+  width: 100%; height: 1px; background: var(--light-grey);
+}
+
+/* WEATHER SPREAD */
+.weather-spread {
+  background: var(--offwhite);
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.weather-left {
+  padding: 5rem 3rem; display: flex; flex-direction: column; justify-content: center;
+}
+.weather-right {
+  padding: 5rem 3rem; display: flex; flex-direction: column; justify-content: center;
+  border-left: 1px solid var(--light-grey);
+}
+.weather-label {
+  font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--warm); font-weight: 600; margin-bottom: 2rem;
+}
+.temp-compare { display: flex; flex-direction: column; gap: 1.5rem; }
+.temp-row { display: flex; align-items: baseline; gap: 1rem; }
+.temp-city { font-size: 0.82rem; color: var(--grey); min-width: 100px; }
+.temp-val { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--ink); }
+.temp-desc { font-size: 0.82rem; color: #bbb; }
+.temp-badge {
+  display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem;
+  background: white; border: 1px solid var(--light-grey); border-radius: 4px;
+  font-size: 0.82rem; color: var(--accent-red); font-weight: 500;
+}
+.weather-tips-title {
+  font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1.5rem;
+}
+.weather-tip-list { display: flex; flex-direction: column; gap: 1.2rem; }
+.wtip { display: flex; gap: 0.8rem; }
+.wtip-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+.wtip-text { font-size: 0.88rem; color: #666; line-height: 1.7; }
+
+/* DAY CARD — Magazine article style */
+.day-article {
+  display: grid; grid-template-columns: 140px 1fr; gap: 0;
+  border-bottom: 1px solid var(--light-grey);
+}
+.day-article:last-child { border-bottom: none; }
+.day-sidebar {
+  padding: 2.5rem 2rem; border-right: 1px solid var(--light-grey);
+  display: flex; flex-direction: column; justify-content: flex-start;
+}
+.day-number {
+  font-family: var(--font-display); font-size: 3.5rem; font-weight: 700;
+  color: var(--offwhite); line-height: 1;
+}
+.day-weekday {
+  font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--grey); margin-top: 0.5rem;
+}
+.day-main { padding: 2.5rem 3rem; }
+.day-title {
+  font-family: var(--font-display); font-size: 1.8rem; font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.day-subtitle {
+  font-size: 0.85rem; color: var(--grey); margin-bottom: 2rem;
+}
+.day-events { display: flex; flex-direction: column; gap: 0; }
+.day-event {
+  display: grid; grid-template-columns: 80px 1fr; gap: 1.2rem;
+  padding: 1rem 0; border-bottom: 1px solid #f0f0f0; align-items: start;
+}
+.day-event:last-child { border-bottom: none; }
+.event-time {
+  font-size: 0.82rem; font-weight: 600; color: var(--charcoal); padding-top: 2px;
+}
+.event-content h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.1rem; }
+.event-content .ev-cn { font-size: 0.78rem; color: #ccc; margin-bottom: 0.3rem; }
+.event-content p { font-size: 0.85rem; color: #888; line-height: 1.65; }
+.event-badge {
+  display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.35rem;
+  padding: 0.2rem 0.5rem; background: var(--offwhite); border-radius: 3px;
+  font-size: 0.72rem; color: var(--grey);
+}
+.day-note-box {
+  margin-top: 1.5rem; padding: 1.2rem 1.5rem;
+  background: var(--offwhite); border-radius: 6px;
+  font-size: 0.82rem; color: #999; line-height: 1.7;
+}
+.day-note-box strong { color: var(--charcoal); }
+
+/* OPTIONS */
+.options-header {
+  font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--warm); font-weight: 600; margin: 1.5rem 0 0.8rem;
+}
+.options-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.option-item {
+  background: var(--offwhite); border-radius: 8px; padding: 1.3rem;
+  border: 1px solid transparent; transition: border-color 0.2s;
+}
+.option-item:hover { border-color: var(--warm); }
+.option-item h5 { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.1rem; }
+.option-item .opt-cn { font-size: 0.75rem; color: #ccc; margin-bottom: 0.4rem; }
+.option-item p { font-size: 0.8rem; color: #999; line-height: 1.5; }
+.option-item .opt-badge {
+  display: inline-block; margin-top: 0.4rem; font-size: 0.68rem;
+  padding: 0.15rem 0.4rem; background: white; border-radius: 3px; color: var(--grey);
+}
+
+/* FOOD GRID — Editorial layout */
+.food-editorial { display: flex; flex-direction: column; gap: 0; }
+.food-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0;
+  border-bottom: 1px solid var(--light-grey);
+}
+.food-row:last-child { border-bottom: none; }
+.food-cell {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid var(--light-grey);
+}
+.food-cell:last-child { border-right: none; }
+.food-cell .food-emoji { font-size: 2.5rem; margin-bottom: 1rem; }
+.food-cell h4 {
+  font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 0.1rem;
+}
+.food-cell .food-cn { font-size: 0.78rem; color: #ccc; margin-bottom: 0.6rem; }
+.food-cell p { font-size: 0.85rem; color: #888; line-height: 1.65; margin-bottom: 0.6rem; }
+.food-tag {
+  display: inline-block; padding: 0.2rem 0.5rem; background: var(--offwhite);
+  border-radius: 3px; font-size: 0.7rem; color: var(--warm); font-weight: 500;
+}
+
+/* TRANSPORT */
+.transport-editorial {
+  background: var(--ink); color: white; padding: 5rem 2.5rem;
+}
+.transport-inner { max-width: 960px; margin: 0 auto; }
+.transport-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 3rem; border-bottom: 1px solid #333; padding-bottom: 2rem;
+}
+.transport-header .section-kicker { color: var(--warm); }
+.transport-header .section-title { color: white; margin-bottom: 0; }
+.transport-routes { display: flex; flex-direction: column; }
+.transport-row {
+  display: grid; grid-template-columns: 1fr auto 1fr auto;
+  align-items: center; padding: 1.3rem 0; border-bottom: 1px solid #222;
+  gap: 1rem;
+}
+.transport-row:last-child { border-bottom: none; }
+.tr-from, .tr-to { font-weight: 500; font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+.tr-arrow { color: var(--warm); font-size: 1rem; }
+.tr-meta { text-align: right; }
+.tr-method {
+  font-size: 0.7rem; padding: 0.15rem 0.4rem; background: #222;
+  border-radius: 3px; color: rgba(255,255,255,0.5);
+}
+.tr-dur { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-left: 0.3rem; }
+
+/* ACTIVITIES — Masonry-ish */
+.activities-masonry {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+}
+.activity-tile {
+  background: var(--offwhite); border-radius: 8px; padding: 1.8rem 1.5rem;
+  text-align: center; transition: transform 0.2s;
+}
+.activity-tile:hover { transform: translateY(-3px); }
+.activity-tile .tile-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+.activity-tile h4 { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.1rem; }
+.activity-tile .tile-cn { font-size: 0.75rem; color: #ccc; margin-bottom: 0.5rem; }
+.activity-tile p { font-size: 0.78rem; color: #aaa; line-height: 1.5; }
+
+/* PREP */
+.prep-editorial { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.prep-block {
+  background: var(--offwhite); border-radius: 8px; padding: 1.8rem;
+  border-top: 2px solid var(--warm);
+}
+.prep-block h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.6rem; }
+.prep-block p { font-size: 0.82rem; color: #888; line-height: 1.65; margin-bottom: 0.3rem; }
+.prep-block .prep-kw { font-size: 0.72rem; color: var(--warm); font-style: italic; }
+
+/* GIFT — Full width dark */
+.gift-dark {
+  background: var(--ink); color: white; padding: 7rem 2.5rem;
+}
+.gift-dark-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+.gift-dark .section-kicker { color: var(--warm); }
+.gift-dark .section-title { color: white; }
+.gift-dark p { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.9; margin-top: 1.5rem; }
+.gift-dark-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.gift-dark-item {
+  display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 0.9rem;
+  background: rgba(255,255,255,0.04); border-radius: 4px;
+  font-size: 0.85rem; color: rgba(255,255,255,0.7);
+}
+.gift-dark-item .gdi { font-size: 1rem; }
+
+/* QUOTE — Full bleed */
+.quote-full {
+  position: relative; height: 50vh; min-height: 300px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.quote-full-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=1920&q=80') center/cover;
+}
+.quote-full-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+.quote-full-content { position: relative; z-index: 1; text-align: center; padding: 2rem; }
+.quote-full .qcn {
+  font-family: 'Noto Serif SC', serif; font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: white; letter-spacing: 0.2em; margin-bottom: 1rem;
+}
+.quote-full .qen {
+  font-family: var(--font-display); font-size: 1.1rem; font-style: italic;
+  color: rgba(255,255,255,0.7);
+}
+.quote-full .qattr {
+  margin-top: 1rem; font-size: 0.78rem; color: rgba(255,255,255,0.4);
+}
+
+/* FOOTER */
+.footer-mag {
+  padding: 3rem 2.5rem; text-align: center;
+  font-size: 0.78rem; color: #ccc; border-top: 1px solid var(--light-grey);
+}
+.footer-mag .heart { color: var(--accent-red); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero-content { padding: 2rem 2rem 3rem; }
+  .hero-dates { flex-direction: column; gap: 0.8rem; }
+  .weather-spread { grid-template-columns: 1fr; }
+  .weather-right { border-left: none; border-top: 1px solid var(--light-grey); }
+  .day-article { grid-template-columns: 1fr; }
+  .day-sidebar { border-right: none; border-bottom: 1px solid var(--light-grey); padding: 1.5rem 2rem; }
+  .day-main { padding: 1.5rem 2rem; }
+  .day-event { grid-template-columns: 1fr; gap: 0.3rem; }
+  .food-row { grid-template-columns: 1fr; }
+  .food-cell { border-right: none; border-bottom: 1px solid var(--light-grey); }
+  .food-cell:last-child { border-bottom: none; }
+  .options-row { grid-template-columns: 1fr; }
+  .activities-masonry { grid-template-columns: repeat(2, 1fr); }
+  .prep-editorial { grid-template-columns: 1fr; }
+  .gift-dark-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .gift-dark-list { grid-template-columns: 1fr; }
+  .section { padding: 4rem 1.5rem; }
+  .transport-editorial { padding: 3rem 1.5rem; }
+}
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">Nanjing · 南京</div>
+  <ul class="nav-links">
+    <li><a href="#itinerary">Itinerary</a></li>
+    <li><a href="#food">Food</a></li>
+    <li><a href="#transport">Transport</a></li>
+    <li><a href="#activities">Activities</a></li>
+    <li><a href="#prep">Prep</a></li>
+  </ul>
+  <div class="nav-lang">
+    <button class="active" onclick="setLang('en', this)">EN</button>
+    <button onclick="setLang('cn', this)">中文</button>
+    <button onclick="setLang('bi', this)">双语</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <div class="hero-issue">Wesley Jay & Richard Ward · A Nanjing Journal</div>
+    <h1>Welcome to <em>Nanjing</em></h1>
+    <p class="hero-subtitle">Three days of food, culture, and friendship — finally meeting in person.</p>
+    <div class="hero-dates">
+      <div class="date-item">
+        <div class="dl">Arrive</div>
+        <div class="dv">July 8, Wed</div>
+      </div>
+      <div class="date-item">
+        <div class="dl">Depart</div>
+        <div class="dv">July 11, Sat</div>
+      </div>
+      <div class="date-item">
+        <div class="dl">Base</div>
+        <div class="dv">Pukou District</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WEATHER SPREAD -->
+<div class="weather-spread">
+  <div class="weather-left reveal">
+    <div class="weather-label">Temperature Check</div>
+    <div class="temp-compare">
+      <div class="temp-row">
+        <div class="temp-city">Nanjing 🇨🇳</div>
+        <div class="temp-val">32°C</div>
+        <div class="temp-desc">Hot & humid</div>
+      </div>
+      <div class="temp-row">
+        <div class="temp-city">Edinburgh 🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+        <div class="temp-val">17°C</div>
+        <div class="temp-desc">Mild & cool</div>
+      </div>
+    </div>
+    <div class="temp-badge">↕ ~15°C difference — we'll take it seriously</div>
+  </div>
+  <div class="weather-right reveal">
+    <div class="weather-tips-title">How We'll Stay Cool</div>
+    <div class="weather-tip-list">
+      <div class="wtip">
+        <div class="wtip-icon">🧊</div>
+        <div class="wtip-text">Portable fan, cooling patches, wet wipes, sunscreen — I'll bring everything.</div>
+      </div>
+      <div class="wtip">
+        <div class="wtip-icon">🚇</div>
+        <div class="wtip-text">Metro is our best friend — air-conditioned, covers everywhere, cheap.</div>
+      </div>
+      <div class="wtip">
+        <div class="wtip-icon">🕐</div>
+        <div class="wtip-text">Sightseeing before 11am or after 4pm. Midday = indoors only.</div>
+      </div>
+      <div class="wtip">
+        <div class="wtip-icon">💧</div>
+        <div class="wtip-text">Convenience stores everywhere. Water is ¥2. Stay hydrated!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ITINERARY -->
+<div class="section" id="itinerary">
+  <div class="reveal">
+    <div class="section-num">01</div>
+    <div class="section-kicker">The Plan</div>
+    <div class="section-title">Four Days in Nanjing</div>
+    <div class="section-intro">A flexible itinerary — we'll decide together each day based on weather, energy, and mood. No fixed schedule, just good times.</div>
+  </div>
+</div>
+
+<div class="full-divider"></div>
+
+<!-- DAY 1 -->
+<div class="day-article reveal">
+  <div class="day-sidebar">
+    <div class="day-number">01</div>
+    <div class="day-weekday">Wed · July 8</div>
+  </div>
+  <div class="day-main">
+    <div class="day-title">Arrival & Settling In</div>
+    <div class="day-subtitle">Relaxed first day — comfort comes first</div>
+    <div class="day-events">
+      <div class="day-event">
+        <div class="event-time">12:05</div>
+        <div class="event-content">
+          <h4>🚄 Shanghai → Nanjing South</h4>
+          <p>Bullet train, ~1h 40min</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">13:45</div>
+        <div class="event-content">
+          <h4>🤝 Pick up at Nanjing South Station</h4>
+          <p>I'll be there. Taxi back to Pukou — about 40 min.</p>
+          <span class="event-badge">🚕 Taxi · ~40 min</span>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~14:30</div>
+        <div class="event-content">
+          <h4>🍜 Quick lunch (if needed)</h4>
+          <p>Something simple near the apartment.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~15:00</div>
+        <div class="event-content">
+          <h4>🏢 Police station registration</h4>
+          <p>Quick formality — I'll handle everything.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~16:00</div>
+        <div class="event-content">
+          <h4>😴 Rest at the apartment</h4>
+          <p>Nap, read, enjoy the A/C. I'll make us some tea.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~18:00</div>
+        <div class="event-content">
+          <h4>🍽️ Dinner at a local restaurant</h4>
+          <p>First taste of Nanjing — saltwater duck, soup dumplings, and more.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~19:30</div>
+        <div class="event-content">
+          <h4>🌙 Evening stroll</h4>
+          <p>Walk off dinner around the neighbourhood. Nothing ambitious.</p>
+        </div>
+      </div>
+    </div>
+    <div class="day-note-box">
+      <strong>Note:</strong> Day 1 is intentionally low-key. A long journey deserves a gentle landing.
+    </div>
+  </div>
+</div>
+
+<div class="full-divider"></div>
+
+<!-- DAY 2 -->
+<div class="day-article reveal">
+  <div class="day-sidebar">
+    <div class="day-number">02</div>
+    <div class="day-weekday">Thu · July 9</div>
+  </div>
+  <div class="day-main">
+    <div class="day-title">Explore & Celebrate 🎂</div>
+    <div class="day-subtitle">Sightseeing + birthday surprise evening</div>
+    <div class="day-events">
+      <div class="day-event">
+        <div class="event-time">~07:30</div>
+        <div class="event-content">
+          <h4>🥟 Chinese breakfast</h4>
+          <p>Soup dumplings, youtiao, jianbing, soy milk — a proper Chinese start.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~09:00</div>
+        <div class="event-content">
+          <h4>🏛️ Morning sightseeing</h4>
+          <p>Pick from the options below. Morning = coolest time for outdoors.</p>
+        </div>
+      </div>
+    </div>
+    <div class="options-header">📍 Options — Pick one</div>
+    <div class="options-row">
+      <div class="option-item">
+        <h5>A. City Wall</h5>
+        <div class="opt-cn">南京城墙 · 中华门</div>
+        <p>World's longest ancient city wall. 600+ years. Gentle walk with great views.</p>
+        <span class="opt-badge">🚇 ~50 min</span>
+      </div>
+      <div class="option-item">
+        <h5>B. Xuanwu Lake</h5>
+        <div class="opt-cn">玄武湖公园</div>
+        <p>Beautiful lakeside park. Flat paths, no climbing. See the wall from outside.</p>
+        <span class="opt-badge">🚇 ~40 min</span>
+      </div>
+      <div class="option-item">
+        <h5>C. Confucius Temple</h5>
+        <div class="opt-cn">夫子庙</div>
+        <p>Historic temple district. Traditional architecture, shops, street food.</p>
+        <span class="opt-badge">🚇 ~45 min</span>
+      </div>
+    </div>
+    <div class="day-events" style="margin-top: 1.5rem;">
+      <div class="day-event">
+        <div class="event-time">~12:00</div>
+        <div class="event-content">
+          <h4>🍜 Lunch near the sight</h4>
+          <p>Local restaurant. Different dishes from yesterday.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">13:00–15:30</div>
+        <div class="event-content">
+          <h4>😴 Midday rest</h4>
+          <p>Peak heat. Back to the apartment or find a cool indoor spot.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~16:00</div>
+        <div class="event-content">
+          <h4>🛍️ Indoor activity</h4>
+          <p>Museum, mall, or neighbourhood exploration.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~17:00</div>
+        <div class="event-content">
+          <h4>🎤 KTV — Private Karaoke (1-2h)</h4>
+          <p>Private room, big screen, sing as loud as you want.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~19:00</div>
+        <div class="event-content">
+          <h4>🍽️ Home-cooked dinner</h4>
+          <p>I'll cook some dishes for you. I also have a small surprise planned — but I won't say what it is yet. You'll find out that evening.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~20:30</div>
+        <div class="event-content">
+          <h4>🎁 Evening at home</h4>
+          <p>I've been preparing something for you since we first started chatting. You'll see tonight. Then: movie, games, tea, music, calligraphy — whatever we feel like.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="full-divider"></div>
+
+<!-- DAY 3 -->
+<div class="day-article reveal">
+  <div class="day-sidebar">
+    <div class="day-number">03</div>
+    <div class="day-weekday">Fri · July 10</div>
+  </div>
+  <div class="day-main">
+    <div class="day-title">Slow Day</div>
+    <div class="day-subtitle">Relaxed pace, at home & out</div>
+    <div class="day-events">
+      <div class="day-event">
+        <div class="event-time">~08:00</div>
+        <div class="event-content">
+          <h4>☕ Breakfast</h4>
+          <p>Something different today — maybe pidu noodles.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~09:30</div>
+        <div class="event-content">
+          <h4>🗺️ Morning sightseeing (optional)</h4>
+          <p>If we're feeling energetic, pick from below. Otherwise, café morning.</p>
+        </div>
+      </div>
+    </div>
+    <div class="options-header">📍 Options — Pick together</div>
+    <div class="options-row">
+      <div class="option-item">
+        <h5>A. Nanjing Museum</h5>
+        <div class="opt-cn">南京博物院</div>
+        <p>Top 3 museum. 430,000 artifacts. Fully A/C. Free entry.</p>
+        <span class="opt-badge">🚇 ~45 min</span>
+      </div>
+      <div class="option-item">
+        <h5>B. Pioneer Bookstore</h5>
+        <div class="opt-cn">先锋书店</div>
+        <p>"China's most beautiful bookshop." Converted underground car park.</p>
+        <span class="opt-badge">🚇 ~35 min</span>
+      </div>
+      <div class="option-item">
+        <h5>C. Laomendong</h5>
+        <div class="opt-cn">老门东</div>
+        <p>Nanjing's oldest neighbourhood. Grey brick lanes, craft shops, food.</p>
+        <span class="opt-badge">🚇 ~50 min</span>
+      </div>
+    </div>
+    <div class="day-events" style="margin-top: 1.5rem;">
+      <div class="day-event">
+        <div class="event-time">~12:00</div>
+        <div class="event-content">
+          <h4>🍜 Lunch — try something new</h4>
+          <p>More Nanjing food. Working through the menu.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~14:00</div>
+        <div class="event-content">
+          <h4>🍵 Afternoon at home</h4>
+          <p>Tea, coffee, music, conversation, calligraphy. The slow moments matter.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~18:00</div>
+        <div class="event-content">
+          <h4>🍽️ Dinner — out or home-cooked</h4>
+          <p>We'll decide on the day.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Evening</div>
+        <div class="event-content">
+          <h4>🌙 Free evening</h4>
+          <p>Games, movies, tea, chatting. No agenda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="full-divider"></div>
+
+<!-- DAY 4 -->
+<div class="day-article reveal">
+  <div class="day-sidebar">
+    <div class="day-number">04</div>
+    <div class="day-weekday">Sat · July 11</div>
+  </div>
+  <div class="day-main">
+    <div class="day-title">Farewell</div>
+    <div class="day-subtitle">No rush</div>
+    <div class="day-events">
+      <div class="day-event">
+        <div class="event-time">~07:30</div>
+        <div class="event-content">
+          <h4>☕ Breakfast & chat</h4>
+          <p>Our last morning. Take it slow.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~09:00</div>
+        <div class="event-content">
+          <h4>🏠 Pack up</h4>
+          <p>I'll help make sure nothing gets left behind.</p>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~10:00</div>
+        <div class="event-content">
+          <h4>🚕 Head to Nanjing South Station</h4>
+          <span class="event-badge">🚕 Taxi · ~40 min · Depart by 10:00</span>
+        </div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">~10:57</div>
+        <div class="event-content">
+          <h4>🚄 Richard departs for Beijing → Edinburgh</h4>
+          <p>Goodbye for now — but not forever. 🤝</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOD -->
+<div class="section" id="food">
+  <div class="reveal">
+    <div class="section-num">02</div>
+    <div class="section-kicker">Flavours</div>
+    <div class="section-title">What We'll Eat</div>
+    <div class="section-intro">No offal, no heavy spice. Nanjing food is subtle, savoury, and centuries old.</div>
+  </div>
+</div>
+
+<div class="food-editorial">
+  <div class="food-row reveal">
+    <div class="food-cell">
+      <div class="food-emoji">🦆</div>
+      <h4>Saltwater Duck</h4>
+      <div class="food-cn">盐水鸭</div>
+      <p>Nanjing's #1 dish. Tender, silky, lightly salted. 2,000+ years of history.</p>
+      <span class="food-tag">✅ Not spicy · No offal</span>
+    </div>
+    <div class="food-cell">
+      <div class="food-emoji">🥟</div>
+      <h4>Soup Dumplings</h4>
+      <div class="food-cn">小笼包 / 汤包</div>
+      <p>Paper-thin skin, burst of hot savoury soup. Dip in vinegar + ginger.</p>
+      <span class="food-tag">✅ Great for breakfast</span>
+    </div>
+    <div class="food-cell">
+      <div class="food-emoji">🍜</div>
+      <h4>Pidu Noodles</h4>
+      <div class="food-cn">皮肚面</div>
+      <p>Nanjing's own — fried pork skin in rich broth. Only found here.</p>
+      <span class="food-tag">✅ Very filling</span>
+    </div>
+  </div>
+  <div class="food-row reveal">
+    <div class="food-cell">
+      <div class="food-emoji">🫘</div>
+      <h4>Red Bean Dessert</h4>
+      <div class="food-cn">赤豆元宵</div>
+      <p>Warm sweet red bean soup with glutinous rice balls. Comfort in a bowl.</p>
+      <span class="food-tag">🍬 Dessert</span>
+    </div>
+    <div class="food-cell">
+      <div class="food-emoji">🫓</div>
+      <h4>Jianbing</h4>
+      <div class="food-cn">煎饼</div>
+      <p>Savoury Chinese crepe — egg, scallions, crispy cracker. Street food perfection.</p>
+      <span class="food-tag">🌅 Breakfast staple</span>
+    </div>
+    <div class="food-cell">
+      <div class="food-emoji">☕</div>
+      <h4>Café Culture</h4>
+      <div class="food-cn">咖啡馆</div>
+      <p>Great specialty coffee scene. Perfect for midday heat escapes.</p>
+      <span class="food-tag">❄️ Air-conditioned</span>
+    </div>
+  </div>
+</div>
+
+<!-- TRANSPORT -->
+<div class="transport-editorial" id="transport">
+  <div class="transport-inner">
+    <div class="transport-header reveal">
+      <div>
+        <div class="section-kicker">Getting Around</div>
+        <div class="section-title">From Pukou to Everywhere</div>
+      </div>
+    </div>
+    <div class="transport-routes">
+      <div class="transport-row reveal">
+        <div class="tr-from">Shanghai 上海</div>
+        <div class="tr-arrow">→</div>
+        <div class="tr-to">Nanjing South 南京南站</div>
+        <div class="tr-meta"><span class="tr-method">🚄</span><span class="tr-dur">~1h 40min</span></div>
+      </div>
+      <div class="transport-row reveal">
+        <div class="tr-from">Nanjing South 南京南站</div>
+        <div class="tr-arrow">→</div>
+        <div class="tr-to">Beijing 北京</div>
+        <div class="tr-meta"><span class="tr-method">🚄</span><span class="tr-dur">~3.5h</span></div>
+      </div>
+      <div class="transport-row reveal">
+        <div class="tr-from">Pukou 浦口</div>
+        <div class="tr-arrow">→</div>
+        <div class="tr-to">City Wall 城墙</div>
+        <div class="tr-meta"><span class="tr-method">🚇</span><span class="tr-dur">~50 min</span></div>
+      </div>
+      <div class="transport-row reveal">
+        <div class="tr-from">Pukou 浦口</div>
+        <div class="tr-arrow">→</div>
+        <div class="tr-to">Xuanwu Lake 玄武湖</div>
+        <div class="tr-meta"><span class="tr-method">🚇</span><span class="tr-dur">~40 min</span></div>
+      </div>
+      <div class="transport-row reveal">
+        <div class="tr-from">Pukou 浦口</div>
+        <div class="tr-arrow">→</div>
+        <div class="tr-to">Nanjing Museum 博物院</div>
+        <div class="tr-meta"><span class="tr-method">🚇</span><span class="tr-dur">~45 min</span></div>
+      </div>
+      <div class="transport-row reveal">
+        <div class="tr-from">Pukou 浦口</div>
+        <div class="tr-arrow">→</div>
+        <div class="tr-to">Pioneer Bookstore 先锋书店</div>
+        <div class="tr-meta"><span class="tr-method">🚇</span><span class="tr-dur">~35 min</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIVITIES -->
+<div class="section" id="activities">
+  <div class="reveal">
+    <div class="section-num">03</div>
+    <div class="section-kicker">Beyond the Sights</div>
+    <div class="section-title">At Home Too</div>
+    <div class="section-intro">The best memories aren't always at tourist spots. Some happen over tea, music, and laughter.</div>
+  </div>
+  <div class="activities-masonry" style="margin-top: 3rem;">
+    <div class="activity-tile reveal">
+      <div class="tile-icon">🍵</div>
+      <h4>Tea Ceremony</h4>
+      <div class="tile-cn">泡茶品茶</div>
+      <p>Keemun black tea — a special connection to Britain.</p>
+    </div>
+    <div class="activity-tile reveal">
+      <div class="tile-icon">✍️</div>
+      <h4>Calligraphy</h4>
+      <div class="tile-cn">书法写字</div>
+      <p>Try Chinese characters with a brush.</p>
+    </div>
+    <div class="activity-tile reveal">
+      <div class="tile-icon">🎵</div>
+      <h4>Music Exchange</h4>
+      <div class="tile-cn">音乐分享</div>
+      <p>Guqin meets Scottish tradition.</p>
+    </div>
+    <div class="activity-tile reveal">
+      <div class="tile-icon">🎤</div>
+      <h4>KTV</h4>
+      <div class="tile-cn">卡拉OK</div>
+      <p>Private room, sing loud.</p>
+    </div>
+    <div class="activity-tile reveal">
+      <div class="tile-icon">🍳</div>
+      <h4>Home Cooking</h4>
+      <div class="tile-cn">家常菜</div>
+      <p>Simple Chinese dishes, made at home.</p>
+    </div>
+    <div class="activity-tile reveal">
+      <div class="tile-icon">🎬</div>
+      <h4>Movie Night</h4>
+      <div class="tile-cn">电影之夜</div>
+      <p>Wandering Earth, Ne Zha, or visual spectacle.</p>
+    </div>
+    <div class="activity-tile reveal">
+      <div class="tile-icon">🎮</div>
+      <h4>Gaming</h4>
+      <div class="tile-cn">游戏</div>
+      <p>From AAA to casual co-op.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PREP -->
+<div class="section" id="prep">
+  <div class="reveal">
+    <div class="section-num">04</div>
+    <div class="section-kicker">Preparation</div>
+    <div class="section-title">Talking About Nanjing</div>
+    <div class="section-intro">Key facts and phrases for each place — so you can explain things with confidence.</div>
+  </div>
+  <div class="prep-editorial" style="margin-top: 3rem;">
+    <div class="prep-block reveal">
+      <h4>🏯 City Wall</h4>
+      <p>Zhonghua Gate — world's largest surviving city gate. Ming Dynasty, 600+ years. Full wall: 35km.</p>
+      <div class="prep-kw">Ming Dynasty · 600 years · world's longest</div>
+    </div>
+    <div class="prep-block reveal">
+      <h4>🏛️ Nanjing Museum</h4>
+      <p>Top 3 in China. 430,000 artifacts. Dinosaurs to Republic-era. Free entry.</p>
+      <div class="prep-kw">top 3 museums · 430,000 · free</div>
+    </div>
+    <div class="prep-block reveal">
+      <h4>🏮 Qinhuai River</h4>
+      <p>"Mother river." Du Mu's poem. 1,000+ years of cultural history.</p>
+      <div class="prep-kw">mother river · Du Mu · Tang Dynasty</div>
+    </div>
+    <div class="prep-block reveal">
+      <h4>☕ Keemun & Britain</h4>
+      <p>From Qimen, Anhui. Reached Britain in the 19th century. Royal favourite.</p>
+      <div class="prep-kw">Qimen · 19th century · royal favourite</div>
+    </div>
+    <div class="prep-block reveal">
+      <h4>🦆 Nanjing & Ducks</h4>
+      <p>100 million ducks eaten per year. 2,000+ years of saltwater duck history.</p>
+      <div class="prep-kw">100 million ducks · 2,000 years</div>
+    </div>
+    <div class="prep-block reveal">
+      <h4>🆘 Emergency Phrases</h4>
+      <p>"Sorry, could you say that again?"<br>"Let me think..."<br>"What do you think?"</p>
+    </div>
+  </div>
+</div>
+
+<!-- GIFT -->
+<div class="gift-dark">
+  <div class="gift-dark-inner reveal">
+    <div>
+      <div class="section-kicker">A Little Something</div>
+      <div class="section-title">I've Been Preparing</div>
+      <p>Since we first started chatting, I've been gathering a few things for you. Nothing extravagant — just small tokens that I think you'll appreciate. You'll discover them when the time is right.</p>
+    </div>
+    <div class="gift-dark-list">
+      <div class="gift-dark-item"><span class="gdi">🎁</span> Something waiting for you</div>
+      <div class="gift-dark-item"><span class="gdi">✨</span> A few surprises</div>
+      <div class="gift-dark-item"><span class="gdi">🫖</span> For sharing together</div>
+      <div class="gift-dark-item"><span class="gdi">📸</span> Memories to make</div>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-full">
+  <div class="quote-full-bg"></div>
+  <div class="quote-full-content">
+    <div class="qcn">烟笼寒水月笼沙</div>
+    <div class="qen">"Misty water, moonlit sand"</div>
+    <div class="qattr">— Du Mu · Tang Dynasty · Qinhuai River, Nanjing</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-mag">
+  <p>Made with <span class="heart">♥</span> by Wesley Jay · For Richard</p>
+  <p style="margin-top: 0.5rem; font-size: 0.72rem; color: #ddd;">See you in Nanjing 🤝</p>
+</div>
+
+<script>
+function setLang(lang, btn) {
+  document.querySelectorAll('[data-en]').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('[data-cn]').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('[data-bi]').forEach(el => el.style.display = 'none');
+  if (lang === 'en') document.querySelectorAll('[data-en]').forEach(el => el.style.display = '');
+  else if (lang === 'cn') document.querySelectorAll('[data-cn]').forEach(el => el.style.display = '');
+  else document.querySelectorAll('[data-bi]').forEach(el => el.style.display = '');
+  document.querySelectorAll('.nav-lang button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+setLang('en', document.querySelector('.nav-lang button.active'));
+const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
