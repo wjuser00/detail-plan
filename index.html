@@ -81,20 +81,14 @@ body.bi .t-en{display:inline}
 
 .pool-card.collapsed .card-desc,.food-card.collapsed .card-desc{display:none}
 .pool-card.collapsed .pool-card-img,.food-card.collapsed .food-card-img{height:120px}
-.section:not([id]){max-width:960px;margin:0 auto}
-.content-wrap{max-width:960px;margin:0 auto;padding:0 2.5rem}
-/* ALTERNATING BACKGROUNDS */
-.section:nth-child(even){background:var(--offwhite)}
-.section:nth-child(odd){background:white}
-
 /* SECTION BACKGROUNDS */
 .about-section{background:var(--offwhite);background-image:linear-gradient(rgba(245,243,239,0.75),rgba(245,243,239,0.75)),url('images/scene-3.jpg');background-size:cover;background-position:center;background-attachment:fixed}
-
-
-
-
-
-
+.section[id="itinerary"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-10.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.section[id="outdoor"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-new3.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.section[id="nearby"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-7.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.section[id="indoor"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-new4.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.section[id="food"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-new5.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.section[id="tips"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-8.jpg');background-size:cover;background-position:center;background-attachment:fixed}
 
 /* SECTION BANNER */
 .section-banner{width:100%;height:40vh;min-height:250px;position:relative;overflow:hidden}
@@ -192,13 +186,13 @@ body.bi .t-en{display:inline}
 .wtip-text{font-size:.85rem;color:rgba(255,255,255,0.6);line-height:1.6}
 
 /* GIFT */
-.gift-dark{background:var(--offwhite);color:var(--ink);padding:5rem 2.5rem;border-top:1px solid var(--light-grey)}
+.gift-dark{background:#2c2520;color:white;padding:5rem 2.5rem}
 .gift-dark-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .gift-dark .section-kicker{color:var(--warm)}
-.gift-dark .section-title{color:var(--ink)}
-.gift-dark p{font-size:.95rem;color:var(--grey);line-height:1.9;margin-top:1.2rem}
+.gift-dark .section-title{color:white}
+.gift-dark p{font-size:.95rem;color:rgba(255,255,255,0.5);line-height:1.9;margin-top:1.2rem}
 .gift-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
-.gift-item{display:flex;align-items:center;gap:.5rem;padding:.6rem .8rem;background:white;border:1px solid var(--light-grey);border-radius:6px;font-size:.85rem;color:var(--charcoal)}
+.gift-item{display:flex;align-items:center;gap:.5rem;padding:.6rem .8rem;background:rgba(255,255,255,0.04);border-radius:4px;font-size:.85rem;color:rgba(255,255,255,0.65)}
 .gift-item .gi{font-size:1rem}
 
 /* QUOTE */
@@ -222,39 +216,18 @@ body.bi .t-en{display:inline}
 /* RESPONSIVE */
 @media(max-width:768px){
   .nav-center{display:none}
-  .hero-content{padding:2rem 1.5rem 3rem}
-  .hero h1{font-size:2rem}
+  .hero-content{padding:2rem 2rem 3rem}
   .hero-dates{flex-direction:column;gap:.6rem}
   .about-grid{grid-template-columns:1fr}
   .day-article{grid-template-columns:1fr}
-  .day-sidebar{border-right:none;border-bottom:1px solid var(--light-grey);padding:1rem 1.5rem}
-  .day-main{padding:1.5rem}
+  .day-sidebar{border-right:none;border-bottom:1px solid var(--light-grey);padding:1.2rem 2rem}
+  .day-main{padding:1.5rem 2rem}
   .day-event{grid-template-columns:1fr;gap:.2rem}
   .options-row{grid-template-columns:1fr}
   .pool-grid,.food-grid{grid-template-columns:1fr}
-  .indoor-grid{grid-template-columns:1fr 1fr}
-  .tips-grid{grid-template-columns:1fr}
   .weather-inner{grid-template-columns:1fr}
-  .section{padding:3rem 1.5rem}
-  .section-title{font-size:1.5rem}
-  .section-num{font-size:2.5rem}
-  .pool-card-img,.food-card-img{height:140px}
-  .section-banner{height:25vh;min-height:180px}
-  .quote-full{height:30vh;min-height:200px}
-  .hero-dots{bottom:1rem;right:1rem}
-}
-@media(min-width:769px) and (max-width:1024px){
-  .pool-grid{grid-template-columns:repeat(2,1fr)}
-  .food-grid{grid-template-columns:repeat(2,1fr)}
-  .about-grid{grid-template-columns:repeat(2,1fr)}
-  .indoor-grid{grid-template-columns:repeat(3,1fr)}
-}
-@media(min-width:1025px){
-  .pool-grid{grid-template-columns:repeat(3,1fr)}
-  .food-grid{grid-template-columns:repeat(3,1fr)}
-  .about-grid{grid-template-columns:repeat(2,1fr)}
-  .indoor-grid{grid-template-columns:repeat(3,1fr)}
-  .tips-grid{grid-template-columns:repeat(2,1fr)}
+  .gift-dark-inner{grid-template-columns:1fr;gap:2rem}
+  .section{padding:3.5rem 1.5rem}
 }
 </style>
 </head>
@@ -381,7 +354,6 @@ body.bi .t-en{display:inline}
 <!-- ITINERARY -->
 <div class="section" id="itinerary">
 
-
   <!-- DAY 1 -->
   <div class="day-article reveal visible" style="opacity: 1;">
     <div class="day-sidebar">
@@ -438,9 +410,7 @@ body.bi .t-en{display:inline}
       </div>
       <div class="day-note-box"><span class="t-en"><strong>Note:</strong> Day 1 is intentionally low-key. You've just arrived — comfort first.</span><span class="t-cn"><strong>说明：</strong>第一天有意安排得很轻松。刚到，先休息好。</span></div><div class="day-note-box">And maybe my first discipline can be done this evening, or you feel tired, we can swap the plan with the second evening.<span class="t-cn"><br></span></div>
     </div>
-  
-</div>
-</div>
+  </div>
 
   <div class="divider"></div>
 
@@ -630,11 +600,8 @@ body.bi .t-en{display:inline}
 
 <!-- OUTDOOR POOL -->
 <div class="section" id="outdoor">
-
   <div class="reveal visible" style="opacity: 1;">
-    <div class="section-kicker"><span class="t-en">Nine Options</span><span class="t-cn">九个备选</span>
-</div>
-</div>
+    <div class="section-kicker"><span class="t-en">Nine Options</span><span class="t-cn">九个备选</span></div>
     <div class="section-title"><span class="t-en">Where We Can Go</span><span class="t-cn">我们可以去哪</span></div>
     <div class="section-intro"><span class="t-en">All within 40 minutes by metro from Pukou. We'll pick together based on weather and energy.</span><span class="t-cn">全部在浦口地铁40分钟内。根据天气和精力每天一起选。</span></div>
   </div>
@@ -809,11 +776,8 @@ body.bi .t-en{display:inline}
 
 <!-- NEARBY PARKS -->
 <div class="section" id="nearby">
-
   <div class="reveal visible" style="opacity: 1;">
-    <div class="section-kicker"><span class="t-en">Around the Apartment · 住所周边</span><span class="t-cn">住所周边</span>
-</div>
-</div>
+    <div class="section-kicker"><span class="t-en">Around the Apartment · 住所周边</span><span class="t-cn">住所周边</span></div>
     <div class="section-title"><span class="t-en">Where to Walk</span><span class="t-cn">散步好去处</span></div>
     <div class="section-intro"><span class="t-en">No metro needed — these spots are all near the apartment, perfect for an easy stroll before or after dinner.</span><span class="t-cn">不用坐地铁——这些地方都在公寓附近，饭前饭后散步刚刚好。</span></div>
   </div>
@@ -982,11 +946,8 @@ body.bi .t-en{display:inline}
 
 <!-- INDOOR POOL -->
 <div class="section" id="indoor">
-
   <div class="reveal visible" style="opacity: 1;">
-    <div class="section-kicker"><span class="t-en">At Home &amp; Indoors</span><span class="t-cn">室内与居家</span>
-</div>
-</div>
+    <div class="section-kicker"><span class="t-en">At Home &amp; Indoors</span><span class="t-cn">室内与居家</span></div>
     <div class="section-title"><span class="t-en">Comfort Zone Activities</span><span class="t-cn">舒适圈活动</span></div>
     <div class="section-intro"><span class="t-en">The best travel memories aren't always at tourist spots. Some happen over tea, music, and laughter at home.</span><span class="t-cn">旅途中最美好的回忆不总是在景点。有些发生在品茶、音乐和欢笑中。</span></div>
   </div>
@@ -1052,11 +1013,8 @@ body.bi .t-en{display:inline}
 
 <!-- FOOD -->
 <div class="section" id="food">
-
   <div class="reveal visible" style="opacity: 1;">
-    <div class="section-num">02
-</div>
-</div>
+    <div class="section-num">02</div>
     <div class="section-kicker"><span class="t-en">Taste of Nanjing</span><span class="t-cn">南京味道</span></div>
     <div class="section-title"><span class="t-en">What We'll Eat</span><span class="t-cn">我们会吃到什么</span></div>
     <div class="section-intro"><span class="t-en">Nanjing cuisine is subtle, savoury, and centuries old. We'll eat like locals.</span><span class="t-cn">南京菜细腻鲜美，传承千年。我们像本地人一样吃。</span></div>
@@ -1164,7 +1122,6 @@ body.bi .t-en{display:inline}
 
 <!-- TIPS -->
 <div class="section" id="tips">
-
   <div class="tips-grid">
     <div class="tip-card reveal visible" contenteditable="true" style="opacity: 1; cursor: text;">
       <div class="tip-icon">🌡️</div>
@@ -1202,7 +1159,21 @@ body.bi .t-en{display:inline}
 </div>
 
 <!-- GIFT TEASE -->
-
+<div class="gift-dark">
+  <div class="gift-dark-inner reveal visible" contenteditable="true" style="opacity: 1; cursor: text;">
+    <div>
+      <div class="section-kicker"><span class="t-en">A Little Something</span><span class="t-cn">一点心意</span></div>
+      <div class="section-title"><span class="t-en">I've Been Preparing</span><span class="t-cn">我一直在准备</span></div>
+      <p><span class="t-en">Since we first started making plans weeks ago, I've been gathering a few things for you. Nothing extravagant — just small tokens that I hope you'll appreciate. You'll discover them when the time is right.</span><span class="t-cn">从几个月前我们开始聊天起，我就在悄悄准备一些东西。不贵重——只是一些小小心意。到时候你就会知道。</span></p>
+    </div>
+    <div class="gift-list">
+      <div class="gift-item"><span class="gi">🎁</span> <span class="t-en">Something waiting</span><span class="t-cn">一份等待</span></div>
+      <div class="gift-item"><span class="gi">✨</span> <span class="t-en">A few surprises</span><span class="t-cn">几个惊喜</span></div>
+      <div class="gift-item"><span class="gi">🫖</span> <span class="t-en">For sharing together</span><span class="t-cn">一起分享</span></div>
+      <div class="gift-item"><span class="gi">📸</span> <span class="t-en">Memories to make</span><span class="t-cn">创造回忆</span></div>
+    </div>
+  </div>
+</div>
 
 <!-- QUOTE -->
 <div class="quote-full">
