@@ -1,0 +1,79 @@
+<!-- NAV -->
+<nav class="nav scrolled" id="nav">
+ <div class="nav-logo">Nanjing</div>
+ <div class="nav-center">
+ <a href="#about">About</a>
+ <a href="#itinerary">Itinerary</a>
+ <a href="#outdoor">Outdoor</a>
+ <a href="#nearby">Nearby</a>
+ <a href="#indoor">Indoor</a>
+ <a href="#food">Food</a>
+ <a href="#tips">Tips</a>
+ </div>
+ <div class="nav-right">
+ <div class="lang-switch">
+ <button class="active" onclick="setLang('en',this)">EN</button>
+ <button onclick="setLang('cn',this)" class="">中文</button>
+ <button onclick="setLang('bi',this)" class="">双语</button>
+ </div>
+ <button class="edit-toggle active" onclick="toggleEdit(this)" title="Toggle text editing">✏️ Editing</button>
+ <button class="edit-toggle" id="saveBtn" onclick="saveContent()" title="Save changes" style="">💾 Save</button>
+ <button class="edit-toggle" id="resetBtn" onclick="resetContent()" title="Reset to original" style="color: var(--accent-red);">↺ Reset</button>
+ </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+ <div class="hero-slide" style="background-image:url('images/scene-1.jpg')"></div>
+ <div class="hero-slide" style="background-image:url('images/scene-3.jpg')"></div>
+ <div class="hero-slide active" style="background-image:url('images/scene-4.jpg')"></div>
+ <div class="hero-content" contenteditable="true" style="cursor: text;">
+ <div class="hero-kicker"><span class="t-en">Wesley Jay &amp; Richard Ward · A Nanjing Journal</span><span class="t-cn">杰哥 &amp; 理查德 · 南京之旅</span></div>
+ <h1><span class="t-en">Welcome to <em>Nanjing</em></span><span class="t-cn">欢迎来到<em>南京</em></span></h1>
+ <p class="hero-subtitle"><span class="t-en">Three days of food, culture, and friendship — finally meeting in person after months of chatting.</span><span class="t-cn">三天的美食、文化与友谊 — 终于从屏幕里走到现实中。</span></p>
+ <div class="hero-dates">
+ <div class="date-item"><div class="dl">Arrive</div><div class="dv">July 8</div></div>
+ <div class="date-item"><div class="dl">Depart</div><div class="dv">July 11</div></div>
+ <div class="date-item"><div class="dl">Base</div><div class="dv">Pukou 浦口</div></div>
+ </div>
+ </div>
+ <div class="hero-dots">
+ <div class="hero-dot" onclick="goSlide(0)"></div>
+ <div class="hero-dot" onclick="goSlide(1)"></div>
+ <div class="hero-dot active" onclick="goSlide(2)"></div>
+ </div>
+</div>
+
+<!-- ABOUT NANJING -->
+<div class="about-section" id="about">
+ <div class="section" contenteditable="true" style="cursor: text;">
+ <div class="reveal visible" style="opacity: 1;">
+ <div class="section-num">01</div>
+ <div class="section-kicker"><span class="t-en">Introduction</span><span class="t-cn">南京简介</span></div>
+ <div class="section-title"><span class="t-en">Discover Nanjing</span><span class="t-cn">认识南京</span></div>
+ <div class="section-intro"><span class="t-en">Nanjing — "Southern Capital" — has been at the heart of Chinese history for over 2,500 years. Six dynasties made it their capital. Today it's a vibrant modern city that still wears its past proudly.</span><span class="t-cn">南京，古称"金陵"、"建康"，有超过2500年的建城史。六朝古都、十朝都会，是中国四大古都之一。如今的南京是一座现代与历史交融的活力城市。</span></div>
+ </div>
+ <div class="about-grid">
+ <div class="about-card reveal visible" style="opacity: 1;">
+ <div class="about-icon">🏯</div>
+ <h4><span class="t-en">Ancient Capital</span><span class="t-cn">六朝古都</span></h4>
+ <p><span class="t-en">Six dynasties chose Nanjing as their capital, including the Eastern Wu, Eastern Jin, and Ming Dynasty. The Ming Dynasty built the world's longest city wall here — 35km, still standing after 600 years. The city was also the capital of the Republic of China from 1912 to 1949. Sun Yat-sen was inaugurated as the first president here. Layers upon layers of history, from the Three Kingdoms to modern China.</span><span class="t-cn">东吴、东晋、宋、齐、梁、陈六个朝代在此建都。明朝在此修建了世界上最长的城墙——全长35公里，600年后依然屹立。南京也是中华民国首都（1912-1949），孙中山在此就任临时大总统。从三国到近代，历史在这里层层叠叠。</span></p>
+ </div>
+ <div class="about-card reveal visible" style="opacity: 1;">
+ <div class="about-icon">🌸</div>
+ <h4><span class="t-en">Scenic Beauty</span><span class="t-cn">山水城林</span></h4>
+ <p><span class="t-en">Purple Mountain (Zijinshan) rises in the east, the Yangtze River flows through the north, Xuanwu Lake sits in the heart of the city, and the Qinhuai River winds through the old town. Mountains, water, city walls, and forests blend together seamlessly. In summer, the lotus flowers on Xuanwu Lake are breathtaking. The French plane trees lining the city streets have been growing for over a century, creating natural green tunnels everywhere.</span><span class="t-cn">紫金山雄踞城东，长江奔流城北，玄武湖镶嵌城心，秦淮河蜿蜒老城。山、水、城、林浑然一体。夏日玄武湖荷花盛开，美不胜收。遍布全城的法国梧桐已有百年历史，形成天然绿色隧道。</span></p>
+ </div>
+ <div class="about-card reveal visible" style="opacity: 1;">
+ <div class="about-icon">🍜</div>
+ <h4><span class="t-en">Food Capital</span><span class="t-cn">美食之都</span></h4>
+ <p><span class="t-en">Nanjing is called the "Duck Capital" — its people eat over 100 million ducks a year. Saltwater duck (yanshui ya) has over 2,000 years of history and is considered one of China's greatest cold dishes. The city's cuisine is subtle and savoury — not spicy like Sichuan, not sweet like Suzhou. Nanjing snacks are legendary: soup dumplings, pidu noodles, tangbao, and the bustling Confucius Temple snack street.</span><span class="t-cn">南京被称为"鸭都"——南京人每年吃掉超过一亿只鸭子。盐水鸭有两千多年历史，被认为是中国最好的冷菜之一。南京菜细腻鲜美——不像四川那么辣，不像苏州那么甜。南京小吃更是传奇：小笼包、皮肚面、汤包，还有热闹的夫子庙小吃街。</span></p>
+ </div>
+ <div class="about-card reveal visible" style="opacity: 1;">
+ <div class="about-icon">🌡️</div>
+ <h4><span class="t-en">Summer Heat</span><span class="t-cn">火炉城市</span></h4>
+ <p><span class="t-en">Nanjing is one of China's "Four Furnaces" (si da huolu). In July, temperatures regularly hit 32-35°C with humidity above 80%. The heat index can feel like 40°C+. Edinburgh's summer averages 15-22°C — this is a massive difference. The locals survive by hiding in air-conditioned spaces during midday (12-3pm) and coming alive again in the cooler evenings. We'll do the same.</span><span class="t-cn">南京是中国"四大火炉"之一。七月气温常达32-35°C，湿度超过80%，体感温度可达40°C以上。爱丁堡夏天15-22°C——差距巨大。本地人靠中午（12-15点）躲在空调房里避暑，傍晚凉快了再出来活动。我们也这样安排。</span></p>
+ </div>
+ </div>
+ </div>
+</div>
