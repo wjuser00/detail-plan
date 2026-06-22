@@ -129,11 +129,14 @@ body.bi .t-en{display:inline}
 .pool-tag.green{background:#eef2ea;color:#5a7a3a}
 
 /* COLLAPSIBLE CARDS */
-.pool-card .card-desc{transition:all .3s ease}
-.pool-card.collapsed .card-desc{display:none}
-.pool-card.collapsed .pool-card-img{height:100px}
-.pool-card .card-toggle{display:inline-block;margin-top:.5rem;font-size:.72rem;color:var(--warm);cursor:pointer;user-select:none;font-weight:500}
-.pool-card .card-toggle:hover{color:var(--ink);text-decoration:underline}
+.pool-card .card-desc,.food-card .card-desc{transition:all .3s ease}
+.pool-card.collapsed .card-desc,.food-card.collapsed .card-desc{display:none}
+.pool-card.collapsed .pool-card-img,.food-card.collapsed .food-card-img{height:100px}
+.card-toggle{display:inline-flex;align-items:center;gap:.35rem;margin-top:.6rem;padding:.35rem .8rem;background:linear-gradient(135deg,#f8f4ee,#f0ebe2);border:1px solid #e5ddd0;border-radius:20px;font-size:.72rem;color:#8b6914;cursor:pointer;user-select:none;font-weight:500;transition:all .25s ease;letter-spacing:.02em}
+.card-toggle:hover{background:linear-gradient(135deg,#f0ebe2,#e8e0d0);border-color:#d4c8a8;transform:translateY(-1px);box-shadow:0 2px 8px rgba(139,105,20,0.1)}
+.card-toggle .toggle-icon{font-size:.6rem;transition:transform .3s ease}
+.pool-card:not(.collapsed) .card-toggle .toggle-icon,.food-card:not(.collapsed) .card-toggle .toggle-icon{transform:rotate(180deg)}
+
 
 /* INDOOR */
 .indoor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2.5rem}
@@ -614,7 +617,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag green">🏯 600+ years</span>
           <span class="pool-tag green">📸 Panoramic views</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -630,7 +633,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag green">🌿 Flat paths</span>
           <span class="pool-tag green">🌸 Summer lotus</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -646,7 +649,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag green">🏮 1,000+ years</span>
           <span class="pool-tag green">🍜 Snack street</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -662,7 +665,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag green">❄️ Air-conditioned</span>
           <span class="pool-tag green">🆓 Free entry</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -678,7 +681,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag green">🏘️ Oldest area</span>
           <span class="pool-tag green">🎨 Street art</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -694,7 +697,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag green">📚 Most beautiful</span>
           <span class="pool-tag green">☕ Café inside</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -710,7 +713,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag green">🏛️ Republic era</span>
           <span class="pool-tag green">🌳 Gardens</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -726,7 +729,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag green">🏛️ UNESCO</span>
           <span class="pool-tag green">🌲 Sacred Way</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -742,7 +745,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag green">🪨 Rain flower stones</span>
           <span class="pool-tag green">🌿 Peaceful park</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
   </div>
@@ -780,7 +783,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag">🚶 ~5 min walk</span>
           <span class="pool-tag green">🌊 Riverside</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -795,7 +798,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag">🚶 ~5 min walk</span>
           <span class="pool-tag green">🛍️ Shopping</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -811,7 +814,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag green">🌿 Wetland</span>
           <span class="pool-tag green">🆓 Free</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -826,7 +829,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag">🚕 ~5 min / 🚶 ~25 min</span>
           <span class="pool-tag green">🌸 Cherry blossoms</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -842,7 +845,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag green">🌲 Forest trails</span>
           <span class="pool-tag green">🆓 Free</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -857,7 +860,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag">🚕 ~8 min</span>
           <span class="pool-tag green">🌳 Forest park</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -873,7 +876,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag green">🌅 Sunset views</span>
           <span class="pool-tag green">🚢 Yangtze River</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -888,7 +891,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag">🚕 ~10 min</span>
           <span class="pool-tag green">🏯 Tang Dynasty</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
     <div class="pool-card reveal visible collapsed" style="opacity: 1;">
@@ -903,7 +906,7 @@ body.bi .t-en{display:inline}
           <span class="pool-tag">🚕 ~12 min</span>
           <span class="pool-tag green">🛕 Ancient temple</span>
         </div>
-      <span class="card-toggle" onclick="toggleCard(this)">Show more ▸</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
   </div>
@@ -982,7 +985,7 @@ body.bi .t-en{display:inline}
   <div class="section-banner-content">
     <div>
       <h2><span class="t-en">Nanjing Food</span><span class="t-cn">南京美食</span></h2>
-      <div class="banner-sub"><span class="t-en">2,000 years of culinary tradition — no offal, no heavy spice</span><span class="t-cn">两千年美食传承——无内脏、不重辣</span></div>
+      <div class="banner-sub"><span class="t-en">2,000 years of culinary tradition</span><span class="t-cn">两千年美食传承</span></div>
     </div>
   </div>
 </div>
@@ -993,68 +996,86 @@ body.bi .t-en{display:inline}
     <div class="section-num">02</div>
     <div class="section-kicker"><span class="t-en">Taste of Nanjing</span><span class="t-cn">南京味道</span></div>
     <div class="section-title"><span class="t-en">What We'll Eat</span><span class="t-cn">我们会吃到什么</span></div>
-    <div class="section-intro"><span class="t-en">No offal, no heavy spice. Nanjing cuisine is subtle, savoury, and centuries old. We'll eat like locals.</span><span class="t-cn">无内脏、不重辣。南京菜细腻鲜美，传承千年。我们像本地人一样吃。</span></div>
+    <div class="section-intro"><span class="t-en">Nanjing cuisine is subtle, savoury, and centuries old. We'll eat like locals.</span><span class="t-cn">南京菜细腻鲜美，传承千年。我们像本地人一样吃。</span></div>
   </div>
   <div class="food-grid">
-    <div class="food-card reveal visible" style="opacity: 1;">
+    <div class="food-card reveal visible collapsed" style="opacity: 1;">
       <img class="food-card-img" src="images/food-7.jpg" alt="Saltwater Duck" loading="lazy">
       <div class="food-card-body">
         <div class="food-emoji">🦆</div>
         <h4>Saltwater Duck</h4>
+        <div class="card-desc">
         <div class="food-cn">盐水鸭</div>
         <p><span class="t-en">Nanjing's #1 dish. The duck is brined in salt water, then gently boiled to create incredibly tender, silky meat with a delicate savoury flavour. It's served cold, sliced thin — a refreshing dish even in summer heat. Over 2,000 years of history. Nanjing people eat over 100 million ducks a year. The most famous shop has been making it since the Ming Dynasty.</span><span class="t-cn">南京第一名菜。鸭子盐水腌制后慢火水煮，肉质细嫩、鲜香淡雅。冷盘上桌、切片——夏天吃也清爽。两千年历史，南京人每年吃掉超过一亿只鸭子。最有名的店从明朝就开始做了。</span></p>
-        <span class="food-tag">✅ Not spicy · No offal</span>
+        </div>
+        <span class="food-tag">✅ Not spicy </span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
-    <div class="food-card reveal visible" style="opacity: 1;">
+    <div class="food-card reveal visible collapsed" style="opacity: 1;">
       <img class="food-card-img" src="images/food-5.jpg" alt="Soup Dumplings" loading="lazy">
       <div class="food-card-body">
         <div class="food-emoji">🥟</div>
         <h4>Soup Dumplings</h4>
+        <div class="card-desc">
         <div class="food-cn">小笼包 · 汤包</div>
         <p><span class="t-en">Paper-thin skin wrapped around a ball of hot, savoury soup with minced pork. The trick: bite a small hole, sip the soup first, then eat the dumpling. Dip in vinegar with shredded ginger. The soup inside can be scalding hot — patience! A breakfast staple across Nanjing, found on practically every street corner.</span><span class="t-cn">薄皮包裹着滚烫鲜美肉汤。吃法：先咬一小口，吸汤，再吃皮和馅。蘸醋加姜丝。里面汤汁很烫——要有耐心！南京早餐标配，几乎每条街都有。</span></p>
+        </div>
         <span class="food-tag">🌅 Breakfast staple</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
-    <div class="food-card reveal visible" style="opacity: 1;">
+    <div class="food-card reveal visible collapsed" style="opacity: 1;">
       <img class="food-card-img" src="images/food-new2.jpg" alt="Pidu Noodles" loading="lazy">
       <div class="food-card-body">
         <div class="food-emoji">🍜</div>
         <h4>Pidu Noodles</h4>
+        <div class="card-desc">
         <div class="food-cn">皮肚面</div>
         <p><span class="t-en">Nanjing's signature noodle dish — pidu (fried pork skin, light and puffy) in a rich, slow-cooked broth with vegetables, meat, and handmade noodles. Each bowl is enormous and incredibly filling. The pidu absorbs the broth like a sponge, creating a unique texture. Only found in Nanjing — you won't find this anywhere else in China. A proper local experience.</span><span class="t-cn">南京特色面——皮肚（炸猪皮，轻盈蓬松）配上浓郁慢炖汤底、蔬菜、肉和手擀面。每碗分量巨大，非常管饱。皮肚像海绵一样吸满汤汁，口感独特。只有南京有——全中国其他地方吃不到。正宗本地体验。</span></p>
+        </div>
         <span class="food-tag">✅ Very filling · Nanjing only</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
-    <div class="food-card reveal visible" style="opacity: 1;">
+    <div class="food-card reveal visible collapsed" style="opacity: 1;">
       <img class="food-card-img" src="images/food-new1.jpg" alt="Jianbing" loading="lazy">
       <div class="food-card-body">
         <div class="food-emoji">🫓</div>
         <h4>Jianbing</h4>
+        <div class="card-desc">
         <div class="food-cn">煎饼</div>
         <p><span class="t-en">The ultimate Chinese street breakfast. A thin batter spread on a hot griddle, topped with egg, scallions, cilantro, a crispy fried cracker (baocui), and sauces — sweet bean sauce, chilli sauce, and sesame. Everything folded into a perfect handheld package. Made fresh in front of you in under 2 minutes. Crispy, soft, savoury, and slightly sweet all at once.</span><span class="t-cn">终极中国街头早餐。面糊摊在热铛上，加上鸡蛋、葱花、香菜、脆饼（薄脆），再刷酱——甜面酱、辣酱、芝麻酱。折叠成一个完美的手拿包。2分钟内现场做好。同时酥脆、柔软、咸鲜、微甜。</span></p>
+        </div>
         <span class="food-tag">🌅 2-minute street magic</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
-    <div class="food-card reveal visible" style="opacity: 1;">
+    <div class="food-card reveal visible collapsed" style="opacity: 1;">
       <img class="food-card-img" src="images/food-2.jpg" alt="Youtiao" loading="lazy">
       <div class="food-card-body">
         <div class="food-emoji">🥖</div>
         <h4>Youtiao &amp; Soy Milk</h4>
+        <div class="card-desc">
         <div class="food-cn">油条 · 豆浆</div>
         <p><span class="t-en">The classic Chinese breakfast combo. Youtiao is a long fried dough stick — crispy golden outside, airy and fluffy inside. Dip it in warm soy milk (sweet or savoury, your choice) or in congee (rice porridge). Millions of Chinese people start every morning this way. Simple, comforting, and delicious.</span><span class="t-cn">经典中式早餐搭配。油条是长长的炸面棍——外面金黄酥脆，里面蓬松柔软。蘸温热豆浆（甜的或咸的，你选）或蘸稀饭。千百万人每天这样开始新的一天。简单、温暖、美味。</span></p>
+        </div>
         <span class="food-tag">🌅 The classic combo</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
 
-    <div class="food-card reveal visible" style="opacity: 1;">
+    <div class="food-card reveal visible collapsed" style="opacity: 1;">
       <img class="food-card-img" src="images/food-1.jpeg" alt="Tangbao" loading="lazy">
       <div class="food-card-body">
         <div class="food-emoji">🍡</div>
         <h4>Tangbao</h4>
+        <div class="card-desc">
         <div class="food-cn">汤包</div>
         <p><span class="t-en">The bigger cousin of soup dumplings. Tangbao are large soup-filled buns served with a straw — yes, a straw. You poke it in and sip the rich, savoury broth first, then eat the skin and meat filling. It's a fun, unique experience. Found at specialty shops around the city.</span><span class="t-cn">小笼包的大号版本。汤包是大号汤汁包子，配吸管——没错，吸管。先插进去吸鲜美肉汤，再吃皮和馅。有趣又独特的体验。全市特色店都有。</span></p>
+        </div>
         <span class="food-tag">🍜 Drink it with a straw</span>
+      <span class="card-toggle" onclick="toggleCard(this)"><span class="toggle-icon">▾</span> Details</span>
       </div>
     </div>
 
@@ -1182,10 +1203,15 @@ setInterval(() => goSlide((cur + 1) % slides.length), 5000);
 
 // Card collapse toggle
 function toggleCard(el) {
-  const card = el.closest('.pool-card');
+  const card = el.closest('.pool-card') || el.closest('.food-card');
   if (!card) return;
   card.classList.toggle('collapsed');
-  el.textContent = card.classList.contains('collapsed') ? 'Show more ▸' : 'Show less ▾';
+  const icon = el.querySelector('.toggle-icon');
+  if (card.classList.contains('collapsed')) {
+    el.innerHTML = '<span class="toggle-icon">▾</span> Details';
+  } else {
+    el.innerHTML = '<span class="toggle-icon">▾</span> Less';
+  }
 }
 </script>
 </body>
