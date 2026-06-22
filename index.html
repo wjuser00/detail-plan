@@ -1144,30 +1144,12 @@ body.bi .t-en{display:inline}
 </div>
 
 <script>
-// Language switch — simple class on body
+// Language switch
 function setLang(lang, btn) {
   document.body.className = lang;
   document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
 }
-
-
-}
-
-}
-
-}
-
-  // Re-attach scroll observer
-  const obs2 = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('visible');
-  }), { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => obs2.observe(el));
-  // Re-apply language
-  const lang = document.body.className || 'en';
-  document.body.className = lang;
-}
-
 
 // Nav scroll
 window.addEventListener('scroll', () => {
@@ -1179,10 +1161,10 @@ const obs = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) e.target.classList.add('visible');
 }), { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-// Fallback: make everything visible after 500ms in case observer doesn't fire
+
+// Fallback
 setTimeout(() => {
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-  document.querySelectorAll('.reveal').forEach(el => el.style.opacity = '1');
 }, 500);
 
 // Hero slideshow
@@ -1197,65 +1179,6 @@ function goSlide(n) {
   dots[cur].classList.add('active');
 }
 setInterval(() => goSlide((cur + 1) % slides.length), 5000);
-</script>
-
-
-
-<script>
-// Language switch — simple class on body
-function setLang(lang, btn) {
-  document.body.className = lang;
-  document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-}
-
-
-}
-
-}
-
-}
-
-  // Re-attach scroll observer
-  const obs2 = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('visible');
-  }), { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => obs2.observe(el));
-  // Re-apply language
-  const lang = document.body.className || 'en';
-  document.body.className = lang;
-}
-
-
-// Nav scroll
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
-});
-
-// Reveal on scroll
-const obs = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) e.target.classList.add('visible');
-}), { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-// Fallback: make everything visible after 500ms in case observer doesn't fire
-setTimeout(() => {
-  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-  document.querySelectorAll('.reveal').forEach(el => el.style.opacity = '1');
-}, 500);
-
-// Hero slideshow
-let cur = 0;
-const slides = document.querySelectorAll('.hero-slide');
-const dots = document.querySelectorAll('.hero-dot');
-function goSlide(n) {
-  slides[cur].classList.remove('active');
-  dots[cur].classList.remove('active');
-  cur = n;
-  slides[cur].classList.add('active');
-  dots[cur].classList.add('active');
-}
-setInterval(() => goSlide((cur + 1) % slides.length), 5000);
-
 
 // Card collapse toggle
 function toggleCard(el) {
