@@ -77,6 +77,15 @@ body.bi .t-en{display:inline}
 .about-card .about-cn{font-size:.78rem;color:#ccc;margin-bottom:.5rem}
 .about-card p{font-size:.88rem;color:#666;line-height:1.75}
 
+/* SECTION BACKGROUNDS */
+.about-section{background:var(--offwhite);background-image:linear-gradient(rgba(245,243,239,0.92),rgba(245,243,239,0.92)),url('images/scene-3.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.section[id="itinerary"]{background-image:linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.95)),url('images/scene-10.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.section[id="outdoor"]{background-image:linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.95)),url('images/scene-new3.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.section[id="nearby"]{background-image:linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.95)),url('images/scene-7.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.section[id="indoor"]{background-image:linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.95)),url('images/scene-new4.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.section[id="food"]{background-image:linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.95)),url('images/scene-new5.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.section[id="tips"]{background-image:linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.95)),url('images/scene-8.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+
 /* SECTION BANNER */
 .section-banner{width:100%;height:40vh;min-height:250px;position:relative;overflow:hidden}
 .section-banner-img{position:absolute;inset:0;background-size:cover;background-position:center}
@@ -132,10 +141,13 @@ body.bi .t-en{display:inline}
 .pool-card .card-desc,.food-card .card-desc{transition:all .3s ease}
 .pool-card.collapsed .card-desc,.food-card.collapsed .card-desc{display:none}
 .pool-card.collapsed .pool-card-img,.food-card.collapsed .food-card-img{height:100px}
-.card-toggle{display:inline-flex;align-items:center;gap:.35rem;margin-top:.6rem;padding:.35rem .8rem;background:linear-gradient(135deg,#f8f4ee,#f0ebe2);border:1px solid #e5ddd0;border-radius:20px;font-size:.72rem;color:#8b6914;cursor:pointer;user-select:none;font-weight:500;transition:all .25s ease;letter-spacing:.02em}
-.card-toggle:hover{background:linear-gradient(135deg,#f0ebe2,#e8e0d0);border-color:#d4c8a8;transform:translateY(-1px);box-shadow:0 2px 8px rgba(139,105,20,0.1)}
-.card-toggle .toggle-icon{font-size:.6rem;transition:transform .3s ease}
+.card-toggle{display:flex;align-items:center;justify-content:center;gap:.4rem;width:100%;padding:.6rem 0;background:linear-gradient(135deg,#faf8f4,#f5f0e8);border:none;border-top:1px solid #ebe5d8;font-size:.78rem;color:#8b6914;cursor:pointer;user-select:none;font-weight:600;transition:all .25s ease;letter-spacing:.04em;text-transform:uppercase;margin:0}
+.card-toggle:hover{background:linear-gradient(135deg,#f5f0e8,#ece5d5);color:#6b5010}
+.card-toggle .toggle-icon{font-size:.55rem;transition:transform .3s ease}
 .pool-card:not(.collapsed) .card-toggle .toggle-icon,.food-card:not(.collapsed) .card-toggle .toggle-icon{transform:rotate(180deg)}
+.pool-card,.food-card{display:flex;flex-direction:column}
+.pool-card-body,.food-card-body{flex:1;display:flex;flex-direction:column}
+.card-toggle{margin-top:auto}
 
 
 /* INDOOR */
