@@ -128,6 +128,17 @@ body.bi .t-en{display:inline}
 .pool-tag{padding:.2rem .5rem;background:var(--offwhite);border-radius:4px;font-size:.7rem;color:var(--warm);font-weight:500}
 .pool-tag.green{background:#eef2ea;color:#5a7a3a}
 
+/* COLLAPSIBLE CARDS */
+.pool-card .pool-card-body p,
+.pool-card .pool-card-body .pool-cn{transition:max-height .3s ease,opacity .3s ease,padding .3s ease;overflow:hidden}
+.pool-card.collapsed .pool-card-body p,
+.pool-card.collapsed .pool-card-body .pool-cn{max-height:0;opacity:0;margin:0;padding:0}
+.pool-card.collapsed .pool-card-img{height:100px}
+.pool-card .card-toggle{display:inline-block;margin-top:.4rem;font-size:.7rem;color:var(--warm);cursor:pointer;user-select:none;transition:color .2s}
+.pool-card .card-toggle:hover{color:var(--ink)}
+.pool-card .card-toggle::after{content:' ▾'}
+.pool-card.collapsed .card-toggle::after{content:' ▸'}
+
 /* INDOOR */
 .indoor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2.5rem}
 .indoor-card{background:var(--offwhite);border-radius:10px;padding:1.5rem;text-align:center;transition:transform .3s}
@@ -599,7 +610,7 @@ body.bi .t-en{display:inline}
   </div>
   <div class="pool-grid">
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/scene-new1.jpg" alt="City Wall" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Zhonghua Gate &amp; City Wall</h4>
@@ -612,8 +623,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/scene-10.jpg" alt="Xuanwu Lake" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Xuanwu Lake Park</h4>
@@ -626,8 +638,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/scene-11.jpg" alt="Confucius Temple" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Confucius Temple &amp; Qinhuai River</h4>
@@ -640,8 +653,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/scene-new2.jpg" alt="Nanjing Museum" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Nanjing Museum</h4>
@@ -654,8 +668,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/scene-new3.jpg" alt="Laomendong" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Laomendong</h4>
@@ -668,8 +683,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/scene-new4.jpg" alt="Pioneer Bookstore" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Pioneer Bookstore</h4>
@@ -682,8 +698,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/scene-new5.jpg" alt="Presidential Palace" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Presidential Palace</h4>
@@ -696,8 +713,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/scene-new6.jpg" alt="Ming Xiaoling" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Ming Xiaoling Mausoleum</h4>
@@ -710,8 +728,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/scene-yuhuatai.jpg" alt="Yuhuatai" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Yuhuatai Rain Flower Terrace</h4>
@@ -724,6 +743,7 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
   </div>
 </div>
@@ -748,7 +768,7 @@ body.bi .t-en{display:inline}
   </div>
   <div class="pool-grid">
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/nearby-1.jpg" alt="Jiqing River" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Jiqing River Garden</h4>
@@ -760,8 +780,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/nearby-2.jpg" alt="Commercial Street" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Mingfa Commercial Street</h4>
@@ -773,8 +794,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/nearby-3.jpg" alt="Wetland Park" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Pukou Binjiang Wetland Park</h4>
@@ -787,8 +809,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/nearby-4.jpg" alt="Qianshan Park" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Qianshan Leisure Park</h4>
@@ -800,8 +823,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/nearby-5.jpg" alt="Fenghuangshan" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Fenghuangshan Park</h4>
@@ -814,8 +838,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/scene-10.jpg" alt="Baotashan" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Baotashan Forest Park</h4>
@@ -827,8 +852,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/nearby-7.jpg" alt="Binjiang Scenic" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Nanjing Binjiang Scenic Belt</h4>
@@ -841,8 +867,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/scene-8.jpg" alt="Hongde Temple" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Hongde Temple</h4>
@@ -854,8 +881,9 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
-    <div class="pool-card reveal visible" style="opacity: 1;">
+    <div class="pool-card reveal visible collapsed" style="opacity: 1;">
       <img class="pool-card-img" src="images/nearby-9.jpg" alt="Xiangyun Temple" loading="lazy">
       <div class="pool-card-body" contenteditable="true" style="cursor: text;">
         <h4>Xiangyun Temple</h4>
@@ -867,6 +895,7 @@ body.bi .t-en{display:inline}
         </div>
       </div>
     </div>
+      <span class="card-toggle" onclick="toggleCard(this)">Details</span>
 
 
 
@@ -1321,6 +1350,13 @@ function goSlide(n) {
   dots[cur].classList.add('active');
 }
 setInterval(() => goSlide((cur + 1) % slides.length), 5000);
+
+// Card collapse toggle
+function toggleCard(el) {
+  const card = el.closest('.pool-card');
+  card.classList.toggle('collapsed');
+  el.textContent = card.classList.contains('collapsed') ? 'Details' : 'Hide';
+}
 </script>
 </body>
 </html>
