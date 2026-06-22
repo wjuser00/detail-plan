@@ -83,15 +83,18 @@ body.bi .t-en{display:inline}
 .pool-card.collapsed .pool-card-img,.food-card.collapsed .food-card-img{height:120px}
 .section:not([id]){max-width:960px;margin:0 auto}
 .content-wrap{max-width:960px;margin:0 auto;padding:0 2.5rem}
-.section[id]{max-width:none;padding:5rem 0}
+/* ALTERNATING BACKGROUNDS */
+.section:nth-child(even){background:var(--offwhite)}
+.section:nth-child(odd){background:white}
+
 /* SECTION BACKGROUNDS */
 .about-section{background:var(--offwhite);background-image:linear-gradient(rgba(245,243,239,0.75),rgba(245,243,239,0.75)),url('images/scene-3.jpg');background-size:cover;background-position:center;background-attachment:fixed}
-.section[id="itinerary"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-10.jpg');background-size:cover;background-position:center;background-attachment:fixed}
-.section[id="outdoor"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-new3.jpg');background-size:cover;background-position:center;background-attachment:fixed}
-.section[id="nearby"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-7.jpg');background-size:cover;background-position:center;background-attachment:fixed}
-.section[id="indoor"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-new4.jpg');background-size:cover;background-position:center;background-attachment:fixed}
-.section[id="food"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-new5.jpg');background-size:cover;background-position:center;background-attachment:fixed}
-.section[id="tips"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-8.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+
+
+
+
+
+
 
 /* SECTION BANNER */
 .section-banner{width:100%;height:40vh;min-height:250px;position:relative;overflow:hidden}
@@ -356,7 +359,6 @@ body.bi .t-en{display:inline}
 
 <!-- ITINERARY -->
 <div class="section" id="itinerary">
-<div class="content-wrap">
 
 
   <!-- DAY 1 -->
@@ -607,7 +609,6 @@ body.bi .t-en{display:inline}
 
 <!-- OUTDOOR POOL -->
 <div class="section" id="outdoor">
-<div class="content-wrap">
 
   <div class="reveal visible" style="opacity: 1;">
     <div class="section-kicker"><span class="t-en">Nine Options</span><span class="t-cn">九个备选</span>
@@ -787,7 +788,6 @@ body.bi .t-en{display:inline}
 
 <!-- NEARBY PARKS -->
 <div class="section" id="nearby">
-<div class="content-wrap">
 
   <div class="reveal visible" style="opacity: 1;">
     <div class="section-kicker"><span class="t-en">Around the Apartment · 住所周边</span><span class="t-cn">住所周边</span>
@@ -961,7 +961,6 @@ body.bi .t-en{display:inline}
 
 <!-- INDOOR POOL -->
 <div class="section" id="indoor">
-<div class="content-wrap">
 
   <div class="reveal visible" style="opacity: 1;">
     <div class="section-kicker"><span class="t-en">At Home &amp; Indoors</span><span class="t-cn">室内与居家</span>
@@ -1032,7 +1031,6 @@ body.bi .t-en{display:inline}
 
 <!-- FOOD -->
 <div class="section" id="food">
-<div class="content-wrap">
 
   <div class="reveal visible" style="opacity: 1;">
     <div class="section-num">02
@@ -1145,7 +1143,6 @@ body.bi .t-en{display:inline}
 
 <!-- TIPS -->
 <div class="section" id="tips">
-<div class="content-wrap">
 
   <div class="tips-grid">
     <div class="tip-card reveal visible" contenteditable="true" style="opacity: 1; cursor: text;">
