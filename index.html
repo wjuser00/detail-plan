@@ -129,15 +129,11 @@ body.bi .t-en{display:inline}
 .pool-tag.green{background:#eef2ea;color:#5a7a3a}
 
 /* COLLAPSIBLE CARDS */
-.pool-card .pool-card-body p,
-.pool-card .pool-card-body .pool-cn{transition:max-height .3s ease,opacity .3s ease,padding .3s ease;overflow:hidden}
-.pool-card.collapsed .pool-card-body p,
-.pool-card.collapsed .pool-card-body .pool-cn{max-height:0;opacity:0;margin:0;padding:0}
+.pool-card .card-desc{transition:all .3s ease}
+.pool-card.collapsed .card-desc{display:none}
 .pool-card.collapsed .pool-card-img{height:100px}
-.pool-card .card-toggle{display:inline-block;margin-top:.4rem;font-size:.7rem;color:var(--warm);cursor:pointer;user-select:none;transition:color .2s}
-.pool-card .card-toggle:hover{color:var(--ink)}
-.pool-card .card-toggle::after{content:' ▾'}
-.pool-card.collapsed .card-toggle::after{content:' ▸'}
+.pool-card .card-toggle{display:inline-block;margin-top:.5rem;font-size:.72rem;color:var(--warm);cursor:pointer;user-select:none;font-weight:500}
+.pool-card .card-toggle:hover{color:var(--ink);text-decoration:underline}
 
 /* INDOOR */
 .indoor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2.5rem}
@@ -1355,8 +1351,10 @@ setInterval(() => goSlide((cur + 1) % slides.length), 5000);
 function toggleCard(el) {
   const card = el.closest('.pool-card');
   card.classList.toggle('collapsed');
-  el.textContent = card.classList.contains('collapsed') ? 'Details' : 'Hide';
+  el.textContent = card.classList.contains('collapsed') ? 'Show more ▸' : 'Show less ▾';
 }
+// Initialize all toggle buttons
+document.querySelectorAll('.card-toggle').forEach(el => el.textContent = 'Show more ▸');
 </script>
 </body>
 </html>
