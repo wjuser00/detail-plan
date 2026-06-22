@@ -82,7 +82,7 @@ body.bi .t-en{display:inline}
 .pool-card.collapsed .card-body,.food-card.collapsed .card-body{max-height:0;padding:0!important;margin:0!important}
 .pool-card.collapsed .pool-card-img,.food-card.collapsed .food-card-img{height:120px}
 .pool-card .pool-card-img,.food-card .food-card-img{transition:height .3s ease}
-.card-toggle{position:absolute;bottom:0;left:0;right:0;background:rgba(245,243,239,0.97);backdrop-filter:blur(6px);border:none;padding:.7rem 0;width:100%;font-size:.8rem;font-weight:600;color:#8b6914;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:.35rem;transition:all .25s;z-index:2}
+.card-toggle{position:absolute;bottom:0;left:0;right:0;background:rgba(245,243,239,0.95);border:none;padding:.45rem 0;width:100%;font-size:.72rem;font-weight:600;color:#8b6914;cursor:pointer;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:.25rem;z-index:2;opacity:.9}
 .card-toggle:hover{background:rgba(236,229,213,0.97)}
 
 /* SECTION BACKGROUNDS */
@@ -1276,7 +1276,7 @@ function toggleCard(el) {
   if (!card) return;
   card.classList.toggle('collapsed');
   el.textContent = card.classList.contains('collapsed') ? '▸ Show more' : '▾ Show less';
-} else {
+}
     el.innerHTML = '<span class="toggle-icon">▾</span> Less';
   }
 }
