@@ -1149,6 +1149,7 @@ function saveContent() {
   const page = document.querySelector('body').innerHTML;
   try {
     localStorage.setItem('nanjing-trip-save', page);
+    localStorage.setItem('nanjing-trip-version', '3');
     const btn = document.getElementById('saveBtn');
     btn.textContent = '✅ Saved!';
     setTimeout(() => { btn.textContent = '💾 Save'; }, 1500);
@@ -1159,10 +1160,17 @@ function saveContent() {
 
 // Load saved content on page load
 function loadSaved() {
+  const savedVersion = localStorage.getItem('nanjing-trip-version');
+  const currentVersion = '3';
+  // If version mismatch, discard old saved content
+  if (savedVersion !== currentVersion) {
+    localStorage.removeItem('nanjing-trip-save');
+    localStorage.setItem('nanjing-trip-version', currentVersion);
+    return;
+  }
   const saved = localStorage.getItem('nanjing-trip-save');
   if (saved) {
     document.querySelector('body').innerHTML = saved;
-    // Re-bind events after loading
     rebindEvents();
   }
 }
