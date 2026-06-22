@@ -43,7 +43,7 @@ body.bi .t-en{display:inline}
 .edit-toggle.active{background:var(--warm);color:white;border-color:var(--warm)}
 
 /* SECTIONS */
-.section{max-width:960px;margin:0 auto;padding:5rem 2.5rem}
+.section{padding:5rem 0}
 .section-num{font-family:var(--font-display);font-size:4rem;color:var(--offwhite);font-weight:700;line-height:1;margin-bottom:.3rem}
 .section-kicker{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--warm);font-weight:600;margin-bottom:.8rem}
 .section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.15;margin-bottom:1rem;font-weight:700}
@@ -81,6 +81,8 @@ body.bi .t-en{display:inline}
 
 .pool-card.collapsed .card-desc,.food-card.collapsed .card-desc{display:none}
 .pool-card.collapsed .pool-card-img,.food-card.collapsed .food-card-img{height:120px}
+.section:not([id]){max-width:960px;margin:0 auto}
+.content-wrap{max-width:960px;margin:0 auto;padding:0 2.5rem}
 /* SECTION BACKGROUNDS */
 .about-section{background:var(--offwhite);background-image:linear-gradient(rgba(245,243,239,0.75),rgba(245,243,239,0.75)),url('images/scene-3.jpg');background-size:cover;background-position:center;background-attachment:fixed}
 .section[id="itinerary"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-10.jpg');background-size:cover;background-position:center;background-attachment:fixed}
@@ -353,6 +355,8 @@ body.bi .t-en{display:inline}
 
 <!-- ITINERARY -->
 <div class="section" id="itinerary">
+<div class="content-wrap">
+
 
   <!-- DAY 1 -->
   <div class="day-article reveal visible" style="opacity: 1;">
@@ -410,7 +414,9 @@ body.bi .t-en{display:inline}
       </div>
       <div class="day-note-box"><span class="t-en"><strong>Note:</strong> Day 1 is intentionally low-key. You've just arrived — comfort first.</span><span class="t-cn"><strong>说明：</strong>第一天有意安排得很轻松。刚到，先休息好。</span></div><div class="day-note-box">And maybe my first discipline can be done this evening, or you feel tired, we can swap the plan with the second evening.<span class="t-cn"><br></span></div>
     </div>
-  </div>
+  
+</div>
+</div>
 
   <div class="divider"></div>
 
@@ -600,8 +606,12 @@ body.bi .t-en{display:inline}
 
 <!-- OUTDOOR POOL -->
 <div class="section" id="outdoor">
+<div class="content-wrap">
+
   <div class="reveal visible" style="opacity: 1;">
-    <div class="section-kicker"><span class="t-en">Nine Options</span><span class="t-cn">九个备选</span></div>
+    <div class="section-kicker"><span class="t-en">Nine Options</span><span class="t-cn">九个备选</span>
+</div>
+</div>
     <div class="section-title"><span class="t-en">Where We Can Go</span><span class="t-cn">我们可以去哪</span></div>
     <div class="section-intro"><span class="t-en">All within 40 minutes by metro from Pukou. We'll pick together based on weather and energy.</span><span class="t-cn">全部在浦口地铁40分钟内。根据天气和精力每天一起选。</span></div>
   </div>
@@ -776,8 +786,12 @@ body.bi .t-en{display:inline}
 
 <!-- NEARBY PARKS -->
 <div class="section" id="nearby">
+<div class="content-wrap">
+
   <div class="reveal visible" style="opacity: 1;">
-    <div class="section-kicker"><span class="t-en">Around the Apartment · 住所周边</span><span class="t-cn">住所周边</span></div>
+    <div class="section-kicker"><span class="t-en">Around the Apartment · 住所周边</span><span class="t-cn">住所周边</span>
+</div>
+</div>
     <div class="section-title"><span class="t-en">Where to Walk</span><span class="t-cn">散步好去处</span></div>
     <div class="section-intro"><span class="t-en">No metro needed — these spots are all near the apartment, perfect for an easy stroll before or after dinner.</span><span class="t-cn">不用坐地铁——这些地方都在公寓附近，饭前饭后散步刚刚好。</span></div>
   </div>
@@ -946,8 +960,12 @@ body.bi .t-en{display:inline}
 
 <!-- INDOOR POOL -->
 <div class="section" id="indoor">
+<div class="content-wrap">
+
   <div class="reveal visible" style="opacity: 1;">
-    <div class="section-kicker"><span class="t-en">At Home &amp; Indoors</span><span class="t-cn">室内与居家</span></div>
+    <div class="section-kicker"><span class="t-en">At Home &amp; Indoors</span><span class="t-cn">室内与居家</span>
+</div>
+</div>
     <div class="section-title"><span class="t-en">Comfort Zone Activities</span><span class="t-cn">舒适圈活动</span></div>
     <div class="section-intro"><span class="t-en">The best travel memories aren't always at tourist spots. Some happen over tea, music, and laughter at home.</span><span class="t-cn">旅途中最美好的回忆不总是在景点。有些发生在品茶、音乐和欢笑中。</span></div>
   </div>
@@ -1013,8 +1031,12 @@ body.bi .t-en{display:inline}
 
 <!-- FOOD -->
 <div class="section" id="food">
+<div class="content-wrap">
+
   <div class="reveal visible" style="opacity: 1;">
-    <div class="section-num">02</div>
+    <div class="section-num">02
+</div>
+</div>
     <div class="section-kicker"><span class="t-en">Taste of Nanjing</span><span class="t-cn">南京味道</span></div>
     <div class="section-title"><span class="t-en">What We'll Eat</span><span class="t-cn">我们会吃到什么</span></div>
     <div class="section-intro"><span class="t-en">Nanjing cuisine is subtle, savoury, and centuries old. We'll eat like locals.</span><span class="t-cn">南京菜细腻鲜美，传承千年。我们像本地人一样吃。</span></div>
@@ -1122,6 +1144,8 @@ body.bi .t-en{display:inline}
 
 <!-- TIPS -->
 <div class="section" id="tips">
+<div class="content-wrap">
+
   <div class="tips-grid">
     <div class="tip-card reveal visible" contenteditable="true" style="opacity: 1; cursor: text;">
       <div class="tip-icon">🌡️</div>
@@ -1162,7 +1186,9 @@ body.bi .t-en{display:inline}
 <div class="gift-dark">
   <div class="gift-dark-inner reveal visible" contenteditable="true" style="opacity: 1; cursor: text;">
     <div>
-      <div class="section-kicker"><span class="t-en">A Little Something</span><span class="t-cn">一点心意</span></div>
+      <div class="section-kicker"><span class="t-en">A Little Something</span><span class="t-cn">一点心意</span>
+</div>
+</div>
       <div class="section-title"><span class="t-en">I've Been Preparing</span><span class="t-cn">我一直在准备</span></div>
       <p><span class="t-en">Since we first started making plans weeks ago, I've been gathering a few things for you. Nothing extravagant — just small tokens that I hope you'll appreciate. You'll discover them when the time is right.</span><span class="t-cn">从几个月前我们开始聊天起，我就在悄悄准备一些东西。不贵重——只是一些小小心意。到时候你就会知道。</span></p>
     </div>
