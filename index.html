@@ -43,7 +43,7 @@ body.bi .t-en{display:inline}
 .edit-toggle.active{background:var(--warm);color:white;border-color:var(--warm)}
 
 /* SECTIONS */
-.section{padding:5rem 0}
+.section{max-width:960px;margin:0 auto;padding:5rem 2.5rem}
 .section-num{font-family:var(--font-display);font-size:4rem;color:var(--offwhite);font-weight:700;line-height:1;margin-bottom:.3rem}
 .section-kicker{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--warm);font-weight:600;margin-bottom:.8rem}
 .section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.15;margin-bottom:1rem;font-weight:700}
@@ -83,6 +83,7 @@ body.bi .t-en{display:inline}
 .pool-card.collapsed .pool-card-img,.food-card.collapsed .food-card-img{height:120px}
 .section:not([id]){max-width:960px;margin:0 auto}
 .content-wrap{max-width:960px;margin:0 auto;padding:0 2.5rem}
+.section[id]{max-width:none;padding:5rem 0}
 /* SECTION BACKGROUNDS */
 .about-section{background:var(--offwhite);background-image:linear-gradient(rgba(245,243,239,0.75),rgba(245,243,239,0.75)),url('images/scene-3.jpg');background-size:cover;background-position:center;background-attachment:fixed}
 .section[id="itinerary"]{background-image:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('images/scene-10.jpg');background-size:cover;background-position:center;background-attachment:fixed}
