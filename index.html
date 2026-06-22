@@ -222,18 +222,39 @@ body.bi .t-en{display:inline}
 /* RESPONSIVE */
 @media(max-width:768px){
   .nav-center{display:none}
-  .hero-content{padding:2rem 2rem 3rem}
+  .hero-content{padding:2rem 1.5rem 3rem}
+  .hero h1{font-size:2rem}
   .hero-dates{flex-direction:column;gap:.6rem}
   .about-grid{grid-template-columns:1fr}
   .day-article{grid-template-columns:1fr}
-  .day-sidebar{border-right:none;border-bottom:1px solid var(--light-grey);padding:1.2rem 2rem}
-  .day-main{padding:1.5rem 2rem}
+  .day-sidebar{border-right:none;border-bottom:1px solid var(--light-grey);padding:1rem 1.5rem}
+  .day-main{padding:1.5rem}
   .day-event{grid-template-columns:1fr;gap:.2rem}
   .options-row{grid-template-columns:1fr}
   .pool-grid,.food-grid{grid-template-columns:1fr}
+  .indoor-grid{grid-template-columns:1fr 1fr}
+  .tips-grid{grid-template-columns:1fr}
   .weather-inner{grid-template-columns:1fr}
-  .gift-dark-inner{grid-template-columns:1fr;gap:2rem}
-  .section{padding:3.5rem 1.5rem}
+  .section{padding:3rem 1.5rem}
+  .section-title{font-size:1.5rem}
+  .section-num{font-size:2.5rem}
+  .pool-card-img,.food-card-img{height:140px}
+  .section-banner{height:25vh;min-height:180px}
+  .quote-full{height:30vh;min-height:200px}
+  .hero-dots{bottom:1rem;right:1rem}
+}
+@media(min-width:769px) and (max-width:1024px){
+  .pool-grid{grid-template-columns:repeat(2,1fr)}
+  .food-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:repeat(2,1fr)}
+  .indoor-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(min-width:1025px){
+  .pool-grid{grid-template-columns:repeat(3,1fr)}
+  .food-grid{grid-template-columns:repeat(3,1fr)}
+  .about-grid{grid-template-columns:repeat(2,1fr)}
+  .indoor-grid{grid-template-columns:repeat(3,1fr)}
+  .tips-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
