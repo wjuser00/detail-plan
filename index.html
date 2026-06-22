@@ -76,8 +76,8 @@ body.bi .t-en{display:inline}
 .about-card h4{font-family:var(--font-display);font-size:1.1rem;margin-bottom:.5rem}
 .about-card .about-cn{font-size:.78rem;color:#ccc;margin-bottom:.5rem}
 .about-card p{font-size:.88rem;color:#666;line-height:1.75}
-.card-toggle{display:inline-block;margin-top:.5rem;font-size:.72rem;color:var(--warm);cursor:pointer;user-select:none;font-weight:500;background:none;border:none;padding:0}
-.card-toggle:hover{color:var(--ink);text-decoration:underline}
+.card-toggle{display:inline-flex;align-items:center;gap:.3rem;margin-top:.5rem;padding:.3rem .8rem;background:var(--offwhite);border:1px solid #e5ddd0;border-radius:20px;font-size:.72rem;color:var(--warm);cursor:pointer;user-select:none;font-weight:500;transition:all .2s}
+.card-toggle:hover{background:#ece5d5;border-color:#d4c8a8}
 
 .pool-card.collapsed .card-desc,.food-card.collapsed .card-desc{display:none}
 .pool-card.collapsed .pool-card-img,.food-card.collapsed .food-card-img{height:120px}
@@ -1234,9 +1234,6 @@ function toggleCard(el) {
   if (!card) return;
   card.classList.toggle('collapsed');
   el.textContent = card.classList.contains('collapsed') ? '▸ Show more' : '▾ Show less';
-}
-    el.innerHTML = '<span class="toggle-icon">▾</span> Less';
-  }
 }
 </script>
 </body>
